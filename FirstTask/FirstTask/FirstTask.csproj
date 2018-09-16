@@ -43,6 +43,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Interfaces\IColor.cs" />
+    <Compile Include="Library\Color.cs" />
+    <Compile Include="Library\ColorSide.cs" />
     <Compile Include="Library\Triangle.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
