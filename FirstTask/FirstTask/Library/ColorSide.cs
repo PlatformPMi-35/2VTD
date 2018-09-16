@@ -48,7 +48,7 @@
             }
         }
 
-        Color IColor.Color
+        public Color Color
         {
             get
             {
