@@ -4,17 +4,15 @@
     using System.Collections.Generic;
     using System.IO;
 
-    internal class TriangleManager
+    class TriangleManager
     {
-        public string Path { get; set; }
-
-        public List<Triangle> Load()
+        public List<Triangle> Load(string path)
         {
             List<Triangle> triangles = new List<Triangle>();
 
             try
             {
-                using (StreamReader sr = new StreamReader(Path))
+                using (StreamReader sr = new StreamReader(path))
                 {
                     while (!sr.EndOfStream)
                     {
@@ -30,11 +28,11 @@
             return triangles;
         }
 
-        public void Save(Triangle triangle)
+        public void Save(string path, Triangle triangle)
         {
             try
             {
-                using (StreamWriter wr = new StreamWriter(Path))
+                using (StreamWriter wr = new StreamWriter(path))
                 {
                     wr.WriteLine(triangle.ToString());
                 }
