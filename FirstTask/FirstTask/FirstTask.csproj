@@ -46,6 +46,7 @@
     <Compile Include="Library\Color.cs" />
     <Compile Include="Library\ColorSide.cs" />
     <Compile Include="Library\Triangle.cs" />
+    <Compile Include="Library\TriangleManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
