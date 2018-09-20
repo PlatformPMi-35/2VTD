@@ -1,6 +1,6 @@
 ﻿Red 7 Green 10 White 5
 Purple 4 Green 3 Blue 5
-White 4 Red 7 8
+White 4 Red 7 Cyan 8
 Yelow 14 Black 10 Red 22
 Green 12 Black 9 Cyan 15
 Yelow 40 Yelow 34 Yelow 27
