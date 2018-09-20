@@ -30,7 +30,7 @@
             }
             catch (Exception)
             {
-                throw new FileNotFoundException("File not found");
+                throw;
             }
 
             return triangles;
