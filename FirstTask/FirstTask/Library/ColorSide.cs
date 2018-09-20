@@ -49,6 +49,9 @@
         /// <summary>
         /// Gets or sets Length of the ColorSide.
         /// </summary>
+        /// <value>
+        /// Gets or sets Length.
+        /// </value>
         public int Length
         {
             get
@@ -72,6 +75,7 @@
         /// <summary>
         /// Gets or sets Color of the ColorSide.
         /// </summary>
+        /// <value>Gets or sets Color.</value>
         public Color Color
         {
             get

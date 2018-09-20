@@ -95,6 +95,8 @@
         /// <summary>
         /// Runs First Task.
         /// </summary>
+        /// <returns>Returns <see cref="SortedList{int, Triangle}"/></returns>
+        /// <param name="path">Path to the file.</param>
         public SortedList<int, Triangle> FirstTask(string path)
         {
             try
@@ -102,19 +104,20 @@
                 TriangleManager triangleManager = new TriangleManager();
                 IEnumerable<Triangle> triangles = triangleManager.Load(path);
 
-                SortedList<int, Triangle> SortedTriangles = new SortedList<int, Triangle>();
+                SortedList<int, Triangle> sortedTriangles = new SortedList<int, Triangle>();
                 foreach (var triang in triangles)
                 {
-                    SortedTriangles.Add(triang.GetPerim(), triang);
+                    sortedTriangles.Add(triang.GetPerim(), triang);
                 }
 
-                foreach (var triang in SortedTriangles)
+                foreach (var triang in sortedTriangles)
                 {
                     Console.WriteLine(triang.Value);
                 }
-                return SortedTriangles;
+
+                return sortedTriangles;
             }
-            catch(Exception)
+            catch (Exception)
             {
                 throw;
             }
@@ -123,16 +126,17 @@
         /// <summary>
         /// Runs Second Task.
         /// </summary>
+        /// <param name="path">Path to the file.</param>
+        /// <returns>Returns <see cref="Dictionary{Color, int}"/></returns>
         public Dictionary<Color, int> SecondTask(string path)
         {
             TriangleManager triangleManager = new TriangleManager();
             IEnumerable<Triangle> triangles = triangleManager.Load(path);
             var selectedTriangles = from triangle in triangles
-
-                where 
-                (triangle.Sides[0].Color == triangle.Sides[1].Color &&
-                triangle.Sides[0].Color == triangle.Sides[2].Color)
-                group triangle by triangle.Sides[0].Color;
+                                    where
+                                    (triangle.Sides[0].Color == triangle.Sides[1].Color &&
+                                    triangle.Sides[0].Color == triangle.Sides[2].Color)
+                                    group triangle by triangle.Sides[0].Color;
 
             Dictionary<Color, int> trianglesPairs = new Dictionary<Color, int>();
             foreach (IGrouping<Color, Triangle> g in selectedTriangles)
@@ -152,6 +156,7 @@
         /// Runs Third Task.
         /// </summary>
         /// <param name="path">Path to the file.</param>
+        /// <returns>Returns <see cref="IEnumerable{Triangle}"/>.</returns>
         public IEnumerable<Triangle> ThirdTask(string path)
         {
             try
