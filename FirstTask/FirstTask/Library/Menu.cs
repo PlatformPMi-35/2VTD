@@ -1,32 +1,28 @@
-﻿using System;
-
-namespace FirstTask.Library
+﻿namespace FirstTask.Library
 {
+    using System;
+
+    /// <summary>
+    /// Represents Menu to navigate between tasks.
+    /// </summary>
     internal class Menu
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Menu" /> class.
+        /// </summary>
         public Menu()
         {
-
         }
 
-        private void FirstTask()
-        {
-
-        }
-
-        private void SecondTask()
-        {
-
-        }
-
-        private void ThirdTask()
-        {
-
-        }
-
+        /// <summary>
+        /// Shows Menu lets choose which task to run.
+        /// </summary>
+        /// <remarks>
+        /// Works until user will not exit program.
+        /// </remarks>
         public void Run()
         {
-            string choise = "";
+            string choise = string.Empty;
             bool isWorking = true;
             do
             {
@@ -47,28 +43,64 @@ namespace FirstTask.Library
                 switch (choise)
                 {
                     case "1":
-                        FirstTask();
-                        break;
+                        {
+                            this.FirstTask();
+                            break;
+                        }
+
                     case "2":
-                        SecondTask();
-                        break;
+                        {
+                            this.SecondTask();
+                            break;
+                        }
+
                     case "3":
-                        ThirdTask();
-                        break;
+                        {
+                            this.ThirdTask();
+                            break;
+                        }
+
                     case "4":
-                        isWorking = false;
-                        Console.WriteLine("Thank you, Good bye!");
-                        Console.ReadKey();
-                        break;
+                        {
+                            isWorking = false;
+                            Console.WriteLine("Thank you, Good bye!");
+                            Console.ReadKey();
+                            break;
+                        }
+
                     default:
-                        Console.WriteLine("Invalid choise! Please, try again!");
-                        Console.ReadKey();
-                        Console.Clear();
-                        continue;
+                        {
+                            Console.WriteLine("Invalid choise! Please, try again!");
+                            Console.ReadKey();
+                            Console.Clear();
+                            continue;
+                        }
                 }
+
                 Console.Clear();
             }
             while (isWorking == true);
         }
+
+        /// <summary>
+        /// Runs First Task.
+        /// </summary>
+        private void FirstTask()
+        {
+        }
+
+        /// <summary>
+        /// Runs Second Task.
+        /// </summary>
+        private void SecondTask()
+        {
+        }
+
+        /// <summary>
+        /// Runs Third Task.
+        /// </summary>
+        private void ThirdTask()
+        {
+        }      
     }
 }

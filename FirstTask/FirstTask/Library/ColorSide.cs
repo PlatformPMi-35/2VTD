@@ -3,18 +3,36 @@
     using System;
     using FirstTask.Interfaces;
 
+    /// <summary>
+    /// Represents Color Side. Implements <see cref="IColor"/>.
+    /// </summary>
     internal struct ColorSide : IColor
     {
+        /// <summary>
+        /// Color of the ColorSide.
+        /// </summary>
         private Color color;
 
+        /// <summary>
+        /// Length of the ColorSide.
+        /// </summary>
         private int length;
 
+        /// <summary> 
+        /// Initializes a new instance of the <see cref="ColorSide" /> struct and sets its Color.
+        /// </summary>
+        /// <param name="color">Color that will be set.</param>
         public ColorSide(Color color)
         {
             this.color = color;
             this.length = 1;
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ColorSide" /> struct and sets its Color and Length.
+        /// </summary>
+        /// <param name="color">Color that will be set.</param>
+        /// <param name="length">Length that will be set.</param>
         public ColorSide(Color color, int length)
         {
             this.color = color;
@@ -28,6 +46,9 @@
             }
         }
 
+        /// <summary>
+        /// Gets or sets Length of the ColorSide.
+        /// </summary>
         public int Length
         {
             get
@@ -48,6 +69,9 @@
             }
         }
 
+        /// <summary>
+        /// Gets or sets Color of the ColorSide.
+        /// </summary>
         public Color Color
         {
             get
