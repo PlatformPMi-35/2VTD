@@ -1,11 +1,18 @@
-using System;
-using FirstTask.Library;
-
 namespace FirstTask
 {
-    class Program
+    using System;
+    using FirstTask.Library;
+
+    /// <summary>
+    /// Our Program.
+    /// </summary>
+    public class Program
     {
-        static void Main(string[] args)
+        /// <summary>
+        /// Runs our Program.
+        /// </summary>
+        /// <param name="args">Arguments for methos.</param>
+        public static void Main(string[] args)
         {
             Menu menu = new Menu();
             menu.Run();
