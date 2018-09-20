@@ -13,6 +13,18 @@
         /// Has ColorSides.
         /// </summary>
         private ColorSide[] sides;
+
+        public ColorSide[] Sides
+        {
+            get
+            {
+                return sides;
+            }
+            set
+            {
+                sides = value;
+            }
+        }
        
         /// <summary>
         /// Initializes a new instance of the <see cref="Triangle" /> class and sets all <see cref="ColorSide"/> to <see cref="Color.Black"/>.
@@ -131,6 +143,17 @@
             }
 
             return true;
+        }
+
+        public int GetPerim()
+        {
+            int perim = 0;
+            foreach (var s in sides)
+            {
+                perim += s.Length;
+            }
+
+            return perim;
         }
     }
 }

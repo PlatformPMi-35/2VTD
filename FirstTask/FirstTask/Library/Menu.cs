@@ -2,13 +2,18 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Linq;
 
     /// <summary>
     /// Represents Menu to navigate between tasks.
     /// </summary>
-    internal class Menu
+    public class Menu
     {
-        static string path = @"..\..\Data\TextFile.txt";
+        /// <summary>
+        /// Path to file.
+        /// </summary>
+        private static string path = @"..\..\Data\TextFile.txt";
+
         /// <summary>
         /// Initializes a new instance of the <see cref="Menu" /> class.
         /// </summary>
@@ -48,7 +53,6 @@
                         {
                             this.FirstTask();
                             Console.ReadKey();
-                            Console.Clear();
                             break;
                         }
 
@@ -60,7 +64,7 @@
 
                     case "3":
                         {
-                            this.ThirdTask();
+                            this.ThirdTask(path);
                             break;
                         }
 
@@ -81,6 +85,7 @@
                         }
                 }
 
+                Console.Clear();
             }
             while (isWorking == true);
         }
@@ -90,12 +95,25 @@
         /// </summary>
         private void FirstTask()
         {
-            TriangleManager tm = new TriangleManager();
-            SortedList<int, Triangle> triangles = tm.Load(path);
-
-            foreach (var triangle in triangles)
+            try
             {
-                Console.WriteLine(triangle.Value);
+                TriangleManager triangleManager = new TriangleManager();
+                IEnumerable<Triangle> triangles = triangleManager.Load(path);
+
+                SortedList<int, Triangle> SortedTriangles = new SortedList<int, Triangle>();
+                foreach (var triang in triangles)
+                {
+                    SortedTriangles.Add(triang.GetPerim(), triang);
+                }
+
+                foreach (var triang in SortedTriangles)
+                {
+                    Console.WriteLine(triang.Value);
+                }
+            }
+            catch(Exception)
+            {
+                throw;
             }
         }
 
@@ -104,13 +122,65 @@
         /// </summary>
         private void SecondTask()
         {
+            TriangleManager triangleManager = new TriangleManager();
+            IEnumerable<Triangle> triangles = triangleManager.Load(path);
+            var selectedTriangles = from triangle in triangles
+                where (
+                triangle.Sides[0].Color == triangle.Sides[1].Color &&
+                triangle.Sides[0].Color == triangle.Sides[2].Color
+                )
+                group triangle by triangle.Sides[0].Color;
+
+            Dictionary<Color, int> trianglesPairs = new Dictionary<Color, int>();
+            foreach(IGrouping<Color, Triangle> g in selectedTriangles)
+            {
+                trianglesPairs.Add(g.Key, g.Count());
+            }
+
+            foreach(var p in trianglesPairs)
+            {
+                Console.WriteLine($"{p.Key} - {p.Value} items");
+            }
+            Console.ReadKey();
         }
 
         /// <summary>
         /// Runs Third Task.
         /// </summary>
-        private void ThirdTask()
+        /// <param name="path">Path to the file.</param>
+        private void ThirdTask(string path)
         {
-        }      
+            try
+            {
+                TriangleManager triangleManager = new TriangleManager();
+                IEnumerable<Triangle> almostOneColor = from triangle in triangleManager.Load(path)
+                                                       where (triangle.GetSides()[0].Color == triangle.GetSides()[1].Color && triangle.GetSides()[2].Color != triangle.GetSides()[0].Color) ||
+                                                       (triangle.GetSides()[0].Color == triangle.GetSides()[2].Color && triangle.GetSides()[1].Color != triangle.GetSides()[0].Color) ||
+                                                       (triangle.GetSides()[1].Color == triangle.GetSides()[2].Color && triangle.GetSides()[0].Color != triangle.GetSides()[1].Color)
+                                                       select triangle;
+                foreach (var triangle in almostOneColor)
+                {
+                    ColorSide[] sides = triangle.GetSides();
+                    if (sides[0].Color == sides[1].Color)
+                    {
+                        sides[2].Color = sides[0].Color;
+                    }
+                    else if (sides[1].Color == sides[2].Color)
+                    {
+                        sides[0].Color = sides[1].Color;
+                    }
+                    else
+                    {
+                        sides[1].Color = sides[2].Color;
+                    }
+
+                    triangle.SetSides(sides[0], sides[1], sides[2]);
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }
