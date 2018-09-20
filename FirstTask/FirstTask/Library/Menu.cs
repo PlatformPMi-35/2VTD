@@ -52,6 +52,7 @@
                     case "1":
                         {
                             this.FirstTask();
+                            Console.ReadKey();
                             break;
                         }
 
@@ -94,6 +95,26 @@
         /// </summary>
         private void FirstTask()
         {
+            try
+            {
+                TriangleManager triangleManager = new TriangleManager();
+                IEnumerable<Triangle> triangles = triangleManager.Load(path);
+
+                SortedList<int, Triangle> SortedTriangles = new SortedList<int, Triangle>();
+                foreach (var triang in triangles)
+                {
+                    SortedTriangles.Add(triang.GetPerim(), triang);
+                }
+
+                foreach (var triang in SortedTriangles)
+                {
+                    Console.WriteLine(triang.Value);
+                }
+            }
+            catch(Exception)
+            {
+                throw;
+            }
         }
 
         /// <summary>
@@ -104,6 +125,7 @@
             TriangleManager triangleManager = new TriangleManager();
             IEnumerable<Triangle> triangles = triangleManager.Load(path);
             var selectedTriangles = from triangle in triangles
+
                 where 
                 (triangle.Sides[0].Color == triangle.Sides[1].Color &&
                 triangle.Sides[0].Color == triangle.Sides[2].Color)

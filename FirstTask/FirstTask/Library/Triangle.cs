@@ -144,5 +144,16 @@
 
             return true;
         }
+
+        public int GetPerim()
+        {
+            int perim = 0;
+            foreach (var s in sides)
+            {
+                perim += s.Length;
+            }
+
+            return perim;
+        }
     }
 }
