@@ -51,7 +51,7 @@
                 {
                     case "1":
                         {
-                            this.FirstTask();
+                            this.FirstTask(path);
                             Console.ReadKey();
                             break;
                         }
@@ -59,12 +59,14 @@
                     case "2":
                         {
                             this.SecondTask();
+                            Console.ReadKey();
                             break;
                         }
 
                     case "3":
                         {
                             this.ThirdTask(path);
+                            Console.ReadKey();
                             break;
                         }
 
@@ -93,7 +95,7 @@
         /// <summary>
         /// Runs First Task.
         /// </summary>
-        private void FirstTask()
+        public SortedList<int, Triangle> FirstTask(string path)
         {
             try
             {
@@ -110,6 +112,7 @@
                 {
                     Console.WriteLine(triang.Value);
                 }
+                return SortedTriangles;
             }
             catch(Exception)
             {
@@ -120,7 +123,7 @@
         /// <summary>
         /// Runs Second Task.
         /// </summary>
-        private void SecondTask()
+        public void SecondTask()
         {
             TriangleManager triangleManager = new TriangleManager();
             IEnumerable<Triangle> triangles = triangleManager.Load(path);
@@ -142,14 +145,13 @@
                 Console.WriteLine($"{p.Key} - {p.Value} items");
             }
 
-            Console.ReadKey();
         }
 
         /// <summary>
         /// Runs Third Task.
         /// </summary>
         /// <param name="path">Path to the file.</param>
-        private void ThirdTask(string path)
+        public IEnumerable<Triangle> ThirdTask(string path)
         {
             try
             {
@@ -177,7 +179,9 @@
 
                     triangle.SetSides(sides[0], sides[1], sides[2]);
                     Console.WriteLine(triangle);
-                }                
+                }
+
+                return almostOneColor;
             }
             catch (Exception)
             {

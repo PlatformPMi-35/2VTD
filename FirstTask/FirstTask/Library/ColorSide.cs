@@ -6,7 +6,7 @@
     /// <summary>
     /// Represents Color Side. Implements <see cref="IColor"/>.
     /// </summary>
-    internal struct ColorSide : IColor
+    public struct ColorSide : IColor
     {
         /// <summary>
         /// Color of the ColorSide.

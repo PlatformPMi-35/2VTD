@@ -3,7 +3,7 @@
     /// <summary>
     /// Represents 10 Colors starting from 0 to 9.
     /// </summary>
-    internal enum Color
+    public enum Color
     {
         /// <summary>
         /// Represents Black Color.

@@ -7,7 +7,7 @@
     /// <summary>
     /// <see cref="TriangleManager"/> works with <see cref="Triangle"/>.
     /// </summary>
-    internal class TriangleManager
+    public class TriangleManager
     {
         /// <summary>
         /// Loads <see cref="Triangle"/>s ffrom file.

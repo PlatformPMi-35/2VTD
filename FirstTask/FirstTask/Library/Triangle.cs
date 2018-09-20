@@ -7,7 +7,7 @@
     /// <summary>
     /// Represents <see cref="Triangle"/>.
     /// </summary>
-    internal class Triangle
+    public class Triangle
     {
         /// <summary>
         /// Has ColorSides.
