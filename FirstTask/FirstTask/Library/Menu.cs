@@ -9,6 +9,7 @@
     /// </summary>
     internal class Menu
     {
+        static string path = @"..\..\Data\TextFile.txt";
         /// <summary>
         /// Path to file.
         /// </summary>
@@ -101,6 +102,26 @@
         /// </summary>
         private void SecondTask()
         {
+            TriangleManager triangleManager = new TriangleManager();
+            IEnumerable<Triangle> triangles = triangleManager.Load(path);
+            var selectedTriangles = from triangle in triangles
+                where (
+                triangle.Sides[0].Color == triangle.Sides[1].Color &&
+                triangle.Sides[0].Color == triangle.Sides[2].Color
+                )
+                group triangle by triangle.Sides[0].Color;
+
+            Dictionary<Color, int> trianglesPairs = new Dictionary<Color, int>();
+            foreach(IGrouping<Color, Triangle> g in selectedTriangles)
+            {
+                trianglesPairs.Add(g.Key, g.Count());
+            }
+
+            foreach(var p in trianglesPairs)
+            {
+                Console.WriteLine($"{p.Key} - {p.Value} items");
+            }
+            Console.ReadKey();
         }
 
         /// <summary>
