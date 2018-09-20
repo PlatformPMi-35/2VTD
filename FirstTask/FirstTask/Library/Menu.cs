@@ -1,19 +1,13 @@
 ﻿namespace FirstTask.Library
 {
     using System;
-    using System.Collections.Generic;
-    using System.Linq;
 
     /// <summary>
     /// Represents Menu to navigate between tasks.
     /// </summary>
     internal class Menu
     {
-        /// <summary>
-        /// Path to file.
-        /// </summary>
-        private static string path = @"..\..\Data\TextFile.txt";
-
+        static string path = @"..\..\Data\TextFile.txt";
         /// <summary>
         /// Initializes a new instance of the <see cref="Menu" /> class.
         /// </summary>
@@ -63,7 +57,7 @@
 
                     case "3":
                         {
-                            this.ThirdTask(path);
+                            this.ThirdTask();
                             break;
                         }
 
@@ -106,40 +100,8 @@
         /// <summary>
         /// Runs Third Task.
         /// </summary>
-        /// <param name="path">Path to the file.</param>
-        private void ThirdTask(string path)
+        private void ThirdTask()
         {
-            try
-            {
-                TriangleManager triangleManager = new TriangleManager();
-                IEnumerable<Triangle> almostOneColor = from triangle in triangleManager.Load(path)
-                                                       where (triangle.GetSides()[0].Color == triangle.GetSides()[1].Color && triangle.GetSides()[2].Color != triangle.GetSides()[0].Color) ||
-                                                       (triangle.GetSides()[0].Color == triangle.GetSides()[2].Color && triangle.GetSides()[1].Color != triangle.GetSides()[0].Color) ||
-                                                       (triangle.GetSides()[1].Color == triangle.GetSides()[2].Color && triangle.GetSides()[0].Color != triangle.GetSides()[1].Color)
-                                                       select triangle;
-                foreach (var triangle in almostOneColor)
-                {
-                    ColorSide[] sides = triangle.GetSides();
-                    if (sides[0].Color == sides[1].Color)
-                    {
-                        sides[2].Color = sides[0].Color;
-                    }
-                    else if (sides[1].Color == sides[2].Color)
-                    {
-                        sides[0].Color = sides[1].Color;
-                    }
-                    else
-                    {
-                        sides[1].Color = sides[2].Color;
-                    }
-
-                    triangle.SetSides(sides[0], sides[1], sides[2]);
-                }
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
+        }      
     }
 }
