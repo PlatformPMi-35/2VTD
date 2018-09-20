@@ -4,6 +4,7 @@
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using System.Collections.Generic;
     using FirstTask.Library;
+    using System.Linq;
     
 
     [TestClass]
@@ -30,6 +31,14 @@
         [TestMethod]
         public void Task2()
         {
+            Dictionary<Color, int> dict = new Dictionary<Color, int>();
+            dict.Add(Color.Yelow, 1);
+            dict.Add(Color.Green, 2);
+            Menu m = new Menu();
+            Dictionary<Color, int> testD = m.SecondTask(path);
+            Assert.IsTrue(dict.Count == testD.Count && !dict.Except(testD).Any());
+
+
         }
 
         [TestMethod]

@@ -58,7 +58,7 @@
 
                     case "2":
                         {
-                            this.SecondTask();
+                            this.SecondTask(path);
                             Console.ReadKey();
                             break;
                         }
@@ -123,7 +123,7 @@
         /// <summary>
         /// Runs Second Task.
         /// </summary>
-        public void SecondTask()
+        public Dictionary<Color, int> SecondTask(string path)
         {
             TriangleManager triangleManager = new TriangleManager();
             IEnumerable<Triangle> triangles = triangleManager.Load(path);
@@ -145,6 +145,7 @@
                 Console.WriteLine($"{p.Key} - {p.Value} items");
             }
 
+            return trianglesPairs;
         }
 
         /// <summary>
