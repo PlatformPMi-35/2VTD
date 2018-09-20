@@ -14,9 +14,9 @@
         /// </summary>
         /// <param name="path">Path to the file.</param>
         /// <returns>Returns <see cref="List{Triangle}"/>.</returns>
-        public List<Triangle> Load(string path)
+        public SortedList<int, Triangle> Load(string path)
         {
-            List<Triangle> triangles = new List<Triangle>();
+            SortedList<int, Triangle> triangles = new SortedList<int, Triangle>();
 
             try
             {
@@ -24,7 +24,8 @@
                 {
                     while (!sr.EndOfStream)
                     {
-                        triangles.Add((Triangle)sr.ReadLine());
+                        Triangle buffTriang = (Triangle)sr.ReadLine();
+                        triangles.Add(Perim(buffTriang), buffTriang);
                     }
                 }
             }
@@ -54,6 +55,16 @@
             {
                 throw;
             }
+        }
+
+        public int Perim(Triangle triangle)
+        {
+            int res = 0;
+            foreach (ColorSide s in triangle.GetSides())
+            {
+                res += s.Length;
+            }
+            return res;
         }
     }
 }
