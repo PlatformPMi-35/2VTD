@@ -49,12 +49,14 @@
         /// <summary>
         /// Gets or sets sides of the <see cref="Triangle"/>.
         /// </summary>
+        /// <value>Gets or sets sides.</value>
         public ColorSide[] Sides
         {
             get
             {
                 return this.sides;
             }
+
             set
             {
                 this.sides = value;
@@ -102,7 +104,7 @@
         public int GetPerim()
         {
             int perim = 0;
-            foreach (var s in sides)
+            foreach (var s in this.sides)
             {
                 perim += s.Length;
             }
