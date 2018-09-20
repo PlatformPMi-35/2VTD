@@ -13,18 +13,6 @@
         /// Has ColorSides.
         /// </summary>
         private ColorSide[] sides;
-
-        public ColorSide[] Sides
-        {
-            get
-            {
-                return sides;
-            }
-            set
-            {
-                sides = value;
-            }
-        }
        
         /// <summary>
         /// Initializes a new instance of the <see cref="Triangle" /> class and sets all <see cref="ColorSide"/> to <see cref="Color.Black"/>.
@@ -55,6 +43,21 @@
             catch (Exception)
             {
                 throw;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets sides of the <see cref="Triangle"/>.
+        /// </summary>
+        public ColorSide[] Sides
+        {
+            get
+            {
+                return this.sides;
+            }
+            set
+            {
+                this.sides = value;
             }
         }
 
@@ -90,6 +93,21 @@
         public ColorSide[] GetSides()
         {          
             return (ColorSide[])this.sides.Clone();
+        }
+
+        /// <summary>
+        /// Returns Perimetr of the <see cref="Triangle"/>.
+        /// </summary>
+        /// <returns>Perimetr of <see cref="Triangle"/>.</returns>
+        public int GetPerim()
+        {
+            int perim = 0;
+            foreach (var s in sides)
+            {
+                perim += s.Length;
+            }
+
+            return perim;
         }
 
         /// <summary>
@@ -143,17 +161,6 @@
             }
 
             return true;
-        }
-
-        public int GetPerim()
-        {
-            int perim = 0;
-            foreach (var s in sides)
-            {
-                perim += s.Length;
-            }
-
-            return perim;
         }
     }
 }
