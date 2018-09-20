@@ -7,6 +7,7 @@
     /// </summary>
     internal class Menu
     {
+        static string path = @"..\..\Data\TextFile.txt";
         /// <summary>
         /// Initializes a new instance of the <see cref="Menu" /> class.
         /// </summary>
