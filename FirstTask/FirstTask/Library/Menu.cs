@@ -1,6 +1,7 @@
 ﻿namespace FirstTask.Library
 {
     using System;
+    using System.Collections.Generic;
 
     /// <summary>
     /// Represents Menu to navigate between tasks.
@@ -46,6 +47,8 @@
                     case "1":
                         {
                             this.FirstTask();
+                            Console.ReadKey();
+                            Console.Clear();
                             break;
                         }
 
@@ -78,7 +81,6 @@
                         }
                 }
 
-                Console.Clear();
             }
             while (isWorking == true);
         }
@@ -88,6 +90,13 @@
         /// </summary>
         private void FirstTask()
         {
+            TriangleManager tm = new TriangleManager();
+            SortedList<int, Triangle> triangles = tm.Load(path);
+
+            foreach (var triangle in triangles)
+            {
+                Console.WriteLine(triangle.Value);
+            }
         }
 
         /// <summary>
