@@ -6,4 +6,4 @@ Green 12 Black 9 Cyan 15
 Yelow 40 Yelow 34 Yelow 27
 Pink 27 Pink 27 Cyan 34
 Green 12 Green 13 Green 5
-Green 12 Green 13 Green 5
+Green 8 Green 10 Green 5
