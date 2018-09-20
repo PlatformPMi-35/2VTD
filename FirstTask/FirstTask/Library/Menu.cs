@@ -7,7 +7,7 @@
     /// <summary>
     /// Represents Menu to navigate between tasks.
     /// </summary>
-    internal class Menu
+    public class Menu
     {
         static string path = @"..\..\Data\TextFile.txt";
         /// <summary>
