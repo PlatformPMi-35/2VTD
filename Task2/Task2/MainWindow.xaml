@@ -7,6 +7,35 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+    <Grid.RowDefinitions>
+        <RowDefinition Height="209*"/>
+        <RowDefinition Height="210*"/>
+    </Grid.RowDefinitions>
+    <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="79*"/>
+        <ColumnDefinition Width="9*"/>
+    </Grid.ColumnDefinitions>
+
+    <Border Margin="5,20,71,4" BorderBrush="Black" BorderThickness="1" Grid.RowSpan="2">
+        <Canvas Grid.RowSpan="2">
+
+        </Canvas>
+    </Border>
+    
+    <WrapPanel Grid.ColumnSpan="2" Margin="0,20,10,0" Grid.RowSpan="2" HorizontalAlignment="Right" Width="137" Height="Auto">
+        <Button Content="Add" Width="66" Margin="0,0,5,0"/>
+        <Button Content="Clear" Width="66"/>
+        <ListBox Height="347" Width="137" Margin="0,5,0,5" >
+        </ListBox>
+        <Button Content="Edit"  Width="66" Margin="0,0,5,0" />
+        <Button Content="Exit"  Width="66" />
+
+    </WrapPanel>
+    <Menu VerticalAlignment="Top" Background="{x:Null}">
+        <MenuItem Header="File" Background="#FFE6E5E5">
+            <MenuItem Header="New Project"/>
+        </MenuItem>
+    </Menu>
+
     </Grid>
 </Window>
