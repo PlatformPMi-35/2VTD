@@ -5,37 +5,69 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Task2"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="580" Width="800" MinWidth="800" MinHeight="580">
     <Grid>
-    <Grid.RowDefinitions>
-        <RowDefinition Height="209*"/>
-        <RowDefinition Height="210*"/>
-    </Grid.RowDefinitions>
-    <Grid.ColumnDefinitions>
-        <ColumnDefinition Width="79*"/>
-        <ColumnDefinition Width="9*"/>
-    </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="218*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="67*"/>
+            <ColumnDefinition Width="21*"/>
+        </Grid.ColumnDefinitions>
 
-    <Border Margin="5,20,71,4" BorderBrush="Black" BorderThickness="1" Grid.RowSpan="2">
-        <Canvas Grid.RowSpan="2">
+        <Border Margin="5,0,0,10" BorderBrush="Black" BorderThickness="1" Grid.Row="1">
+            <Canvas Grid.RowSpan="2" >
 
-        </Canvas>
-    </Border>
-    
-    <WrapPanel Grid.ColumnSpan="2" Margin="0,20,10,0" Grid.RowSpan="2" HorizontalAlignment="Right" Width="137" Height="Auto">
-        <Button Content="Add" Width="66" Margin="0,0,5,0"/>
-        <Button Content="Clear" Width="66"/>
-        <ListBox Height="347" Width="137" Margin="0,5,0,5" >
-        </ListBox>
-        <Button Content="Edit"  Width="66" Margin="0,0,5,0" />
-        <Button Content="Exit"  Width="66" />
+            </Canvas>
+        </Border>
 
-    </WrapPanel>
-    <Menu VerticalAlignment="Top" Background="{x:Null}">
-        <MenuItem Header="File" Background="#FFE6E5E5">
-            <MenuItem Header="New Project"/>
-        </MenuItem>
-    </Menu>
+        <Button Content="Add"
+                Margin="10,0,0,0" 
+                VerticalAlignment="Top" 
+                Height="20" 
+                Grid.Column="1" HorizontalAlignment="Left" Width="60" Grid.Row="1"
+        />
+
+        <Button Content="Clear" 
+            Width="60" 
+            HorizontalAlignment="Right" 
+            VerticalAlignment="Top" 
+            Height="20" Grid.Column="1" 
+            Margin="0,0,10,0" Grid.Row="1"
+        />
+
+        <ListBox 
+            Margin="10,25,10,35" 
+            Grid.Column="1" Grid.Row="1" 
+            
+        />
+
+        <!--<Button Content="Done" 
+                VerticalAlignment="Bottom" 
+                Height="20" 
+                Grid.Column="1" 
+                HorizontalAlignment="Left" 
+                Width="60" Grid.Row="1" Margin="10,0,0,10"
+        />-->
+
+        <Button Content="Edit" 
+            Width="60"
+            Height="20" 
+            Grid.Column="1"
+            HorizontalAlignment="Right" 
+            VerticalAlignment="Bottom" Grid.Row="1" Margin="0,0,10,10"
+        />
+
+
+        <Menu VerticalAlignment="Top" Background="{x:Null}" Height="20">
+            <MenuItem Header="File" Background="#FFE6E5E5">
+                <MenuItem Header="New"/>
+                <MenuItem Header="Open"/>
+                <MenuItem Header="Save as"/>
+                <MenuItem Header="Exit"/>
+            </MenuItem>
+        </Menu>
 
     </Grid>
 </Window>
