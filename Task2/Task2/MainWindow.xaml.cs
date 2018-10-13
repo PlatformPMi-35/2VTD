@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Task2.Library;
 
 namespace Task2
 {
@@ -23,11 +25,21 @@ namespace Task2
         public MainWindow()
         {
             InitializeComponent();
+            LineDrawingManager ldm = new LineDrawingManager();
+           
+            LinesDrawer.ItemsSource = ldm.polyLines;
+
+
         }
 
         private void Exit_Click(object sender, RoutedEventArgs e)
         {
             Close();
+        }
+
+        private void ButtonAdd_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

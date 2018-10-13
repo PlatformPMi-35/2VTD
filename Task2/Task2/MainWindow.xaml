@@ -15,18 +15,36 @@
             <ColumnDefinition Width="67*"/>
             <ColumnDefinition Width="21*"/>
         </Grid.ColumnDefinitions>
+        
+        
+        <ItemsControl Name="LinesDrawer" ItemsSource="{Binding Path=PolyLine}">
+            
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <Canvas Grid.RowSpan="2" >
 
-        <Border Margin="5,0,0,10" BorderBrush="Black" BorderThickness="1" Grid.Row="1">
-            <Canvas Grid.RowSpan="2" >
+                    </Canvas>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
 
-            </Canvas>
-        </Border>
+                    <Polyline Points="{Binding line.Points}" Stroke="{Binding Color}" StrokeThickness="3" />
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
 
+            <!--<Polyline
+                        Points="50,110 200,300 500,450"
+                        Stroke="Black"
+                        StrokeThickness="2" />-->
+        </ItemsControl>
+        
         <Button Content="Add"
                 Margin="10,0,0,0" 
                 VerticalAlignment="Top" 
                 Height="20" 
-                Grid.Column="1" HorizontalAlignment="Left" Width="60" Grid.Row="1"
+                Grid.Column="1" HorizontalAlignment="Left" Width="60" Grid.Row="1" Click="ButtonAdd_Click"
         />
 
         <Button Content="Clear" 
