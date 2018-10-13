@@ -5,22 +5,38 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media;
+using System.Windows.Shapes;
 
 namespace Task2.Library
 {
     public class PolyLine
     {
-        public List<Point> points;
+        public Polyline line;
         public Color color;
         
+
         public PolyLine(IEnumerable<Point> points, Color color)
         {
-            this.points = new List<Point>(points);
+            this.line = new Polyline();
+            foreach (var p in points)
+            {
+                this.line.Points.Add(p);
+            }
             this.color = color;
         }
+        public PolyLine(IEnumerable<Point> points) : this(points, (Color)ColorConverter.ConvertFromString("Black")) { }
 
-        public PolyLine(IEnumerable<Point> points) : this(points, Color.FromRgb(255, 255, 255)) { }
-        public PolyLine() : this(null, Color.FromRgb(255, 255, 255)) { }
-
+        
+        public void AddPoint(Point p)
+        {
+            try
+            {
+                line.Points.Add(p);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }
