@@ -22,14 +22,18 @@ namespace Task2
     /// </summary>
     public partial class MainWindow : Window
     {
+        ObservableCollection<PolyLine> polylines { get; set; }
         public MainWindow()
         {
             InitializeComponent();
-            LineDrawingManager ldm = new LineDrawingManager();
+            //LineDrawingManager ldm = new LineDrawingManager();
+
+            polylines = new ObservableCollection<PolyLine>();
+            LinesDrawer.ItemsSource = polylines;
+
+            PolyLine l = new PolyLine(new Point[] { new Point(50, 110), new Point(200, 300), new Point(500, 450) });
            
-            LinesDrawer.ItemsSource = ldm.polyLines;
-
-
+            polylines.Add(l);
         }
 
         private void Exit_Click(object sender, RoutedEventArgs e)

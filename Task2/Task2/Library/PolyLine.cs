@@ -12,15 +12,18 @@ namespace Task2.Library
     public class PolyLine
     {
         public Polyline line;
-        public Color color;
-        
+        public Color color { get; set; }
+        public PointCollection pc { get; set; }
+
+
 
         public PolyLine(IEnumerable<Point> points, Color color)
         {
             this.line = new Polyline();
+            this.pc = new PointCollection();
             foreach (var p in points)
             {
-                this.line.Points.Add(p);
+                this.pc.Add(p);
             }
             this.color = color;
         }
