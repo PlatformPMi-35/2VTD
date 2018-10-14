@@ -40,5 +40,20 @@ namespace Task2
         {
 
         }
+
+        private void List_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if(List.SelectedIndex!=-1)
+            {
+                editButton.IsEnabled = true;
+            }
+        }
+
+        private void editButton_Click(object sender, RoutedEventArgs e)
+        {
+            EditorWin editorWin = new EditorWin(drawingManager.polylines[List.SelectedIndex]);
+            editorWin.ShowDialog();
+            //drawingManager.polylines[List.SelectedIndex];
+        }
     }
 }
