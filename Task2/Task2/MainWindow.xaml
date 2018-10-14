@@ -57,7 +57,7 @@
 
         <ListBox x:Name="List"
             Margin="10,25,10,35" 
-            Grid.Column="1" Grid.Row="1"  
+            Grid.Column="1" Grid.Row="1" SelectionChanged="List_SelectionChanged"  
         />
 
         <Button x:Name="editButton"
@@ -65,7 +65,7 @@
             Width="Auto"
             Height="20" 
             Grid.Column="1"           
-            VerticalAlignment="Bottom" Grid.Row="1" Margin="10,0,10,10"           
+            VerticalAlignment="Bottom" Grid.Row="1" Margin="10,0,10,10" Click="editButton_Click"           
         />
 
 

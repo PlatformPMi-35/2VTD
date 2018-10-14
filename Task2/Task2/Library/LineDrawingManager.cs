@@ -11,7 +11,7 @@ using System.Windows.Shapes;
 
 namespace Task2.Library
 {
-    class LineDrawingManager
+    public class LineDrawingManager
     {
         public ObservableCollection<PolyLine> polylines { get; set; }
 
