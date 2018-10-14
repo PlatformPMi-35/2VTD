@@ -12,7 +12,7 @@ namespace Task2.Library
     public class PolyLine
     {       
         private Brush brush;
-        public PointCollection pc { get; private set; }
+        public PointCollection pc { get; set; }
         public Brush Brush
         {
             get
@@ -32,20 +32,20 @@ namespace Task2.Library
             }
         }
 
-        public PolyLine(IEnumerable<Point> points, Brush brush)
+        public PolyLine(IEnumerable<Point> points, Brush brush = null) : this(brush)
         {
             this.pc = new PointCollection();
             foreach (var p in points)
             {
                 this.pc.Add(p);
             }
-            this.Brush = brush;
-           
         }
-        public PolyLine(IEnumerable<Point> points) : this(points, null) { }
+        //public PolyLine(IEnumerable<Point> points) : this(points, null) { }
+        public PolyLine(Brush brush = null)
+        {
+            this.Brush = brush;
+        }
 
-       
-        
         public void AddPoint(Point p)
         {
             try
@@ -62,5 +62,25 @@ namespace Task2.Library
         {
             return Brush.ToString();
         }
+
+        public override bool Equals(object obj)
+        {
+            if(obj is PolyLine)
+            {
+                bool isCorrect = true;
+                PolyLine pl = obj as PolyLine;
+                isCorrect = pl.Brush == Brush;
+                for (int i = 0; i < pc.Count() && i < pl.pc.Count(); i++)
+                {
+                    isCorrect = pc[i] == pl.pc[i];
+                }
+
+                return true;
+            }
+            else
+            return base.Equals(obj);
+        }
+
+      
     }
 }
