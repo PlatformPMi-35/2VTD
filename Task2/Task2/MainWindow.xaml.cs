@@ -28,6 +28,7 @@ namespace Task2
             InitializeComponent();
             drawingManager = new LineDrawingManager();
             LinesDrawer.ItemsSource = drawingManager.polylines;
+            List.ItemsSource = drawingManager.polylines;
         }
 
         private void Exit_Click(object sender, RoutedEventArgs e)

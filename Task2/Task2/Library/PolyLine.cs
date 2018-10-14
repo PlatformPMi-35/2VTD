@@ -10,7 +10,7 @@ using System.Windows.Shapes;
 namespace Task2.Library
 {
     public class PolyLine
-    {
+    {       
         private Brush brush;
         public PointCollection pc { get; private set; }
         public Brush Brush
@@ -40,21 +40,27 @@ namespace Task2.Library
                 this.pc.Add(p);
             }
             this.Brush = brush;
-                      
+           
         }
         public PolyLine(IEnumerable<Point> points) : this(points, null) { }
 
+       
         
         public void AddPoint(Point p)
         {
             try
             {
-                pc.Add(p);
+                this.pc.Add(p);
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                throw;
+                throw e;
             }
+        }
+
+        public override string ToString()
+        {
+            return Brush.ToString();
         }
     }
 }
