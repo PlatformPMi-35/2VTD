@@ -8,27 +8,34 @@ using System.Windows;
 using System.Windows.Media;
 using System.Windows.Shapes;
 
+
 namespace Task2.Library
 {
     class LineDrawingManager
     {
-        public ObservableCollection<PolyLine> polyLines;
+        public ObservableCollection<PolyLine> polylines { get; set; }
 
         public LineDrawingManager()
         {
-            polyLines = new ObservableCollection<PolyLine>();
+            polylines = new ObservableCollection<PolyLine>();            
+            PolyLine l = new PolyLine(new Point[] { new Point(50, 110), new Point(200, 300), new Point(500, 450) }, Brushes.Cyan);
+            polylines.Add(l);
 
         }
 
-        //public void CreatePL(Polyline line, Color color)
-        //{
-        //    PolyLine pl = new PolyLine(line, color);
-        //    polyLines.Add(pl);
-        //}
-        //public void CreatePL(Polyline line)
-        //{
-        //    PolyLine pl = new PolyLine(line);
-        //    polyLines.Add(pl);
-        //}
+        public void AddPl(Polyline line, Brush color)
+        {
+            PolyLine pl = new PolyLine(line.Points, color);
+            polylines.Add(pl);
+        }
+        public void AddPl(Polyline line)
+        {
+            PolyLine pl = new PolyLine(line.Points);
+            polylines.Add(pl);
+        }
+        public void AddPl(PolyLine line)
+        {
+            polylines.Add(line);
+        }
     }
 }

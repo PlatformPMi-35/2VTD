@@ -11,30 +11,45 @@ namespace Task2.Library
 {
     public class PolyLine
     {
-        public Polyline line;
-        public Color color { get; set; }
-        public PointCollection pc { get; set; }
-
-
-
-        public PolyLine(IEnumerable<Point> points, Color color)
+        private Brush brush;
+        public PointCollection pc { get; private set; }
+        public Brush Brush
         {
-            this.line = new Polyline();
+            get
+            {
+                return brush ?? Brushes.Black;
+            }
+            set
+            {
+                try
+                {
+                    brush = value;
+                }
+                catch
+                {
+                    throw new ArgumentException("Invalid Brush Argument");
+                }
+            }
+        }
+
+        public PolyLine(IEnumerable<Point> points, Brush brush)
+        {
             this.pc = new PointCollection();
             foreach (var p in points)
             {
                 this.pc.Add(p);
             }
-            this.color = color;
+            this.Brush = brush;
+                      
         }
-        public PolyLine(IEnumerable<Point> points) : this(points, (Color)ColorConverter.ConvertFromString("Black")) { }
+        public PolyLine(IEnumerable<Point> points) : this(points, null) { }
 
         
         public void AddPoint(Point p)
         {
             try
             {
-                line.Points.Add(p);
+                pc.Add(p);
             }
             catch (Exception)
             {

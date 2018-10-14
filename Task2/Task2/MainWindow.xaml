@@ -21,15 +21,13 @@
 
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <Canvas>
-
-                    </Canvas>
+                    <Canvas/>
                 </ItemsPanelTemplate>
             </ItemsControl.ItemsPanel>
 
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <Polyline Points="{Binding pc}" Stroke="black" StrokeThickness="3" />
+                    <Polyline Points="{Binding pc}" Stroke="{Binding Brush }" StrokeThickness="3" />
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
 
