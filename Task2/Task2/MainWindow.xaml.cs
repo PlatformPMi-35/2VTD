@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -41,6 +42,7 @@ namespace Task2
 
         }
 
+
         private void List_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if(List.SelectedIndex!=-1)
@@ -54,6 +56,31 @@ namespace Task2
             EditorWin editorWin = new EditorWin(drawingManager.polylines[List.SelectedIndex]);
             editorWin.ShowDialog();
             //drawingManager.polylines[List.SelectedIndex];
+            
+        private void Open_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            List<PolyLine> newLines = new List<PolyLine>();
+            if (openFileDialog.ShowDialog() == true)
+            {
+                newLines = PolyLineIOManager.Load(openFileDialog.FileName).ToList();
+            }
+
+            foreach (PolyLine pl in newLines)
+            {
+                drawingManager.AddPl(pl);
+            }
+            
+        }
+
+        private void Save_as_Click(object sender, RoutedEventArgs e)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            List<PolyLine> newLines = new List<PolyLine>();
+            if (saveFileDialog.ShowDialog() == true)
+            {
+                PolyLineIOManager.Save(drawingManager.polylines, saveFileDialog.FileName);
+            }
         }
     }
 }

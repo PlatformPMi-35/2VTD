@@ -72,8 +72,8 @@
         <Menu VerticalAlignment="Top" Background="{x:Null}" Height="20">
             <MenuItem Header="File" Background="#FFE6E5E5">
                 <MenuItem Header="New" InputGestureText="Ctrl+Shift+N"/>
-                <MenuItem Header="Open" InputGestureText="Ctrl+O"/>
-                <MenuItem Header="Save as" InputGestureText="Ctrl+S"/>
+                <MenuItem Header="Open" InputGestureText="Ctrl+O" Click="Open_Click"/>
+                <MenuItem Header="Save as" InputGestureText="Ctrl+S" Click="Save_as_Click"/>
                 <MenuItem Header="Exit" InputGestureText="Alt+F4" Click="Exit_Click"/>
             </MenuItem>
         </Menu>
