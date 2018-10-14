@@ -6,14 +6,14 @@
         xmlns:local="clr-namespace:Task2"
         mc:Ignorable="d"
       
-    Title="EditorWin" Height="450" Width="235" ResizeMode="NoResize" Topmost="True" WindowStartupLocation="CenterScreen" MinWidth="235" MinHeight="450">
+    Title="EditorWin" Height="450" Width="235" WindowStartupLocation="CenterScreen" MinWidth="235" MinHeight="450" WindowStyle="ToolWindow" Topmost="True" ResizeMode="NoResize">
 
     <Grid>
 
-        <ListBox Margin="10,41,10,10" x:Name="lst">
+        <ListBox Margin="10,41,10,34" x:Name="lst" >
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <TextBox>
+                    <TextBox Width="186" >
                         <TextBox.Text>
                             <MultiBinding StringFormat="{}({0},{1})">
                                 <Binding  Path="X"/>
@@ -25,6 +25,7 @@
             </ListBox.ItemTemplate>
         </ListBox>
         <Label Content="Color" Margin="10,10,153,0" Height="26" VerticalAlignment="Top"/>
-        <TextBox x:Name="brush" Text="{Binding Brush}" Margin="78,10,10,0" TextWrapping="Wrap" Height="26" VerticalAlignment="Top"/>
+        <TextBox x:Name="brush" Text="{Binding Brush, Mode=OneTime}" Margin="78,10,10,0" TextWrapping="Wrap" Height="26" VerticalAlignment="Top"/>
+        <Button Content="Done" Margin="10,0,10,10" Height="19" VerticalAlignment="Bottom" Click="Button_Click"/>
     </Grid>
 </Window>

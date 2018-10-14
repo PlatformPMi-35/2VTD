@@ -29,5 +29,10 @@ namespace Task2
             brush.DataContext = pl;
             
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
     }
 }

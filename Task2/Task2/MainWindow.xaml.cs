@@ -30,6 +30,7 @@ namespace Task2
             drawingManager = new LineDrawingManager();
             LinesDrawer.ItemsSource = drawingManager.polylines;
             List.ItemsSource = drawingManager.polylines;
+            editButton.IsEnabled = false;
         }
 
         private void Exit_Click(object sender, RoutedEventArgs e)
@@ -49,13 +50,16 @@ namespace Task2
             {
                 editButton.IsEnabled = true;
             }
+            else
+            {
+                editButton.IsEnabled = false;
+            }
         }
 
         private void editButton_Click(object sender, RoutedEventArgs e)
         {
             EditorWin editorWin = new EditorWin(drawingManager.polylines[List.SelectedIndex]);
-            editorWin.ShowDialog();
-            //drawingManager.polylines[List.SelectedIndex];
+            editorWin.ShowDialog();           
         }  
         private void Open_Click(object sender, RoutedEventArgs e)
         {
