@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Task2"
         mc:Ignorable="d"
-        Title="MainWindow" Height="580" Width="800" MinWidth="800" MinHeight="580">
+        Title="MainWindow" Height="580" Width="800" MinWidth="800" MinHeight="580"
+        MouseRightButtonDown="Canvas_MouseRightButtonDown">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="20"/>
@@ -17,17 +18,17 @@
         </Grid.ColumnDefinitions>
 
 
-        <ItemsControl x:Name="LinesDrawer" Grid.Row="1">
+        <ItemsControl x:Name="LinesDrawer" Grid.Row="1" >
 
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <Canvas/>
+                    <Canvas x:Name="Canv" />
                 </ItemsPanelTemplate>
             </ItemsControl.ItemsPanel>
 
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <Polyline Points="{Binding pc}" Stroke="{Binding Brush }" StrokeThickness="3" />
+                    <Polyline Points="{Binding pc}" Stroke="{Binding Brush}" StrokeThickness="3" />
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
 
@@ -70,7 +71,7 @@
 
 
         <Menu VerticalAlignment="Top" Background="{x:Null}" Height="20">
-            <MenuItem Header="File" Background="#FFE6E5E5">
+            <MenuItem Header="File" >
                 <MenuItem Header="New" InputGestureText="Ctrl+Shift+N"/>
                 <MenuItem Header="Open" InputGestureText="Ctrl+O" Click="Open_Click"/>
                 <MenuItem Header="Save as" InputGestureText="Ctrl+S" Click="Save_as_Click"/>

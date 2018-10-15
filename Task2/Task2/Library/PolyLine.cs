@@ -34,7 +34,7 @@ namespace Task2.Library
 
         public PolyLine(IEnumerable<Point> points, Brush brush = null) : this(brush)
         {
-            this.pc = new PointCollection();
+            this.pc = pc ?? new PointCollection();
             foreach (var p in points)
             {
                 this.pc.Add(p);
@@ -43,6 +43,7 @@ namespace Task2.Library
         //public PolyLine(IEnumerable<Point> points) : this(points, null) { }
         public PolyLine(Brush brush = null)
         {
+            this.pc= pc ?? new PointCollection();
             this.Brush = brush;
         }
 
