@@ -4,28 +4,18 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Task2"
-        mc:Ignorable="d"
-      
+        xmlns:converter="clr-namespace:Task2.Library"
+        mc:Ignorable="d"      
     Title="EditorWin" Height="450" Width="235" WindowStartupLocation="CenterScreen" MinWidth="235" MinHeight="450" WindowStyle="ToolWindow" Topmost="True" ResizeMode="NoResize">
-
+    <Window.Resources>
+        <converter:PointCollectionToStringConverter x:Key="converterP"/>
+        <converter:BrushToStringConverter x:Key="converterB"/>
+    </Window.Resources>
     <Grid>
-
-        <ListBox Margin="10,41,10,34" x:Name="lst" >
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <TextBox Width="186" TextChanged="TextBox_TextChanged" >
-                        <TextBox.Text>
-                            <MultiBinding StringFormat="{}({0},{1})">
-                                <Binding  Path="X"/>
-                                <Binding  Path="Y"/>
-                            </MultiBinding>
-                        </TextBox.Text>
-                    </TextBox>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
         <Label Content="Color" Margin="10,10,153,0" Height="26" VerticalAlignment="Top"/>
-        <TextBox x:Name="brush" Text="{Binding Brush, Mode=OneTime}" Margin="78,10,10,0" TextWrapping="Wrap" Height="26" VerticalAlignment="Top" TextChanged="brush_TextChanged"/>
+        <TextBox x:Name="textBl" Margin="10,41,10,34" Text="{Binding Path=pc,Converter={StaticResource converterP},BindsDirectlyToSource=True}" IsUndoEnabled="True">
+        </TextBox>
+        <TextBox x:Name="brush" Text="{Binding Path=Brush, Converter={StaticResource converterB},BindsDirectlyToSource=True}" Margin="78,10,10,0" TextWrapping="Wrap" Height="26" VerticalAlignment="Top"/>
         <Button Content="Done" Margin="10,0,10,10" Height="19" VerticalAlignment="Bottom" Click="Button_Click"/>
     </Grid>
 </Window>

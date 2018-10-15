@@ -68,6 +68,7 @@ namespace Task2.Library
         {
             if(obj is PolyLine)
             {
+                
                 bool isCorrect = true;
                 PolyLine pl = obj as PolyLine;
                 isCorrect = pl.Brush == Brush;
@@ -79,7 +80,7 @@ namespace Task2.Library
                 return true;
             }
             else
-            return base.Equals(obj);
+            return base.Equals(obj);            
         }
 
       
