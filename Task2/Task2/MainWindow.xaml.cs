@@ -26,7 +26,9 @@ namespace Task2
         LineDrawingManager drawingManager;
         bool creationModeOn = false;
         bool editModeOn = false;
-        //PolyLine buffer;
+
+        Point trigerPoint;
+        PointCollection tpc;
 
         public MainWindow()
         {
@@ -47,7 +49,6 @@ namespace Task2
         {
             creationModeOn = false;
             doneButton.Visibility = Visibility.Hidden;
-            //drawingManager.AddPl(buffer);
         }
 
 
@@ -121,9 +122,8 @@ namespace Task2
             List.Items.Refresh();
             LinesDrawer.Items.Refresh();
         }
+
         
-        Point trigerPoint;
-        PointCollection tpc;
         private void Polyline_MouseDown(object sender, MouseButtonEventArgs e)
         {
             editModeOn = true;
@@ -132,7 +132,7 @@ namespace Task2
             {
                 throw new Exception();
             }
-            
+
             foreach (var item in drawingManager.polylines)
             {
                 if (item.pc == trigerLine.Points)
@@ -151,28 +151,55 @@ namespace Task2
 
         private void Window_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
+            editModeOn = false;
+        }
+
+        private void Window_MouseMove(object sender, MouseEventArgs e)
+        {
             if (editModeOn)
             {
-                
-                //PointCollection pc = line.pc;
-
-                //Canvas canv = new Canvas();
                 Point p = Mouse.GetPosition(this);
 
-                double dx = p.X - trigerPoint.X;
-                double dy = p.Y - trigerPoint.Y;
+                double dx = (p.X - trigerPoint.X);
+                double dy = (p.Y - trigerPoint.Y);
+                
 
-                //List<Point> pc = tpc.ToList();
                 for (int i = 0; i < tpc.Count; i++)
                 {
                     tpc[i] = new Point(tpc[i].X + dx, tpc[i].Y + dy);
 
                 }
+                trigerPoint.X = p.X;
+                trigerPoint.Y = p.Y;
                 LinesDrawer.Items.Refresh();
 
             }
         }
-        
+
+        private void Polyline_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            editModeOn = false;
+        }
+
+        private void Polyline_MouseEnter(object sender, MouseEventArgs e)
+        {
+            Polyline trigerLine = sender as Polyline;
+            if (trigerLine == null)
+            {
+                throw new Exception();
+            }
+            trigerLine.StrokeThickness = 6;
+        }
+
+        private void Polyline_MouseLeave(object sender, MouseEventArgs e)
+        {
+            Polyline trigerLine = sender as Polyline;
+            if (trigerLine == null)
+            {
+                throw new Exception();
+            }
+            trigerLine.StrokeThickness = 3;
+        }
     }
 
     }
