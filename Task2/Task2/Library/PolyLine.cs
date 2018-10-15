@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using System.Runtime.Serialization;
     using System.Windows;
     using System.Windows.Media;
    
@@ -10,9 +11,7 @@
     public class PolyLine
     {
         private Brush brush;
-        
-        public PointCollection pc { get; set; }
-        
+                
         public PolyLine(IEnumerable<Point> points, Brush brush = null) : this(brush)
         {
             this.Pc = this.Pc ?? new PointCollection();
@@ -30,7 +29,6 @@
       
         [DataMember]
         public PointCollection Pc { get; set; }
-
 
         [DataMember]
         public Brush Brush

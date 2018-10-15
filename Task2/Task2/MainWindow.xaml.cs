@@ -1,10 +1,13 @@
 ﻿namespace Task2
 {
+    using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Windows;
     using System.Windows.Controls;
     using System.Windows.Input;
+    using System.Windows.Media;
+    using System.Windows.Shapes;
     using Microsoft.Win32;
     using Task2.Library;
 
@@ -13,12 +16,9 @@
     /// </summary>
     public partial class MainWindow : Window
     {
-        LineDrawingManager drawingManager;
-        bool creationModeOn = false;
-        bool editModeOn = false;
-
-        Point trigerPoint;
-        PointCollection tpc;
+        private bool editModeOn = false;
+        private Point trigerPoint;
+        private PointCollection tpc;
 
         public MainWindow()
         {
@@ -141,62 +141,57 @@
             this.LinesDrawer.Items.Refresh();
         }
 
-        
         private void Polyline_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            editModeOn = true;
+            this.editModeOn = true;
             Polyline trigerLine = sender as Polyline;
             if (trigerLine == null)
             {
                 throw new Exception();
             }
 
-            foreach (var item in drawingManager.polylines)
+            foreach (var item in this.DrawingManager.Polylines)
             {
-                if (item.pc == trigerLine.Points)
+                if (item.Pc == trigerLine.Points)
                 {
-                    tpc = item.pc;
+                    this.tpc = item.Pc;
                     break;
                 }
             }
-            
 
             Point p = Mouse.GetPosition(this);
             if (p != null)
-                trigerPoint = p;
+            {
+                this.trigerPoint = p;
+            }
         }
-        
 
         private void Window_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            editModeOn = false;
+            this.editModeOn = false;
         }
 
         private void Window_MouseMove(object sender, MouseEventArgs e)
         {
-            if (editModeOn)
+            if (this.editModeOn)
             {
                 Point p = Mouse.GetPosition(this);
-
-                double dx = (p.X - trigerPoint.X);
-                double dy = (p.Y - trigerPoint.Y);
-                
-
-                for (int i = 0; i < tpc.Count; i++)
+                double dx = p.X - this.trigerPoint.X;
+                double dy = p.Y - this.trigerPoint.Y;
+                for (int i = 0; i < this.tpc.Count; i++)
                 {
-                    tpc[i] = new Point(tpc[i].X + dx, tpc[i].Y + dy);
-
+                    this.tpc[i] = new Point(this.tpc[i].X + dx, this.tpc[i].Y + dy);
                 }
-                trigerPoint.X = p.X;
-                trigerPoint.Y = p.Y;
-                LinesDrawer.Items.Refresh();
 
+                this.trigerPoint.X = p.X;
+                this.trigerPoint.Y = p.Y;
+                this.LinesDrawer.Items.Refresh();
             }
         }
 
         private void Polyline_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            editModeOn = false;
+            this.editModeOn = false;
         }
 
         private void Polyline_MouseEnter(object sender, MouseEventArgs e)
@@ -206,6 +201,7 @@
             {
                 throw new Exception();
             }
+
             trigerLine.StrokeThickness = 6;
         }
 
@@ -216,8 +212,8 @@
             {
                 throw new Exception();
             }
+
             trigerLine.StrokeThickness = 3;
         }
     }
-
-    }
+}
