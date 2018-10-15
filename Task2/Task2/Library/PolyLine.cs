@@ -14,17 +14,31 @@
                 
         public PolyLine(IEnumerable<Point> points, Brush brush = null) : this(brush)
         {
-            this.Pc = this.Pc ?? new PointCollection();
-            foreach (var p in points)
+            try
             {
-                this.Pc.Add(p);
+                this.Pc = this.Pc ?? new PointCollection();
+                foreach (var p in points)
+                {
+                    this.Pc.Add(p);
+                }
+            }
+            catch (Exception)
+            {
+                throw;
             }
         }
 
         public PolyLine(Brush brush = null)
         {
-            this.Pc = this.Pc ?? new PointCollection();
-            this.Brush = brush;
+            try
+            {
+                this.Pc = this.Pc ?? new PointCollection();
+                this.Brush = brush;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
       
         [DataMember]

@@ -8,24 +8,41 @@
     {
         public static void Save(IEnumerable<PolyLine> lines, string path)
         {
-            DataContractJsonSerializer jsonFormatter = new DataContractJsonSerializer(typeof(PolyLine));
-
-            using (FileStream fs = new FileStream(path, FileMode.OpenOrCreate))
+            try
             {
-                jsonFormatter.WriteObject(fs, lines);
+                DataContractJsonSerializer jsonFormatter = new DataContractJsonSerializer(typeof(PolyLine));
+
+                using (FileStream fs = new FileStream(path, FileMode.OpenOrCreate))
+                {
+                    jsonFormatter.WriteObject(fs, lines);
+                }
             }
+            catch (System.Exception)
+            {
+                throw;
+            }
+            
         }
 
         public static IEnumerable<PolyLine> Load(string path)
         {
-            DataContractJsonSerializer jsonFormatter = new DataContractJsonSerializer(typeof(PolyLine));
-
-            using (FileStream fs = new FileStream(path, FileMode.OpenOrCreate))
+            try
             {
-                IEnumerable<PolyLine> lines = (IEnumerable<PolyLine>)jsonFormatter.ReadObject(fs);
+                DataContractJsonSerializer jsonFormatter = new DataContractJsonSerializer(typeof(PolyLine));
 
-                return lines;
+                using (FileStream fs = new FileStream(path, FileMode.OpenOrCreate))
+                {
+                    IEnumerable<PolyLine> lines = (IEnumerable<PolyLine>)jsonFormatter.ReadObject(fs);
+
+                    return lines;
+                }
             }
+            catch (System.Exception)
+            {
+
+                throw;
+            }
+            
         }
     }
 }

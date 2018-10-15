@@ -1,5 +1,6 @@
 ﻿namespace Task2
 {
+    using System;
     using System.Windows;
     using Task2.Library;
 
@@ -10,11 +11,27 @@
     {
         public EditorWin(PolyLine p)
         {
-            this.InitializeComponent();           
-            this.Pl = p;
+            try
+            {
+                this.InitializeComponent();
+                this.Pl = p;
 
-            textBl.DataContext = this.Pl;
-            brush.DataContext = this.Pl;      
+                textBl.DataContext = this.Pl;
+                brush.DataContext = this.Pl;
+            }
+            catch (Exception ex)
+            {
+                if(ex.Message == "Invalid Brush Argument")
+                {
+                    throw new Exception("Invalid Color Argument");
+                }
+                else
+                {
+                    throw new Exception("Unexpected error occured");
+                }
+                throw;
+            }
+            
         }
 
         public PolyLine Pl { get; set; }
