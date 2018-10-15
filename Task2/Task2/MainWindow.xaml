@@ -26,7 +26,7 @@
 
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <Polyline Points="{Binding pc}" Stroke="{Binding Brush}" StrokeThickness="3" />
+                    <Polyline Points="{Binding Pc}" Stroke="{Binding Brush}" StrokeThickness="3" />
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
 

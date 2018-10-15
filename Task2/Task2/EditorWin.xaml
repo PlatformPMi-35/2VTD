@@ -13,7 +13,7 @@
     </Window.Resources>
     <Grid>
         <Label Content="Color" Margin="10,10,153,0" Height="26" VerticalAlignment="Top"/>
-        <TextBox x:Name="textBl" Margin="10,41,10,34" Text="{Binding Path=pc,Converter={StaticResource converterP},BindsDirectlyToSource=True}" IsUndoEnabled="True">
+        <TextBox x:Name="textBl" Margin="10,41,10,34" Text="{Binding Path=Pc,Converter={StaticResource converterP},BindsDirectlyToSource=True}" IsUndoEnabled="True">
         </TextBox>
         <TextBox x:Name="brush" Text="{Binding Path=Brush, Converter={StaticResource converterB},BindsDirectlyToSource=True}" Margin="78,10,10,0" TextWrapping="Wrap" Height="26" VerticalAlignment="Top"/>
         <Button Content="Done" Margin="10,0,10,10" Height="19" VerticalAlignment="Bottom" Click="Button_Click"/>
