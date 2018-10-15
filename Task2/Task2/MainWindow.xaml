@@ -17,9 +17,7 @@
             <ColumnDefinition Width="21*"/>
         </Grid.ColumnDefinitions>
 
-
         <ItemsControl x:Name="LinesDrawer" Grid.Row="1" >
-
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
                     <Canvas x:Name="Canv" />
@@ -53,7 +51,7 @@
             Height="20" 
             Grid.Column="1" 
             Margin="0,0,10,0" 
-            Grid.Row="1"               
+            Grid.Row="1" Click="clearButton_Click"               
         />
 
         <ListBox x:Name="List"

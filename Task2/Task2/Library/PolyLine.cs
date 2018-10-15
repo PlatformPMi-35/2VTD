@@ -40,7 +40,6 @@ namespace Task2.Library
                 this.pc.Add(p);
             }
         }
-        //public PolyLine(IEnumerable<Point> points) : this(points, null) { }
         public PolyLine(Brush brush = null)
         {
             this.pc= pc ?? new PointCollection();

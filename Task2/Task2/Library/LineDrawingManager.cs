@@ -17,11 +17,7 @@ namespace Task2.Library
 
         public LineDrawingManager()
         {
-            polylines = new ObservableCollection<PolyLine>();
-            PolyLine l = new PolyLine(new Point[] { new Point(50, 110), new Point(200, 300), new Point(500, 450) }, Brushes.Cyan);
-            PolyLine b = new PolyLine(new Point[] { new Point(500, 110), new Point(200, 300), new Point(50, 450) }, Brushes.Black);
-            polylines.Add(l);
-            polylines.Add(b);
+            polylines = new ObservableCollection<PolyLine>();           
         }
 
         public void AddPl(Polyline line, Brush color)

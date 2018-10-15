@@ -25,12 +25,11 @@ namespace Task2
     {
         LineDrawingManager drawingManager;
         bool creationModeOn = false;
-        //PolyLine buffer;
 
         public MainWindow()
         {
             InitializeComponent();
-            drawingManager = new LineDrawingManager();
+            drawingManager = new LineDrawingManager();        
             LinesDrawer.ItemsSource = drawingManager.polylines;
             List.ItemsSource = drawingManager.polylines;
             editButton.IsEnabled = false;
@@ -46,9 +45,8 @@ namespace Task2
         {
             creationModeOn = false;
             doneButton.Visibility = Visibility.Hidden;
-            //drawingManager.AddPl(buffer);
+            editButton.IsEnabled = true;
         }
-
 
         private void List_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -64,10 +62,13 @@ namespace Task2
 
         private void editButton_Click(object sender, RoutedEventArgs e)
         {
-            EditorWin editorWin = new EditorWin(drawingManager.polylines[List.SelectedIndex]);
-            editorWin.ShowDialog();
-            List.Items.Refresh();
-            LinesDrawer.Items.Refresh();
+            if (List.SelectedIndex != -1)
+            {
+                EditorWin editorWin = new EditorWin(drawingManager.polylines[List.SelectedIndex]);
+                editorWin.ShowDialog();
+                List.Items.Refresh();
+                LinesDrawer.Items.Refresh();
+            }
         }
 
         private void Open_Click(object sender, RoutedEventArgs e)
@@ -83,7 +84,6 @@ namespace Task2
             {
                 drawingManager.AddPl(pl);
             }
-
         }
 
         private void Save_as_Click(object sender, RoutedEventArgs e)
@@ -99,8 +99,7 @@ namespace Task2
         private void Canvas_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
         {
             if (creationModeOn)
-            {
-                
+            {         
                 Point p = Mouse.GetPosition(this);
                 if (p != null)
                     drawingManager.polylines.Last().AddPoint(p);
@@ -115,8 +114,25 @@ namespace Task2
                     creationModeOn = true;
                 }
                 drawingManager.AddPl(pl);
-                doneButton.Visibility = Visibility.Visible;               
+                doneButton.Visibility = Visibility.Visible;
+                editButton.IsEnabled = false;
             }
+            List.SelectedIndex = List.Items.Count-1;
+            List.Items.Refresh();
+            LinesDrawer.Items.Refresh();
+        }
+
+        private void clearButton_Click(object sender, RoutedEventArgs e)
+        {
+            if(creationModeOn)
+            {
+                drawingManager.polylines.RemoveAt(drawingManager.polylines.Count - 1);
+                ButtonAdd_Click(sender, e);
+            }
+            else if(!creationModeOn && List.SelectedIndex!=-1)
+            {
+                drawingManager.polylines.RemoveAt(List.SelectedIndex);
+            }            
             List.Items.Refresh();
             LinesDrawer.Items.Refresh();
         }

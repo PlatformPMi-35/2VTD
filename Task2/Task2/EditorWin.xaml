@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Task2"
         xmlns:converter="clr-namespace:Task2.Library"
         mc:Ignorable="d"      
-    Title="EditorWin" Height="450" Width="235" WindowStartupLocation="CenterScreen" MinWidth="235" MinHeight="450" WindowStyle="ToolWindow" Topmost="True" ResizeMode="NoResize">
+    Title="EditorWin" Height="450" Width="235" WindowStartupLocation="CenterScreen" MinWidth="235" MinHeight="450" WindowStyle="ToolWindow" ResizeMode="NoResize" ShowInTaskbar="False">
     <Window.Resources>
         <converter:PointCollectionToStringConverter x:Key="converterP"/>
         <converter:BrushToStringConverter x:Key="converterB"/>
