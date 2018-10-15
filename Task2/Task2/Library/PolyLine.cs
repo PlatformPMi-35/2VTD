@@ -1,33 +1,50 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Media;
-using System.Windows.Shapes;
-
-namespace Task2.Library
+﻿namespace Task2.Library
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Windows;
+    using System.Windows.Media;
+   
     [DataContract]
     public class PolyLine
-    {       
+    {
         private Brush brush;
-        [DataMember]
+        
         public PointCollection pc { get; set; }
+        
+        public PolyLine(IEnumerable<Point> points, Brush brush = null) : this(brush)
+        {
+            this.Pc = this.Pc ?? new PointCollection();
+            foreach (var p in points)
+            {
+                this.Pc.Add(p);
+            }
+        }
+
+        public PolyLine(Brush brush = null)
+        {
+            this.Pc = this.Pc ?? new PointCollection();
+            this.Brush = brush;
+        }
+      
+        [DataMember]
+        public PointCollection Pc { get; set; }
+
+
         [DataMember]
         public Brush Brush
         {
             get
             {
-                return brush ?? Brushes.Black;
+                return this.brush ?? Brushes.Black;
             }
+
             set
             {
                 try
                 {
-                    brush = value;
+                    this.brush = value;
                 }
                 catch
                 {
@@ -36,26 +53,11 @@ namespace Task2.Library
             }
         }
 
-        public PolyLine(IEnumerable<Point> points, Brush brush = null) : this(brush)
-        {
-            this.pc = pc ?? new PointCollection();
-            foreach (var p in points)
-            {
-                this.pc.Add(p);
-            }
-        }
-        //public PolyLine(IEnumerable<Point> points) : this(points, null) { }
-        public PolyLine(Brush brush = null)
-        {
-            this.pc= pc ?? new PointCollection();
-            this.Brush = brush;
-        }
-
         public void AddPoint(Point p)
         {
             try
             {
-                this.pc.Add(p);
+                this.Pc.Add(p);
             }
             catch (Exception e)
             {
@@ -65,27 +67,27 @@ namespace Task2.Library
 
         public override string ToString()
         {
-            return Brush.ToString();
+            return this.Brush.ToString();
         }
 
         public override bool Equals(object obj)
         {
-            if(obj is PolyLine)
+            if (obj is PolyLine)
             {
                 bool isCorrect = true;
                 PolyLine pl = obj as PolyLine;
-                isCorrect = pl.Brush == Brush;
-                for (int i = 0; i < pc.Count() && i < pl.pc.Count(); i++)
+                isCorrect = pl.Brush == this.Brush;
+                for (int i = 0; i < this.Pc.Count() && i < pl.Pc.Count(); i++)
                 {
-                    isCorrect = pc[i] == pl.pc[i];
+                    isCorrect = this.Pc[i] == pl.Pc[i];
                 }
 
                 return true;
             }
             else
-            return base.Equals(obj);
+            {
+                return base.Equals(obj);
+            }
         }
-
-      
     }
 }

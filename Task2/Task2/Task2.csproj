@@ -71,7 +71,8 @@
     <Compile Include="EditorWin.xaml.cs">
       <DependentUpon>EditorWin.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Library\DoubleToStringConverter.cs" />
+    <Compile Include="Library\BrushToStringConverter.cs" />
+    <Compile Include="Library\PointCollectionToStringConverter.cs" />
     <Compile Include="Library\LineDrawingManager.cs" />
     <Compile Include="Library\PolyLine.cs" />
     <Compile Include="Library\PolyLineIOManager.cs" />

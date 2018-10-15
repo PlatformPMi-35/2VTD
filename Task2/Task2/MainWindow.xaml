@@ -3,7 +3,6 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Task2"
         mc:Ignorable="d"
         Title="MainWindow" Height="580" Width="800" MinWidth="800" MinHeight="580"
         MouseRightButtonDown="Canvas_MouseRightButtonDown" MouseLeftButtonUp="Window_MouseLeftButtonUp" MouseMove="Window_MouseMove">
@@ -18,12 +17,10 @@
             <ColumnDefinition Width="21*"/>
         </Grid.ColumnDefinitions>
 
-
         <ItemsControl x:Name="LinesDrawer" Grid.Row="1" >
-
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <Canvas x:Name="Canv" />
+                    <Canvas x:Name="Canv"/>
                 </ItemsPanelTemplate>
             </ItemsControl.ItemsPanel>
 
@@ -32,7 +29,6 @@
                     <Polyline Points="{Binding pc}" Stroke="{Binding Brush}" StrokeThickness="3" MouseDown="Polyline_MouseDown" MouseUp="Polyline_MouseUp" MouseEnter="Polyline_MouseEnter" MouseLeave="Polyline_MouseLeave" />
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
-
         </ItemsControl>
 
         <Button x:Name="doneButton" 
@@ -54,7 +50,7 @@
             Height="20" 
             Grid.Column="1" 
             Margin="0,0,10,0" 
-            Grid.Row="1"               
+            Grid.Row="1" Click="ClearButton_Click"               
         />
 
         <ListBox x:Name="List"
@@ -67,7 +63,7 @@
             Width="Auto"
             Height="20" 
             Grid.Column="1"           
-            VerticalAlignment="Bottom" Grid.Row="1" Margin="10,0,10,10" Click="editButton_Click"           
+            VerticalAlignment="Bottom" Grid.Row="1" Margin="10,0,10,10" Click="EditButton_Click"           
         />
 
 

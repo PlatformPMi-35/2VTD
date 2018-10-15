@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.Serialization.Json;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Task2.Library
+﻿namespace Task2.Library
 {
-    class PolyLineIOManager
+    using System.Collections.Generic;
+    using System.IO;
+    using System.Runtime.Serialization.Json;
+
+    public class PolyLineIOManager
     {
         public static void Save(IEnumerable<PolyLine> lines, string path)
         {
@@ -18,7 +14,6 @@ namespace Task2.Library
             {
                 jsonFormatter.WriteObject(fs, lines);
             }
-
         }
 
         public static IEnumerable<PolyLine> Load(string path)
