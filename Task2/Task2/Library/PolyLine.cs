@@ -5,11 +5,14 @@
     using System.Linq;
     using System.Windows;
     using System.Windows.Media;
-
+   
+    [DataContract]
     public class PolyLine
     {
         private Brush brush;
-
+        
+        public PointCollection pc { get; set; }
+        
         public PolyLine(IEnumerable<Point> points, Brush brush = null) : this(brush)
         {
             this.Pc = this.Pc ?? new PointCollection();
@@ -24,9 +27,12 @@
             this.Pc = this.Pc ?? new PointCollection();
             this.Brush = brush;
         }
-
+      
+        [DataMember]
         public PointCollection Pc { get; set; }
 
+
+        [DataMember]
         public Brush Brush
         {
             get
