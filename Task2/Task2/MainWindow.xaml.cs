@@ -12,7 +12,7 @@
     using Task2.Library;
 
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для MainWindow.xaml.
     /// </summary>
     public partial class MainWindow : Window
     {
@@ -20,6 +20,9 @@
         private Point trigerPoint;
         private PointCollection tpc;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MainWindow"/> class.
+        /// </summary>
         public MainWindow()
         {
             this.InitializeComponent();
@@ -31,15 +34,33 @@
             this.CreationModeOn = false;
         }
 
+        /// <summary>
+        /// Gets or sets <see cref="LineDrawingManager"/>.
+        /// </summary>
+        /// <value><see cref="LineDrawingManager"/>.</value>
         public LineDrawingManager DrawingManager { get; set; }
 
+        /// <summary>
+        /// Gets or sets a value indicating whether <see cref="CreationModeOn"/>.
+        /// </summary>
+        /// <value><see cref="bool"/>.</value>
         public bool CreationModeOn { get; set; }
 
+        /// <summary>
+        /// Click on button.
+        /// </summary>
+        /// <param name="sender">Just Object.</param>
+        /// <param name="e">RoutedEventArgs e.</param>
         private void Exit_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
 
+        /// <summary>
+        /// Click to stop adding <see cref="Point"/> to <see cref="PolyLine"/>.
+        /// </summary>
+        /// <param name="sender">Just Object.</param>
+        /// <param name="e">RoutedEventArgs e.</param>
         private void ButtonAdd_Click(object sender, RoutedEventArgs e)
         {
             this.CreationModeOn = false;
@@ -47,6 +68,11 @@
             this.editButton.IsEnabled = true;
         }
 
+        /// <summary>
+        /// On List index chaged.
+        /// </summary>
+        /// <param name="sender">Just Object.</param>
+        /// <param name="e">SelectionChangedEventArgs e.</param>
         private void List_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (this.List.SelectedIndex != -1)
@@ -59,6 +85,11 @@
             }
         }
 
+        /// <summary>
+        /// EditButton Click.
+        /// </summary>
+        /// <param name="sender">Just Object.</param>
+        /// <param name="e">RoutedEventArgs e.</param>
         private void EditButton_Click(object sender, RoutedEventArgs e)
         {
             if (this.List.SelectedIndex != -1)
@@ -70,6 +101,11 @@
             }
         }
 
+        /// <summary>
+        /// Open Click.
+        /// </summary>
+        /// <param name="sender">Just Object.</param>
+        /// <param name="e">RoutedEventArgs e.</param>
         private void Open_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
@@ -85,6 +121,11 @@
             }
         }
 
+        /// <summary>
+        /// Save as Click.
+        /// </summary>
+        /// <param name="sender">Just Object.</param>
+        /// <param name="e">RoutedEventArgs e.</param>
         private void Save_as_Click(object sender, RoutedEventArgs e)
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog();
@@ -95,6 +136,11 @@
             }
         }
 
+        /// <summary>
+        /// Canvas MouseRightButtonDown.
+        /// </summary>
+        /// <param name="sender">Just Object.</param>
+        /// <param name="e">MouseButtonEventArgs e.</param>
         private void Canvas_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
         {
             if (this.CreationModeOn)
@@ -125,6 +171,11 @@
             this.LinesDrawer.Items.Refresh();
         }
 
+        /// <summary>
+        /// ClearButton Click.
+        /// </summary>
+        /// <param name="sender">Just Object.</param>
+        /// <param name="e">RoutedEventArgs e.</param>
         private void ClearButton_Click(object sender, RoutedEventArgs e)
         {
             if (this.CreationModeOn)
@@ -141,6 +192,11 @@
             this.LinesDrawer.Items.Refresh();
         }
 
+        /// <summary>
+        /// Polyline MouseDown.
+        /// </summary>
+        /// <param name="sender">Just Object.</param>
+        /// <param name="e">MouseButtonEventArgs e.</param>
         private void Polyline_MouseDown(object sender, MouseButtonEventArgs e)
         {
             this.editModeOn = true;
@@ -166,11 +222,21 @@
             }
         }
 
+        /// <summary>
+        /// Window MouseLeftButtonUp.
+        /// </summary>
+        /// <param name="sender">Just Object.</param>
+        /// <param name="e">MouseButtonEventArgs e.</param>
         private void Window_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             this.editModeOn = false;
         }
 
+        /// <summary>
+        /// Window MouseMove.
+        /// </summary>
+        /// <param name="sender">Just Object.</param>
+        /// <param name="e">MouseEventArgs e.</param>
         private void Window_MouseMove(object sender, MouseEventArgs e)
         {
             if (this.editModeOn)
@@ -189,11 +255,21 @@
             }
         }
 
+        /// <summary>
+        /// Polyline MouseUp.
+        /// </summary>
+        /// <param name="sender">Just Object.</param>
+        /// <param name="e">MouseButtonEventArgs e.</param>
         private void Polyline_MouseUp(object sender, MouseButtonEventArgs e)
         {
             this.editModeOn = false;
         }
 
+        /// <summary>
+        /// Polyline MouseEnter.
+        /// </summary>
+        /// <param name="sender">Just Object.</param>
+        /// <param name="e">MouseEventArgs e.</param>
         private void Polyline_MouseEnter(object sender, MouseEventArgs e)
         {
             Polyline trigerLine = sender as Polyline;
@@ -205,6 +281,11 @@
             trigerLine.StrokeThickness = 6;
         }
 
+        /// <summary>
+        /// Polyline MouseLeave.
+        /// </summary>
+        /// <param name="sender">Just Object.</param>
+        /// <param name="e">MouseEventArgs e.</param>
         private void Polyline_MouseLeave(object sender, MouseEventArgs e)
         {
             Polyline trigerLine = sender as Polyline;

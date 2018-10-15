@@ -6,7 +6,7 @@
     using System.Windows.Media;
 
     /// <summary>
-    /// Using to convert <see cref="Brush"/> to <see cref="string"/> and back.
+    /// Class to convert <see cref="Brush"/> to <see cref="string"/> and back.
     /// </summary>
     public class BrushToStringConverter : IValueConverter
     {

@@ -76,7 +76,9 @@
     </Compile>
     <Compile Include="Library\PointCollectionToStringConverter.cs" />
     <Compile Include="Library\LineDrawingManager.cs" />
-    <Compile Include="Library\PolyLine.cs" />
+    <Compile Include="Library\PolyLine.cs">
+      <ExcludeFromStyleCop>False</ExcludeFromStyleCop>
+    </Compile>
     <Compile Include="Library\PolyLineIOManager.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
