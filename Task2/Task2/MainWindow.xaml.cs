@@ -1,73 +1,65 @@
-﻿using Microsoft.Win32;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using Task2.Library;
-
-namespace Task2
+﻿namespace Task2
 {
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Windows;
+    using System.Windows.Controls;
+    using System.Windows.Input;
+    using Microsoft.Win32;
+    using Task2.Library;
+
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
-        LineDrawingManager drawingManager;
-        bool creationModeOn = false;
-
         public MainWindow()
         {
-            InitializeComponent();
-            drawingManager = new LineDrawingManager();        
-            LinesDrawer.ItemsSource = drawingManager.polylines;
-            List.ItemsSource = drawingManager.polylines;
-            editButton.IsEnabled = false;
-            doneButton.Visibility = Visibility.Hidden;
+            this.InitializeComponent();
+            this.DrawingManager = new LineDrawingManager();
+            this.LinesDrawer.ItemsSource = this.DrawingManager.Polylines;
+            this.List.ItemsSource = this.DrawingManager.Polylines;
+            this.editButton.IsEnabled = false;
+            this.doneButton.Visibility = Visibility.Hidden;
+            this.CreationModeOn = false;
         }
+
+        public LineDrawingManager DrawingManager { get; set; }
+
+        public bool CreationModeOn { get; set; }
 
         private void Exit_Click(object sender, RoutedEventArgs e)
         {
-            Close();
+            this.Close();
         }
 
         private void ButtonAdd_Click(object sender, RoutedEventArgs e)
         {
-            creationModeOn = false;
-            doneButton.Visibility = Visibility.Hidden;
-            editButton.IsEnabled = true;
+            this.CreationModeOn = false;
+            this.doneButton.Visibility = Visibility.Hidden;
+            this.editButton.IsEnabled = true;
         }
 
         private void List_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (List.SelectedIndex != -1)
+            if (this.List.SelectedIndex != -1)
             {
-                editButton.IsEnabled = true;
+                this.editButton.IsEnabled = true;
             }
             else
             {
-                editButton.IsEnabled = false;
+                this.editButton.IsEnabled = false;
             }
         }
 
-        private void editButton_Click(object sender, RoutedEventArgs e)
+        private void EditButton_Click(object sender, RoutedEventArgs e)
         {
-            if (List.SelectedIndex != -1)
+            if (this.List.SelectedIndex != -1)
             {
-                EditorWin editorWin = new EditorWin(drawingManager.polylines[List.SelectedIndex]);
+                EditorWin editorWin = new EditorWin(this.DrawingManager.Polylines[this.List.SelectedIndex]);
                 editorWin.ShowDialog();
-                List.Items.Refresh();
-                LinesDrawer.Items.Refresh();
+                this.List.Items.Refresh();
+                this.LinesDrawer.Items.Refresh();
             }
         }
 
@@ -82,7 +74,7 @@ namespace Task2
 
             foreach (PolyLine pl in newLines)
             {
-                drawingManager.AddPl(pl);
+                this.DrawingManager.AddPl(pl);
             }
         }
 
@@ -92,49 +84,54 @@ namespace Task2
             List<PolyLine> newLines = new List<PolyLine>();
             if (saveFileDialog.ShowDialog() == true)
             {
-                PolyLineIOManager.Save(drawingManager.polylines, saveFileDialog.FileName);
+                PolyLineIOManager.Save(this.DrawingManager.Polylines, saveFileDialog.FileName);
             }
         }
 
         private void Canvas_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
         {
-            if (creationModeOn)
-            {         
+            if (this.CreationModeOn)
+            {
                 Point p = Mouse.GetPosition(this);
                 if (p != null)
-                    drawingManager.polylines.Last().AddPoint(p);
+                {
+                    this.DrawingManager.Polylines.Last().AddPoint(p);
+                }
             }
             else
             {
-                PolyLine pl = new PolyLine();                
+                PolyLine pl = new PolyLine();
                 Point p = Mouse.GetPosition(this);
                 if (p != null)
                 {
                     pl.AddPoint(p);
-                    creationModeOn = true;
+                    this.CreationModeOn = true;
                 }
-                drawingManager.AddPl(pl);
-                doneButton.Visibility = Visibility.Visible;
-                editButton.IsEnabled = false;
+
+                this.DrawingManager.AddPl(pl);
+                this.doneButton.Visibility = Visibility.Visible;
+                this.editButton.IsEnabled = false;
             }
-            List.SelectedIndex = List.Items.Count-1;
-            List.Items.Refresh();
-            LinesDrawer.Items.Refresh();
+
+            this.List.SelectedIndex = this.List.Items.Count - 1;
+            this.List.Items.Refresh();
+            this.LinesDrawer.Items.Refresh();
         }
 
-        private void clearButton_Click(object sender, RoutedEventArgs e)
+        private void ClearButton_Click(object sender, RoutedEventArgs e)
         {
-            if(creationModeOn)
+            if (this.CreationModeOn)
             {
-                drawingManager.polylines.RemoveAt(drawingManager.polylines.Count - 1);
-                ButtonAdd_Click(sender, e);
+                this.DrawingManager.Polylines.RemoveAt(this.DrawingManager.Polylines.Count - 1);
+                this.ButtonAdd_Click(sender, e);
             }
-            else if(!creationModeOn && List.SelectedIndex!=-1)
+            else if (!this.CreationModeOn && this.List.SelectedIndex != -1)
             {
-                drawingManager.polylines.RemoveAt(List.SelectedIndex);
-            }            
-            List.Items.Refresh();
-            LinesDrawer.Items.Refresh();
+                this.DrawingManager.Polylines.RemoveAt(this.List.SelectedIndex);
+            }
+
+            this.List.Items.Refresh();
+            this.LinesDrawer.Items.Refresh();
         }
     }
 }

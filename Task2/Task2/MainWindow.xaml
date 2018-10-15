@@ -51,7 +51,7 @@
             Height="20" 
             Grid.Column="1" 
             Margin="0,0,10,0" 
-            Grid.Row="1" Click="clearButton_Click"               
+            Grid.Row="1" Click="ClearButton_Click"               
         />
 
         <ListBox x:Name="List"
@@ -64,7 +64,7 @@
             Width="Auto"
             Height="20" 
             Grid.Column="1"           
-            VerticalAlignment="Bottom" Grid.Row="1" Margin="10,0,10,10" Click="editButton_Click"           
+            VerticalAlignment="Bottom" Grid.Row="1" Margin="10,0,10,10" Click="EditButton_Click"           
         />
 
 

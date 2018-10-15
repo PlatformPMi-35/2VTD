@@ -1,19 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Media;
-
-namespace Task2.Library
+﻿namespace Task2.Library
 {
+    using System;
+    using System.Globalization;
+    using System.Windows;
+    using System.Windows.Data;
+    using System.Windows.Media;
+
     public class PointCollectionToStringConverter : IValueConverter
     {
-
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             try
@@ -23,6 +17,7 @@ namespace Task2.Library
                 {
                     arr += v.ToString() + '\n';
                 }
+
                 return arr;
             }
             catch
@@ -33,7 +28,6 @@ namespace Task2.Library
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
-
             PointCollection points = new PointCollection();
             foreach (var v in (value as string).Split('\n'))
             {
@@ -49,10 +43,8 @@ namespace Task2.Library
                     }
                 }
             }
-            return points;
 
+            return points;
         }
     }
-
-
 }

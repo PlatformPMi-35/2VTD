@@ -1,38 +1,33 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Media;
-using System.Windows.Shapes;
-
-
-namespace Task2.Library
+﻿namespace Task2.Library
 {
+    using System.Collections.ObjectModel;
+    using System.Windows.Media;
+    using System.Windows.Shapes;
+
     public class LineDrawingManager
     {
-        public ObservableCollection<PolyLine> polylines { get; set; }
-
         public LineDrawingManager()
         {
-            polylines = new ObservableCollection<PolyLine>();           
+            this.Polylines = new ObservableCollection<PolyLine>();           
         }
+
+        public ObservableCollection<PolyLine> Polylines { get; set; }
 
         public void AddPl(Polyline line, Brush color)
         {
             PolyLine pl = new PolyLine(line.Points, color);
-            polylines.Add(pl);
+            this.Polylines.Add(pl);
         }
+
         public void AddPl(Polyline line)
         {
             PolyLine pl = new PolyLine(line.Points);
-            polylines.Add(pl);
+            this.Polylines.Add(pl);
         }
+
         public void AddPl(PolyLine line)
         {
-            polylines.Add(line);
+            this.Polylines.Add(line);
         }
     }
 }

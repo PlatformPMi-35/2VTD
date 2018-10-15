@@ -1,41 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using Task2.Library;
-using System.Collections.ObjectModel;
-
-namespace Task2
+﻿namespace Task2
 {
+    using System.Windows;
+    using Task2.Library;
+
     /// <summary>
     /// Логика взаимодействия для EditorWin.xaml
     /// </summary>
     public partial class EditorWin : Window
     {
-        public PolyLine pl;
-
         public EditorWin(PolyLine p)
         {
-            InitializeComponent();           
-            pl = p;
+            this.InitializeComponent();           
+            this.Pl = p;
 
-            textBl.DataContext = pl;
-            brush.DataContext = pl;      
+            textBl.DataContext = this.Pl;
+            brush.DataContext = this.Pl;      
         }
+
+        public PolyLine Pl { get; set; }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {                       
-            Close();          
+            this.Close();          
         }
-
     }
 }
