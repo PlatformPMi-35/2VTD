@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -9,10 +10,13 @@ using System.Windows.Shapes;
 
 namespace Task2.Library
 {
+    [DataContract]
     public class PolyLine
     {       
         private Brush brush;
+        [DataMember]
         public PointCollection pc { get; set; }
+        [DataMember]
         public Brush Brush
         {
             get

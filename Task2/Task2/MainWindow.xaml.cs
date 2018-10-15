@@ -25,6 +25,7 @@ namespace Task2
     {
         LineDrawingManager drawingManager;
         bool creationModeOn = false;
+        bool editModeOn = false;
         //PolyLine buffer;
 
         public MainWindow()
@@ -120,5 +121,58 @@ namespace Task2
             List.Items.Refresh();
             LinesDrawer.Items.Refresh();
         }
+        
+        Point trigerPoint;
+        PointCollection tpc;
+        private void Polyline_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            editModeOn = true;
+            Polyline trigerLine = sender as Polyline;
+            if (trigerLine == null)
+            {
+                throw new Exception();
+            }
+            
+            foreach (var item in drawingManager.polylines)
+            {
+                if (item.pc == trigerLine.Points)
+                {
+                    tpc = item.pc;
+                    break;
+                }
+            }
+            
+
+            Point p = Mouse.GetPosition(this);
+            if (p != null)
+                trigerPoint = p;
+        }
+        
+
+        private void Window_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            if (editModeOn)
+            {
+                
+                //PointCollection pc = line.pc;
+
+                //Canvas canv = new Canvas();
+                Point p = Mouse.GetPosition(this);
+
+                double dx = p.X - trigerPoint.X;
+                double dy = p.Y - trigerPoint.Y;
+
+                //List<Point> pc = tpc.ToList();
+                for (int i = 0; i < tpc.Count; i++)
+                {
+                    tpc[i] = new Point(tpc[i].X + dx, tpc[i].Y + dy);
+
+                }
+                LinesDrawer.Items.Refresh();
+
+            }
+        }
+        
     }
-}
+
+    }
