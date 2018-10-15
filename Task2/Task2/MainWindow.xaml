@@ -3,7 +3,6 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Task2"
         mc:Ignorable="d"
         Title="MainWindow" Height="580" Width="800" MinWidth="800" MinHeight="580"
         MouseRightButtonDown="Canvas_MouseRightButtonDown">
@@ -20,7 +19,7 @@
         <ItemsControl x:Name="LinesDrawer" Grid.Row="1" >
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <Canvas x:Name="Canv" />
+                    <Canvas x:Name="Canv"/>
                 </ItemsPanelTemplate>
             </ItemsControl.ItemsPanel>
 
@@ -29,7 +28,6 @@
                     <Polyline Points="{Binding Pc}" Stroke="{Binding Brush}" StrokeThickness="3" />
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
-
         </ItemsControl>
 
         <Button x:Name="doneButton" 

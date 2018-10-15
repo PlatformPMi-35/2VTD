@@ -9,12 +9,26 @@
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            return (value as Brush).ToString();
+            try
+            {
+                return (value as Brush).ToString();
+            }
+            catch
+            {
+                return Binding.DoNothing;
+            }
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            return (Brush)new BrushConverter().ConvertFromString(value as string);
+            try
+            {
+                return (Brush)new BrushConverter().ConvertFromString(value as string);
+            }
+            catch
+            {
+                return Binding.DoNothing;
+            }
         }
     }
 }
