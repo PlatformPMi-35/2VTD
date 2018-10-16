@@ -3,6 +3,7 @@ using Task2.Library;
 using System.Collections.Generic;
 using System.Windows.Media;
 using System.Windows.Shapes;
+using System.IO;
 
 namespace UnitTests
 {
@@ -56,25 +57,59 @@ namespace UnitTests
         [TestMethod]
         public void TestIOManager1()
         {
-
+            List<PolyLine> lines = new List<PolyLine>();
+            string path = @"C:\Users\dimkijeee\source\repos\PlatformPMi-35\2VTD_task1\Task2\UnitTests\Data.txt";
+            PolyLine polyLine = new PolyLine();
+            polyLine.AddPoint(new System.Windows.Point(1, 2));
+            lines.Add(polyLine);
+            PolyLineIOManager.Save(lines, path);
+            FileStream fileStream = new FileStream(path, FileMode.Open);
+            Assert.IsTrue(1 == 1);
         }
 
         [TestMethod]
         public void TestIOManager2()
         {
-
+            string path = @"C:\Users\dimkijeee\source\repos\PlatformPMi-35\2VTD_task1\Task2\UnitTests\Data.txt";
+            List<PolyLine> lines = new List<PolyLine>();
+            lines = (List<PolyLine>)PolyLineIOManager.Load(path);
+            Assert.IsTrue(lines.Count != 0);
         }
 
         [TestMethod]
-        public void BrushToStrConverterTest()
+        public void BrushToStrConverterTest1()
         {
-
+            BrushConverter converter = new BrushConverter();
+            string brushNeeded = "#FF00FFFF";
+            Assert.AreEqual(brushNeeded, converter.ConvertTo(Brushes.Aqua, typeof(string)));
         }
 
         [TestMethod]
-        public void PointCollectionToStrConverterTest()
+        public void BrushToStrConverterTest2()
         {
+            BrushConverter brushConverter = new BrushConverter();
+            string brush = brushConverter.ConvertFrom("#FF00FFFF").ToString();
+            Assert.AreEqual(brush, "#FF00FFFF");
+        }
 
+        [TestMethod]
+        public void PointCollectionToStrConverterTest1()
+        {
+            PointCollection points = new PointCollection();
+            points.Add(new System.Windows.Point(1, 1));
+            string strPoints = "1;1\n";
+            PointCollectionToStringConverter converter = new PointCollectionToStringConverter();
+            Assert.AreEqual(strPoints, converter.Convert(points, typeof(string), null, null));
+        }
+
+        [TestMethod]
+        public void PointCollectionToStrConverterTest2()
+        {
+            string strPoints = "1;1";
+            PointCollectionToStringConverter conv = new PointCollectionToStringConverter();
+            PointCollection points = new PointCollection();
+            points.Add(new System.Windows.Point(1, 1));
+            Assert.AreEqual(points, conv.ConvertBack(strPoints, typeof(PointCollection), null, null));
         }
     }
 }
