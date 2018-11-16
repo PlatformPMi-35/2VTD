@@ -57,7 +57,7 @@
                         string[] temp = v.Split(';');
                         points.Add(new Point(System.Convert.ToDouble(temp[0]), System.Convert.ToDouble(temp[1])));
                     }
-                    catch(Exception ex)
+                    catch (Exception ex)
                     {
                         MessageBox.Show(ex.Message, "Invalid Input");
                     }

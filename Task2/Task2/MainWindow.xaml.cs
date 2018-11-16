@@ -2,8 +2,8 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.Linq;
     using System.IO;
+    using System.Linq;
     using System.Windows;
     using System.Windows.Controls;
     using System.Windows.Input;
@@ -27,8 +27,9 @@
         public MainWindow()
         {
             this.InitializeComponent();
+            //тут вказуєм до чого прив'язуємся  
             this.DrawingManager = new LineDrawingManager();
-            this.LinesDrawer.ItemsSource = this.DrawingManager.Polylines;
+            this.LinesDrawer.ItemsSource = this.DrawingManager.Polylines;//тут ми вказуємо звідки будемо відображати ламані(з this.DrawingManager.Polylines)
             this.List.ItemsSource = this.DrawingManager.Polylines;
             this.editButton.IsEnabled = false;
             this.doneButton.Visibility = Visibility.Hidden;
@@ -112,12 +113,15 @@
             try
             {
                 OpenFileDialog openFileDialog = new OpenFileDialog();
+                openFileDialog.Filter = "XML file|*.xml";
+
                 List<PolyLine> newLines = new List<PolyLine>();
                 if (openFileDialog.ShowDialog() == true)
                 {
                     newLines = PolyLineIOManager.Load(openFileDialog.FileName).ToList();
                 }
 
+                this.DrawingManager.Polylines.Clear();
                 foreach (PolyLine pl in newLines)
                 {
                     this.DrawingManager.AddPl(pl);
@@ -125,13 +129,12 @@
             }
             catch (FileNotFoundException)
             {
-                throw new Exception("File Not Found");
+                MessageBox.Show("File Not Found");
             }
             catch (Exception)
             {
-                throw new Exception("Open File Error");
+                MessageBox.Show("Open File Error");
             }
-            
         }
 
         /// <summary>
@@ -144,19 +147,20 @@
             try
             {
                 SaveFileDialog saveFileDialog = new SaveFileDialog();
-                List<PolyLine> newLines = new List<PolyLine>();
+                saveFileDialog.Filter = "XML file|*.xml";
+                List<PolyLine> newLines = this.DrawingManager.Polylines.ToList();
                 if (saveFileDialog.ShowDialog() == true)
                 {
-                    PolyLineIOManager.Save(this.DrawingManager.Polylines, saveFileDialog.FileName);
+                    PolyLineIOManager.Save(newLines, saveFileDialog.FileName);
                 }
             }
             catch (Exception)
             {
-                throw new Exception("Save File Error");
+                MessageBox.Show("Save File Error");
             }
-            
         }
 
+        // додавання нових точок
         /// <summary>
         /// Canvas MouseRightButtonDown.
         /// </summary>
@@ -195,7 +199,7 @@
             }
             catch (Exception)
             {
-                throw new Exception("Unexpected error occured");
+                MessageBox.Show("Unexpected error occured");
             }
         }
 
@@ -223,10 +227,11 @@
             }
             catch (Exception)
             {
-                throw new Exception("Unexpected error occured");
+                MessageBox.Show("Save File Error");
             }
         }
 
+        // пересування ламаних
         /// <summary>
         /// Polyline MouseDown.
         /// </summary>
@@ -260,7 +265,7 @@
             }
             catch (Exception)
             {
-                throw new Exception("Unexpected error occured");
+                MessageBox.Show("Unexpected error occured");
             }
         }
 
@@ -300,9 +305,8 @@
             }
             catch (Exception)
             {
-                throw new Exception("Unexpected error occured");
+                MessageBox.Show("Unexpected error occured");
             }
-
         }
 
         /// <summary>
@@ -315,6 +319,7 @@
             this.editModeOn = false;
         }
 
+        //викликається коли наводимся мишкою
         /// <summary>
         /// Polyline MouseEnter.
         /// </summary>
@@ -334,10 +339,11 @@
             }
             catch (Exception)
             {
-                throw new Exception("Unexpected error occured");
+                MessageBox.Show("Unexpected error occured");
             }
-
         }
+
+        //викликається коли забираємо мишку
 
         /// <summary>
         /// Polyline MouseLeave.
@@ -358,9 +364,8 @@
             }
             catch (Exception)
             {
-                throw new Exception("Unexpected error occured");
+                MessageBox.Show("Unexpected error occured");
             }
-
         }
     }
 }

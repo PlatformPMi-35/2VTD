@@ -1,14 +1,16 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Task2.Library;
+﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Windows.Media;
 using System.Windows.Shapes;
-using System.IO;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Task2.Library;
+
 
 namespace UnitTests
 {
     [TestClass]
-    public class PolyLineTests
+    public class UnitTest1
     {
         [TestMethod]
         public void TestAddingToPolyLine()
@@ -58,7 +60,7 @@ namespace UnitTests
         public void TestIOManager1()
         {
             List<PolyLine> lines = new List<PolyLine>();
-            string path = @"C:\Users\dimkijeee\source\repos\PlatformPMi-35\2VTD_task1\Task2\UnitTests\Data.txt";
+            string path = @"Data.xml";
             PolyLine polyLine = new PolyLine();
             polyLine.AddPoint(new System.Windows.Point(1, 2));
             lines.Add(polyLine);
@@ -70,7 +72,7 @@ namespace UnitTests
         [TestMethod]
         public void TestIOManager2()
         {
-            string path = @"C:\Users\dimkijeee\source\repos\PlatformPMi-35\2VTD_task1\Task2\UnitTests\Data.txt";
+            string path = @"Data2.xml";
             List<PolyLine> lines = new List<PolyLine>();
             lines = (List<PolyLine>)PolyLineIOManager.Load(path);
             Assert.IsTrue(lines.Count != 0);
@@ -105,11 +107,13 @@ namespace UnitTests
         [TestMethod]
         public void PointCollectionToStrConverterTest2()
         {
-            string strPoints = "1;1";
+            string strPoints = "1;1\n";
             PointCollectionToStringConverter conv = new PointCollectionToStringConverter();
             PointCollection points = new PointCollection();
             points.Add(new System.Windows.Point(1, 1));
-            Assert.AreEqual(points, conv.ConvertBack(strPoints, typeof(PointCollection), null, null));
+            string buff = (string)conv.Convert(points, string.Empty.GetType(), null, null);
+            Assert.IsTrue(strPoints == buff);
         }
     }
 }
+

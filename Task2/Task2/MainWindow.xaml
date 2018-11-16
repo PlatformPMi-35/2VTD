@@ -26,6 +26,7 @@
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
                     <Polyline Points="{Binding Pc}" Stroke="{Binding Brush}" StrokeThickness="3" MouseDown="Polyline_MouseDown" MouseUp="Polyline_MouseUp" MouseEnter="Polyline_MouseEnter" MouseLeave="Polyline_MouseLeave" />
+                    <!--тут ми прив'язуємо наш масив точок (Рс) до масиву точок дефолтного об'єкту Polyline-->
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>
@@ -52,6 +53,7 @@
             Grid.Row="1" Click="ClearButton_Click"               
         />
 
+         <!--список з назвами ламаниз-->
         <ListBox x:Name="List"
             Margin="10,25,10,35" 
             Grid.Column="1" Grid.Row="1" SelectionChanged="List_SelectionChanged"  
@@ -65,10 +67,9 @@
             VerticalAlignment="Bottom" Grid.Row="1" Margin="10,0,10,10" Click="EditButton_Click"           
         />
 
-
+        <!--файл меню-->
         <Menu VerticalAlignment="Top" Background="{x:Null}" Height="20">
             <MenuItem Header="File" >
-                <MenuItem Header="New" InputGestureText="Ctrl+Shift+N"/>
                 <MenuItem Header="Open" InputGestureText="Ctrl+O" Click="Open_Click"/>
                 <MenuItem Header="Save as" InputGestureText="Ctrl+S" Click="Save_as_Click"/>
                 <MenuItem Header="Exit" InputGestureText="Alt+F4" Click="Exit_Click"/>

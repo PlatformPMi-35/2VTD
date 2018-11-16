@@ -25,17 +25,17 @@
             }
             catch (Exception ex)
             {
-                if(ex.Message == "Invalid Brush Argument")
+                if (ex.Message == "Invalid Brush Argument")
                 {
-                    throw new Exception("Invalid Color Argument");
+                    MessageBox.Show("Invalid Color Argument");
                 }
                 else
                 {
-                    throw new Exception("Unexpected error occured");
+                    MessageBox.Show("Unexpected error occured");
                 }
+
                 throw;
             }
-            
         }
 
         /// <summary>
@@ -50,8 +50,8 @@
         /// <param name="sender">Just an Object.</param>
         /// <param name="e">RoutedEventArgs e.</param>
         private void Button_Click(object sender, RoutedEventArgs e)
-        {                       
-            this.Close();          
+        {
+            this.Close();
         }
     }
 }

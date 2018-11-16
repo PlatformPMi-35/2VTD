@@ -3,19 +3,20 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using System.Runtime.Serialization;
     using System.Windows;
     using System.Windows.Media;
-   
+    using System.Xml.Serialization;
+
     /// <summary>
     /// Class represents Polyline with Color.
     /// </summary>
-    [DataContract]
+    [Serializable]
     public class PolyLine
     {
         /// <summary>
         /// Color of the Line.
         /// </summary>
+        [NonSerialized]
         private Brush brush;
 
         /// <summary>
@@ -57,10 +58,16 @@
         }
 
         /// <summary>
+        /// Initializes a new instance of the <see cref="PolyLine" /> class.
+        /// </summary>
+        public PolyLine() : this(null)
+        {
+        }
+
+        /// <summary>
         /// Gets or sets <see cref="PointCollection"/> for <see cref="PolyLine"/>.
         /// </summary>
         /// <value><see cref="PointCollection"/> for <see cref="PolyLine"/>.</value>
-        [DataMember]
         public PointCollection Pc { get; set; }
 
         /// <summary>
@@ -68,7 +75,7 @@
         /// </summary>
         /// <value><see cref="System.Windows.Media.Brush"/> for <see cref="PolyLine"/>.
         /// </value>
-        [DataMember]
+        [XmlIgnore]
         public Brush Brush
         {
             get
