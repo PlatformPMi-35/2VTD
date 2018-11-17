@@ -7,8 +7,8 @@ namespace Task3.Models
         public DateTime? MinDateOfPosting { get; set; }
         public DateTime? MaxDateOfPosting { get; set; }
 
-        public string From { get; set; }
-        public string To { get; set; }
+        public Destination From { get; set; }
+        public Destination To { get; set; }
         public DateTime? MinDateOfLoading { get; set; }
         public DateTime? MaxDateOfLoading { get; set; }
 
@@ -20,7 +20,7 @@ namespace Task3.Models
         public double? MaxVolume { get; set; }
 
         public Filter(DateTime? MinDateOfPosting = null, DateTime? MaxDateOfPosting = null,
-            string From = null, string To = null,
+            Destination From = null, Destination To = null,
             DateTime? MinDateOfLoading = null, DateTime? MaxDateOfLoading = null,
             VehicleType? Type = null,
             double? MinWeight = null, double? MaxWeight = null,

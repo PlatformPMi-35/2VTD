@@ -9,8 +9,8 @@ namespace Task3.Models
         public DateTime DateOfPosting { get; set; }
 
         //Information about the loading
-        public string From { get; set; }
-        public string To { get; set; }
+        public Destination From { get; set; }
+        public Destination To { get; set; }
         public DateTime DateOfLoading { get; set; }
 
         //Information about the vehicle
