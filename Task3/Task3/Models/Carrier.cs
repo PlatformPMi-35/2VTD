@@ -1,5 +1,8 @@
 ﻿namespace Task3.Models
 {
+    using System;
+
+    [Serializable]
     class Carrier
     {
         public string Name { get; set; }

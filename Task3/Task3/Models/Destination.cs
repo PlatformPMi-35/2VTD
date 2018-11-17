@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Task3.Models
+﻿namespace Task3.Models
 {
+    using System;
+
+    [Serializable]
     public class Destination
     {
         public string Country { get; set; }

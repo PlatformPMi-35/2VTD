@@ -1,7 +1,8 @@
-﻿using System;
-
-namespace Task3.Models
+﻿namespace Task3.Models
 {
+    using System;
+
+    [Serializable]
     class Offer
     {
         //Information about the offer

@@ -1,5 +1,8 @@
 ﻿namespace Task3.Models
 {
+    using System;
+
+    [Serializable]
     public class Vehicle
     {
         private double weight;
