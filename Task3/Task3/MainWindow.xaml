@@ -8,7 +8,7 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <Label Content="Search for carriers from:" VerticalAlignment="Top" HorizontalAlignment="Center"/>
-        <Grid HorizontalAlignment="Center" Height="321" Margin="0,31,0,0" VerticalAlignment="Top" Width="467">
+        <Grid HorizontalAlignment="Center" Height="259" Margin="162,31,162,0" VerticalAlignment="Top" Width="468">
             <Label Content="From:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
             <TextBox HorizontalAlignment="Left" Height="23" Margin="53,13,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140"/>
             <TextBox HorizontalAlignment="Left" Height="23" Margin="53,41,0,0" TextWrapping="Wrap" Text="any region" VerticalAlignment="Top" Width="140" IsEnabled="False"/>
@@ -20,24 +20,26 @@
             <DatePicker HorizontalAlignment="Left" Margin="93,130,0,0" VerticalAlignment="Top"/>
             <Label Content="to" HorizontalAlignment="Left" Margin="67,128,0,0" VerticalAlignment="Top"/>
             <Label Content="Vehicle:" HorizontalAlignment="Left" Margin="10,159,0,0" VerticalAlignment="Top"/>
-            <Expander Header="Any" HorizontalAlignment="Left" Height="89" Margin="67,159,0,0" VerticalAlignment="Top" Width="126">
+            <Expander Header="Any" Margin="67,159,0,0" HorizontalAlignment="Left" Width="126" Height="100" VerticalAlignment="Top" Panel.ZIndex="1">
                 <Grid Background="#FFE5E5E5"/>
             </Expander>
-            <Label Content="Weight:" HorizontalAlignment="Left" Margin="10,191,0,0" VerticalAlignment="Top" Width="50"/>
-            <Label Content="from" HorizontalAlignment="Left" Margin="65,192,0,0" VerticalAlignment="Top"/>
-            <Label Content="to" HorizontalAlignment="Left" Margin="79,222,0,0" VerticalAlignment="Top"/>
-            <TextBox HorizontalAlignment="Left" Height="23" Margin="105,195,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="69" Text="{Binding Value, ElementName=slider, Mode=TwoWay, StringFormat=\{0:F1\}, UpdateSourceTrigger=PropertyChanged}"/>
-            <Label Content="t" HorizontalAlignment="Left" Margin="179,195,0,0" VerticalAlignment="Top" Width="14" Height="22"/>
-            <TextBox HorizontalAlignment="Left" Height="23" Margin="105,222,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="69" Text="{Binding Value, ElementName=slider1, Mode=TwoWay, StringFormat=\{0:F\}, UpdateSourceTrigger=PropertyChanged}"/>
-            <Label Content="t" HorizontalAlignment="Left" Margin="179,222,0,0" VerticalAlignment="Top" Width="14" Height="22"/>
-            <Slider x:Name="slider" HorizontalAlignment="Left" Height="21" Margin="10,253,0,0" VerticalAlignment="Top" Width="183" Minimum="0.1" Maximum="30" IsSelectionRangeEnabled="True" SelectionEnd="{Binding Value, BindsDirectlyToSource=True, ElementName=slider1, Mode=OneWay, StringFormat=\{0:F\}, ValidatesOnDataErrors=True, ValidatesOnExceptions=True}" ScrollViewer.CanContentScroll="True"/>
-            <Slider x:Name="slider1" HorizontalAlignment="Left" Height="19" Margin="10,279,0,0" VerticalAlignment="Top" Width="183" Maximum="30" Value="30" SelectionEnd="30" Minimum="0.1" SelectionStart="{Binding Value, BindsDirectlyToSource=True, ElementName=slider, Mode=OneWay, StringFormat=\{0:F\}}" IsSelectionRangeEnabled="True" ScrollViewer.CanContentScroll="True"/>
+            <Label Content="Weight:" HorizontalAlignment="Left" Margin="10,0,0,42" VerticalAlignment="Bottom" Width="50"/>
+            <Label Content="from" HorizontalAlignment="Left" Margin="65,0,0,41" VerticalAlignment="Bottom"/>
+            <Label Content="to" HorizontalAlignment="Left" Margin="79,0,0,11" VerticalAlignment="Bottom"/>
+            <TextBox HorizontalAlignment="Left" Margin="105,0,0,41" TextWrapping="Wrap" Width="74" Height="23" VerticalAlignment="Bottom"/>
+            <Label Content="t" HorizontalAlignment="Left" Margin="179,0,0,42" VerticalAlignment="Bottom" Width="14" Height="22"/>
+            <TextBox HorizontalAlignment="Left" Margin="105,0,0,14" TextWrapping="Wrap" Width="74" Height="23" VerticalAlignment="Bottom"/>
+            <Label Content="t" HorizontalAlignment="Left" Margin="179,0,0,15" Width="14" Height="22" VerticalAlignment="Bottom"/>
             <Label Content="To:" Margin="0,13,163,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="25"/>
             <TextBox Height="23" Margin="0,13,10,0" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Right" Width="140"/>
             <TextBox Height="23" Margin="0,41,10,0" TextWrapping="Wrap" Text="any region" VerticalAlignment="Top" IsEnabled="False" HorizontalAlignment="Right" Width="140"/>
             <Label Content="City:" HorizontalAlignment="Right" Margin="0,66,155,0" VerticalAlignment="Top"/>
             <TextBox Height="23" Margin="0,69,10,0" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Right" Width="140"/>
-            <Button Content="Button" Margin="0,41,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Width="49"/>
+            <Image HorizontalAlignment="Center" Height="20" Margin="0,10,0,0" VerticalAlignment="Top" Width="20" Source="Resourses/ReverseArrow.png">
+                <Image.OpacityMask>
+                    <ImageBrush ImageSource="Resourses/ReverseArrow.png" Stretch="Uniform"/>
+                </Image.OpacityMask>
+            </Image>
         </Grid>
     </Grid>
 </Window>
