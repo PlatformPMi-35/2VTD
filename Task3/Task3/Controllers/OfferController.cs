@@ -1,17 +1,17 @@
-﻿using System.Collections.Generic;
-using Task3.Models;
-
-namespace Task3.Controlers
+﻿namespace Task3.Controllers
 {
-    class OfferControler
+    using System.Collections.Generic;
+    using Task3.Models;
+
+    class OfferController
     {
         List<Offer> offers;
 
-        public OfferControler(List<Offer> lo)
+        public OfferController(List<Offer> lo)
         {
             offers = lo;
         }
-        public OfferControler() : this(new List<Offer>()) { }
+        public OfferController() : this(new List<Offer>()) { }
 
         public void AddOffers(Offer offer)
         {

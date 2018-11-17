@@ -1,7 +1,7 @@
-﻿using System;
-
-namespace Task3.Models
+﻿namespace Task3.Models
 {
+    using System;
+
     public class Filter
     {
         public DateTime? MinDateOfPosting { get; set; }

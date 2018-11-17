@@ -63,7 +63,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Controlers\OfferControler.cs" />
+    <Compile Include="Controllers\IOConroller.cs" />
+    <Compile Include="Controllers\OfferController.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -71,6 +72,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\Carrier.cs" />
+    <Compile Include="Models\Destination.cs" />
     <Compile Include="Models\Filter.cs" />
     <Compile Include="Models\Offer.cs" />
     <Compile Include="Models\Vehicle.cs" />
