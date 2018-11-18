@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Task3.Controllers;
+using Task3.Models;
 
 namespace Task3
 {
@@ -23,6 +25,8 @@ namespace Task3
         public MainWindow()
         {
             InitializeComponent();
+
+            //IOConroller.GenerateRandomOffers();
         }
     }
 }

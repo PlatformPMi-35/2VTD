@@ -98,12 +98,22 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <None Include="Resourses\Offres.dat" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resourses\ReverseArrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resourses\Countries.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resourses\Names.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resourses\PhoneNumbers.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
