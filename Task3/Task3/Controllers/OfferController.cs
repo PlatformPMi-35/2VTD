@@ -1,5 +1,6 @@
 ﻿namespace Task3.Controllers
 {
+    using System;
     using System.Collections.Generic;
     using Task3.Models;
 
@@ -13,12 +14,12 @@
         }
         public OfferController() : this(new List<Offer>()) { }
 
-        public void AddOffers(Offer offer)
+        public void AddOffer(Offer offer)
         {
             offers.Add(offer);
         }
 
-        public void RemoveOffers(Offer offer)
+        public void RemoveOffer(Offer offer)
         {
             offers.Remove(offer);
         }
@@ -120,6 +121,6 @@
             }
 
             return res;
-        }
+        } 
     }
 }

@@ -9,7 +9,6 @@
         private double volume;
 
         public VehicleType Type { get; set; }
-        public string NumberPlate { get; set; }
 
         public double Weight
         {
@@ -40,9 +39,8 @@
             }
         }
 
-        public Vehicle(string NumberPlate, VehicleType Type, double Weight, double Volume)
+        public Vehicle(VehicleType Type, double Weight, double Volume)
         {
-            this.NumberPlate = NumberPlate;
             this.Type = Type;
             this.Weight = Weight;
             this.Volume = Volume;

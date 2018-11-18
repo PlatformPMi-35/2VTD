@@ -9,5 +9,13 @@
         public string PhoneNumber { get; set; }
         public string Email { get; set; }
         public Vehicle Vehicle { get; set; }
+
+        public Carrier(string Name, string PhoneNumber, string Email, Vehicle Vehicle)
+        {
+            this.Name = Name;
+            this.PhoneNumber = PhoneNumber;
+            this.Email = Email;
+            this.Vehicle = Vehicle;
+        }
     }
 }
