@@ -68,7 +68,7 @@
 
                     <GridViewColumn Header="Weight"  DisplayMemberBinding="{Binding VehicleInfo.Weight, StringFormat={}{0:F0}}" />
 
-                    <GridViewColumn Header="Carrier Info"  DisplayMemberBinding="{Binding CarrierInfo}" />
+                    <GridViewColumn Header="Carrier Info" DisplayMemberBinding="{Binding CarrierInfo}" />
                 </GridView>
             </ListView.View>
 
