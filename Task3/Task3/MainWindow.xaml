@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Task3"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="480" MinWidth="480" MinHeight="450">
     <Grid>
         <Label Content="Search for carriers from:" VerticalAlignment="Top" HorizontalAlignment="Center"/>
-        <Grid HorizontalAlignment="Center" Height="259" Margin="162,31,162,0" VerticalAlignment="Top" Width="468">
+        <Grid Height="260" Margin="0,31,0,0" VerticalAlignment="Top" MinWidth="470" MinHeight="260" HorizontalAlignment="Center" Width="470">
             <Label Content="From:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
             <TextBox HorizontalAlignment="Left" Height="23" Margin="53,13,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140"/>
             <TextBox HorizontalAlignment="Left" Height="23" Margin="53,41,0,0" TextWrapping="Wrap" Text="any region" VerticalAlignment="Top" Width="140" IsEnabled="False"/>
@@ -40,11 +40,11 @@
                     <ImageBrush ImageSource="Resourses/ReverseArrow.png" Stretch="Uniform"/>
                 </Image.OpacityMask>
             </Image>
-            <Button Content="Find" Width="50" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,0,0"/>
+            <Button Content="Find" Width="50" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,10,1"/>
 
         </Grid>
 
-        <ListView x:Name="dataList" Margin="10,295,10,10" >
+        <ListView x:Name="dataList" Margin="10,296,10,10" >
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <WrapPanel>
