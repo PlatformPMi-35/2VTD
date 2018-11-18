@@ -40,6 +40,36 @@
                     <ImageBrush ImageSource="Resourses/ReverseArrow.png" Stretch="Uniform"/>
                 </Image.OpacityMask>
             </Image>
+            
         </Grid>
+        <ListView x:Name="dataList" Margin="10,295,10,10" AutomationProperties.IsColumnHeader="True">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <WrapPanel>
+                        <TextBlock Text="Date of posting: "/>
+                        <TextBlock Text="{Binding DateOfPosting, StringFormat={}{0:d}}"/>
+
+                        <TextBlock Text="Date: "/>
+                        <TextBlock Text="{Binding DateOfLoading, StringFormat={}{0:M}}"/>
+
+                        <TextBlock Text="Vehicle: " />
+                        <TextBlock Text="{Binding VehicleInfo.Type}"/>
+
+                        <TextBlock Text="From: " />
+                        <TextBlock Text="{Binding From}" FontWeight="Bold" />
+
+                        <TextBlock Text="To: " />
+                        <TextBlock Text="{Binding To}" FontWeight="Bold" />
+
+                        <TextBlock Text="Vehicle Info: " />
+                        <TextBlock Text="{Binding VehicleInfo}"/>
+
+                        <TextBlock Text="Carrier Info: " />
+                        <TextBlock Text="{Binding CarrierInfo}"/>
+
+                    </WrapPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </Grid>
 </Window>
