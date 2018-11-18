@@ -21,8 +21,9 @@
 
             <Label Content="Vehicle:" HorizontalAlignment="Left" Margin="9,105,0,0" VerticalAlignment="Top"/>
             <ComboBox x:Name="expander1"  Margin="64,106,0,0" Height="25" VerticalAlignment="Top" Panel.ZIndex="1" HorizontalAlignment="Left" Width="128" SelectedIndex="0">
-                <TextBlock Text="Any" TextDecorations="Underline" Foreground="Blue" Cursor="Hand" />
+                <TextBlock Text="Any" TextDecorations="Underline" Foreground="Blue" Cursor="Hand"/>
                 <TextBlock Text="Curtainsider" TextDecorations="Underline" Foreground="Blue" Cursor="Hand" />
+                <TextBlock Text="Box" TextDecorations="Underline" Foreground="Blue" Cursor="Hand" />
                 <TextBlock Text="Minibus" TextDecorations="Underline" Foreground="Blue" Cursor="Hand" />
                 <TextBlock Text="Refridgerator" TextDecorations="Underline" Foreground="Blue" Cursor="Hand" />
                 <TextBlock Text="Dropside" TextDecorations="Underline" Foreground="Blue" Cursor="Hand" />
@@ -55,7 +56,7 @@
         <ListView x:Name="dataList" Margin="10,231,10,10" >
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Date of posting" DisplayMemberBinding="{Binding DateOfPosting, StringFormat={}{0:d}}" />
+                    <GridViewColumn Header="Date of posting" DisplayMemberBinding="{Binding DateOfPosting, StringFormat={}{0:d}}"  />
 
                     <GridViewColumn Header="Date"  DisplayMemberBinding="{Binding DateOfLoading, StringFormat={}{0:M}}" />
 
@@ -65,7 +66,7 @@
 
                     <GridViewColumn Header="To"  DisplayMemberBinding="{Binding To}" />
 
-                    <GridViewColumn Header="Vehicle Info"  DisplayMemberBinding="{Binding VehicleInfo.Weight, StringFormat={}{0:F0}}" />
+                    <GridViewColumn Header="Weight"  DisplayMemberBinding="{Binding VehicleInfo.Weight, StringFormat={}{0:F0}}" />
 
                     <GridViewColumn Header="Carrier Info"  DisplayMemberBinding="{Binding CarrierInfo}" />
                 </GridView>
