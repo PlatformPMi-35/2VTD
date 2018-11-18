@@ -31,11 +31,7 @@ namespace Task3
         {
             var v = fromCountry.Text;
             fromCountry.Text = toCountry.Text;
-            toCountry.Text = v;
-
-            v = fromCity.Text;
-            fromCity.Text = toCity.Text;
-            toCity.Text = v;
+            toCountry.Text = v;        
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
