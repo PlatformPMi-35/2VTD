@@ -40,9 +40,11 @@
                     <ImageBrush ImageSource="Resourses/ReverseArrow.png" Stretch="Uniform"/>
                 </Image.OpacityMask>
             </Image>
-            
+            <Button Content="Find" Width="50" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,0,0"/>
+
         </Grid>
-        <ListView x:Name="dataList" Margin="10,295,10,10" AutomationProperties.IsColumnHeader="True">
+
+        <ListView x:Name="dataList" Margin="10,295,10,10" >
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <WrapPanel>
@@ -70,6 +72,8 @@
                     </WrapPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
+
         </ListView>
+
     </Grid>
 </Window>
