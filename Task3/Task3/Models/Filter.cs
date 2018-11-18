@@ -35,6 +35,11 @@
             this.MinDateOfLoading = MinDateOfLoading;
             this.MaxDateOfLoading = MaxDateOfLoading;
 
+            if ((int)Type == -1)
+            {
+                Type = null;
+            }
+
             this.Type = Type;
 
             this.MinWeight = MinWeight;
