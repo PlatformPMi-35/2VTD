@@ -6,7 +6,6 @@
     public class Vehicle
     {
         private double weight;
-        private double volume;
 
         public VehicleType Type { get; set; }
 
@@ -24,26 +23,11 @@
                 }
             }
         }
-        public double Volume
-        {
-            get
-            {
-                return volume;
-            }
-            set
-            {
-                if (value > 0)
-                {
-                    volume = value;
-                }
-            }
-        }
 
-        public Vehicle(VehicleType Type, double Weight, double Volume)
+        public Vehicle(VehicleType Type, double Weight)
         {
             this.Type = Type;
             this.Weight = Weight;
-            this.Volume = Volume;
         }
 
         public override string ToString()

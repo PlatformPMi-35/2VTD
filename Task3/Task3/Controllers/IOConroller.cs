@@ -56,7 +56,7 @@
                 string name = RandomString(names, rnd);
 
                 Offer o = new Offer(1000 + i, dates[0], RandomString(countries, rnd), RandomString(countries, rnd), dates[1],
-                    (VehicleType)rnd.Next(0, 8), RandomDouble(0, 30, rnd), RandomDouble(0, 130, rnd), name, RandomString(PhoneNums, rnd), RandomEmail(name, rnd));
+                    (VehicleType)rnd.Next(0, 8), RandomDouble(0.1, 30, rnd), name, RandomString(PhoneNums, rnd), RandomEmail(name, rnd));
                 oc.AddOffer(o);
             }
 

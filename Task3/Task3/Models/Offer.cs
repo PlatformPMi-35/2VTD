@@ -33,11 +33,11 @@
         }
         public Offer(
                     int Id, DateTime DateOfPosting, string From, string To, DateTime DateOfLoading,
-                    VehicleType Type, double Weight, double Volume,
+                    VehicleType Type, double Weight,
                     string Name, string PhoneNumber, string Email
                     ) : this(
                             Id, DateOfPosting, From, To, DateOfLoading,
-                            new Vehicle(Type, Weight, Volume), new Carrier(Name, PhoneNumber, Email, new Vehicle(Type, Weight, Volume))
+                            new Vehicle(Type, Weight), new Carrier(Name, PhoneNumber, Email, new Vehicle(Type, Weight))
                             )
         { }
         

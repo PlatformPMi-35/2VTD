@@ -102,21 +102,6 @@
                     }
                 }
 
-                if (filter.MinVolume != null)
-                {
-                    if (o.VehicleInfo.Volume < filter.MinVolume)
-                    {
-                        continue;
-                    }
-                }
-                if (filter.MaxVolume != null)
-                {
-                    if (o.VehicleInfo.Volume > filter.MaxVolume)
-                    {
-                        continue;
-                    }
-                }
-
                 res.Add(o);
             }
 
