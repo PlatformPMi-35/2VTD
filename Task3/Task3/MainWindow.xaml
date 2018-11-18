@@ -8,43 +8,57 @@
         Title="MainWindow" Height="450" Width="480" MinWidth="480" MinHeight="450">
     <Grid>
         <Label Content="Search for carriers from:" VerticalAlignment="Top" HorizontalAlignment="Center"/>
-        <Grid Height="260" Margin="0,31,0,0" VerticalAlignment="Top" MinWidth="470" MinHeight="260" HorizontalAlignment="Center" Width="470">
+        <Grid Height="228" Margin="1,31,1,0" VerticalAlignment="Top" MinWidth="470" MinHeight="200" HorizontalAlignment="Center" Width="470">
             <Label Content="From:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-            <TextBox HorizontalAlignment="Left" Height="23" Margin="53,13,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140"/>
-            <TextBox HorizontalAlignment="Left" Height="23" Margin="53,41,0,0" TextWrapping="Wrap" Text="any region" VerticalAlignment="Top" Width="140" IsEnabled="False"/>
-            <Label Content="City:" HorizontalAlignment="Left" Margin="10,66,0,0" VerticalAlignment="Top"/>
-            <TextBox HorizontalAlignment="Left" Height="23" Margin="53,69,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140"/>
-            <Label Content="Date:" HorizontalAlignment="Left" Margin="10,97,0,0" VerticalAlignment="Top"/>
-            <DatePicker HorizontalAlignment="Left" Margin="93,99,0,0" VerticalAlignment="Top"/>
-            <Label Content="from" HorizontalAlignment="Left" Margin="53,97,0,0" VerticalAlignment="Top"/>
-            <DatePicker HorizontalAlignment="Left" Margin="93,130,0,0" VerticalAlignment="Top"/>
-            <Label Content="to" HorizontalAlignment="Left" Margin="67,128,0,0" VerticalAlignment="Top"/>
-            <Label Content="Vehicle:" HorizontalAlignment="Left" Margin="10,159,0,0" VerticalAlignment="Top"/>
-            <Expander Header="Any" Margin="67,159,0,0" HorizontalAlignment="Left" Width="126" Height="100" VerticalAlignment="Top" Panel.ZIndex="1">
-                <Grid Background="#FFE5E5E5"/>
-            </Expander>
-            <Label Content="Weight:" HorizontalAlignment="Left" Margin="10,0,0,42" VerticalAlignment="Bottom" Width="50"/>
-            <Label Content="from" HorizontalAlignment="Left" Margin="65,0,0,41" VerticalAlignment="Bottom"/>
-            <Label Content="to" HorizontalAlignment="Left" Margin="79,0,0,11" VerticalAlignment="Bottom"/>
-            <TextBox HorizontalAlignment="Left" Margin="105,0,0,41" TextWrapping="Wrap" Width="74" Height="23" VerticalAlignment="Bottom"/>
-            <Label Content="t" HorizontalAlignment="Left" Margin="179,0,0,42" VerticalAlignment="Bottom" Width="14" Height="22"/>
-            <TextBox HorizontalAlignment="Left" Margin="105,0,0,14" TextWrapping="Wrap" Width="74" Height="23" VerticalAlignment="Bottom"/>
-            <Label Content="t" HorizontalAlignment="Left" Margin="179,0,0,15" Width="14" Height="22" VerticalAlignment="Bottom"/>
-            <Label Content="To:" Margin="0,13,163,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="25"/>
-            <TextBox Height="23" Margin="0,13,10,0" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Right" Width="140"/>
-            <TextBox Height="23" Margin="0,41,10,0" TextWrapping="Wrap" Text="any region" VerticalAlignment="Top" IsEnabled="False" HorizontalAlignment="Right" Width="140"/>
-            <Label Content="City:" HorizontalAlignment="Right" Margin="0,66,155,0" VerticalAlignment="Top"/>
-            <TextBox Height="23" Margin="0,69,10,0" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Right" Width="140"/>
-            <Image HorizontalAlignment="Center" Height="20" Margin="0,10,0,0" VerticalAlignment="Top" Width="20" Source="Resourses/ReverseArrow.png">
+            <TextBox x:Name="fromCountry" HorizontalAlignment="Left" Height="23" Margin="53,13,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140"/>
+
+            <Label Content="City:" HorizontalAlignment="Left" Margin="10,38,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="fromCity" HorizontalAlignment="Left" Height="23" Margin="53,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140"/>
+
+            <Label Content="Date:" HorizontalAlignment="Left" Margin="10,69,0,0" VerticalAlignment="Top"/>
+            <Label Content="from" HorizontalAlignment="Left" Margin="53,69,0,0" VerticalAlignment="Top"/>
+            <DatePicker x:Name="dateFrom" HorizontalAlignment="Left" Margin="93,71,0,0" VerticalAlignment="Top"/>
+
+            <Label Content="to" HorizontalAlignment="Left" Margin="67,100,0,0" VerticalAlignment="Top"/>
+            <DatePicker x:Name="dateTo" HorizontalAlignment="Left" Margin="93,102,0,0" VerticalAlignment="Top"/>
+
+            <Label Content="Vehicle:" HorizontalAlignment="Left" Margin="10,131,0,0" VerticalAlignment="Top"/>
+            <ComboBox x:Name="expander1"  Margin="65,132,0,0" Height="25" VerticalAlignment="Top" Panel.ZIndex="1" HorizontalAlignment="Left" Width="128" SelectedIndex="0">
+                <TextBlock Text="Any" TextDecorations="Underline" Foreground="Blue" Cursor="Hand" />
+                <TextBlock Text="Curtainsider" TextDecorations="Underline" Foreground="Blue" Cursor="Hand" />
+                <TextBlock Text="Minibus" TextDecorations="Underline" Foreground="Blue" Cursor="Hand" />
+                <TextBlock Text="Refridgerator" TextDecorations="Underline" Foreground="Blue" Cursor="Hand" />
+                <TextBlock Text="Dropside" TextDecorations="Underline" Foreground="Blue" Cursor="Hand" />
+                <TextBlock Text="Platform" TextDecorations="Underline" Foreground="Blue" Cursor="Hand" />
+                <TextBlock Text="Tank" TextDecorations="Underline" Foreground="Blue" Cursor="Hand" />
+                <TextBlock Text="Special" TextDecorations="Underline" Foreground="Blue" Cursor="Hand" />
+            </ComboBox>
+
+            <Label Content="Weight:" HorizontalAlignment="Left" Margin="10,162,0,0" Width="50" Height="26" VerticalAlignment="Top"/>
+            <Label Content="from" HorizontalAlignment="Left" Margin="65,162,0,0" VerticalAlignment="Top"/>
+            <Label Content="to" HorizontalAlignment="Left" Margin="79,196,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="weightFrom" HorizontalAlignment="Left" Margin="100,165,0,0" TextWrapping="Wrap" Width="74" Height="23" VerticalAlignment="Top"/>
+            <Label Content="t" HorizontalAlignment="Left" Margin="174,196,0,0" VerticalAlignment="Top" Width="14" Height="22"/>
+
+            <TextBox x:Name="weightTo" HorizontalAlignment="Left" Margin="100,195,0,0" TextWrapping="Wrap" Width="74" Height="23" VerticalAlignment="Top"/>
+            <Label Content="t" HorizontalAlignment="Left" Margin="174,169,0,0" Width="14" Height="22" VerticalAlignment="Top"/>
+
+            <Label Content="To:" Margin="0,13,163,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="25" />
+            <TextBox x:Name="toCountry" Height="23" Margin="0,13,10,0" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Right" Width="140" />
+
+            <Label Content="City:" HorizontalAlignment="Right" Margin="0,38,155,0" VerticalAlignment="Top" />
+            <TextBox x:Name="toCity" Height="23" Margin="0,41,10,0" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Right" Width="140" />
+
+            <Image HorizontalAlignment="Center" Height="20" Margin="0,10,0,0" VerticalAlignment="Top" Width="20" Source="Resourses/ReverseArrow.png" MouseDown="Image_MouseDown" >
                 <Image.OpacityMask>
                     <ImageBrush ImageSource="Resourses/ReverseArrow.png" Stretch="Uniform"/>
                 </Image.OpacityMask>
             </Image>
-            <Button Content="Find" Width="50" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,10,1"/>
+            <Button Content="Find" Width="50" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,10,0" Click="Button_Click"/>
 
         </Grid>
 
-        <ListView x:Name="dataList" Margin="10,296,10,10" >
+        <ListView x:Name="dataList" Margin="10,264,10,10" >
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <WrapPanel>
