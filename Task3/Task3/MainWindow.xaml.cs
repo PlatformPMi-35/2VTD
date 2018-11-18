@@ -25,6 +25,7 @@ namespace Task3
         public MainWindow()
         {
             InitializeComponent();
+            IOConroller.GenerateRandomOffers();
         }
         
         private void Image_MouseDown(object sender, MouseButtonEventArgs e)
