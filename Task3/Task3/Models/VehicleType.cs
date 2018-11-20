@@ -4,6 +4,9 @@ using System.Text;
 
 namespace Task3.Models
 {
+    /// <summary>
+    /// Types of vehicle
+    /// </summary>
     public enum VehicleType
     {
         Curtainsider,
