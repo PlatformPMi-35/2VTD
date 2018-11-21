@@ -66,7 +66,7 @@
                 List<Offer> offers = new List<Offer>();
                 using (FileStream fs = new FileStream(path, FileMode.OpenOrCreate))
                 {
-                    offers = (List<Offer>)formatter.Deserialize(fs);
+                    offers.Add((Offer)formatter.Deserialize(fs));
                 }
 
                 return offers;
