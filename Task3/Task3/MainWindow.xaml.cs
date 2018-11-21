@@ -1,11 +1,11 @@
-﻿using System;
-using System.Windows;
-using System.Windows.Input;
-using Task3.Controllers;
-using Task3.Models;
-
-namespace Task3
+﻿namespace Task3
 {
+    using System;
+    using System.Windows;
+    using System.Windows.Input;
+    using Task3.Controllers;
+    using Task3.Models;
+
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
@@ -18,7 +18,7 @@ namespace Task3
         {
             try
             {
-                InitializeComponent();
+                this.InitializeComponent();
                 IOConroller.GenerateRandomOffers();
             }
             catch (Exception)
@@ -56,17 +56,14 @@ namespace Task3
             try
             {
                 Filter f = new Filter(
-                From: fromCountry.Text != string.Empty ? fromCountry.Text : null,
-                To: toCountry.Text != string.Empty ? toCountry.Text : null,
-                MinDateOfLoading: dateFrom.SelectedDate,
-                MaxDateOfLoading: dateTo.SelectedDate,
-                Type: (VehicleType?)(expander1.SelectedIndex - 1),
-                MinWeight: double.TryParse(weightFrom.Text, out double res1) ? res1 as double? : null,
-                MaxWeight: double.TryParse(weightTo.Text, out double res2) ? res2 as double? : null);
-
-
+                from: fromCountry.Text != string.Empty ? fromCountry.Text : null,
+                to: toCountry.Text != string.Empty ? toCountry.Text : null,
+                minDateOfLoading: dateFrom.SelectedDate,
+                maxDateOfLoading: dateTo.SelectedDate,
+                type: (VehicleType?)(expander1.SelectedIndex - 1),
+                minWeight: double.TryParse(weightFrom.Text, out double res1) ? res1 as double? : null,
+                maxWeight: double.TryParse(weightTo.Text, out double res2) ? res2 as double? : null);
                 OfferController offerController = new OfferController(IOConroller.LoadOffer(@"../../Resourses/Offres.dat"));
-
                 dataList.ItemsSource = offerController.GetOffers(f);
             }
             catch (Exception)

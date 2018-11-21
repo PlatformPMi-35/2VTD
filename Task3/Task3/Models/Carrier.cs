@@ -6,8 +6,23 @@
     /// Represent Carrier
     /// </summary>
     [Serializable]
-    class Carrier
-    {
+    public class Carrier
+    {       
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Carrier" /> class.
+        /// </summary>
+        /// <param name="name"> Name of Carrier</param>
+        /// <param name="phoneNumber">Phone number of Carrier</param>
+        /// <param name="email">Email of Carrier</param>
+        /// <param name="vehicle">Vehicle of Carrier</param>
+        public Carrier(string name, string phoneNumber, string email, Vehicle vehicle)
+        {
+            this.Name = name;
+            this.PhoneNumber = phoneNumber;
+            this.Email = email;
+            this.Vehicle = vehicle;
+        }
+
         /// <summary>
         /// Gets or sets <see cref="Name"/> for <see cref="Carrier"/>.
         /// </summary>
@@ -33,27 +48,12 @@
         public Vehicle Vehicle { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Carrier" /> class.
-        /// </summary>
-        /// <param name="Name"> Name of Carrier</param>
-        /// <param name="PhoneNumber">Phone number of Carrier</param>
-        /// <param name="Email">Email of Carrier</param>
-        /// <param name="Vehicle">Vehicle of Carrier</param>
-        public Carrier(string Name, string PhoneNumber, string Email, Vehicle Vehicle)
-        {
-            this.Name = Name;
-            this.PhoneNumber = PhoneNumber;
-            this.Email = Email;
-            this.Vehicle = Vehicle;
-        }
-
-        /// <summary>
         /// To String Method for Carrier
         /// </summary>
         /// <returns>String with Carrier info</returns>
         public override string ToString()
         {
-            return string.Format("{0} {1} {2}", Name, PhoneNumber, Email);
+            return string.Format("{0} {1} {2}", this.Name, this.PhoneNumber, this.Email);
         }
     }
 }

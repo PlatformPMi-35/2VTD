@@ -14,6 +14,17 @@
         private double weight;
 
         /// <summary>
+        /// Initializes a new instance of the <see cref="Vehicle" /> class.
+        /// </summary>
+        /// <param name="type">Type of vehicle</param>
+        /// <param name="weight">Vehicle carrying capacity</param>
+        public Vehicle(VehicleType type, double weight)
+        {
+            this.Type = type;
+            this.Weight = weight;
+        }
+
+        /// <summary>
         /// Gets or sets <see cref="Type"/> for <see cref="Vehicle"/>.
         /// </summary>
         public VehicleType Type { get; set; }
@@ -25,26 +36,16 @@
         {
             get
             {
-                return weight;
+                return this.weight;
             }
+
             set
             {
                 if (value > 0)
                 {
-                    weight = value;
+                    this.weight = value;
                 }
             }
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Vehicle" /> class.
-        /// </summary>
-        /// <param name="Type">Type of vehicle</param>
-        /// <param name="Weight">Vehicle carrying capacity</param>
-        public Vehicle(VehicleType Type, double Weight)
-        {
-            this.Type = Type;
-            this.Weight = Weight;
         }
 
         /// <summary>
@@ -53,7 +54,7 @@
         /// <returns>String with Vehicle info</returns>
         public override string ToString()
         {
-            return string.Format("{0:F}", Weight);
+            return string.Format("{0:F}", this.Weight);
         }
     }
 }

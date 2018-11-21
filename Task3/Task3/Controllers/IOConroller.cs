@@ -9,7 +9,7 @@
     /// <summary>
     /// Manage offers file input and output
     /// </summary>
-    static class IOConroller
+    public static class IOConroller
     {
         /// <summary>
         /// Saves offer to binary file
@@ -28,7 +28,6 @@
             }
             catch (Exception)
             {
-
                 throw;
             }
         }
@@ -50,7 +49,6 @@
             }
             catch (Exception)
             {
-
                 throw;
             }
         }
@@ -70,11 +68,11 @@
                 {
                     offers = (List<Offer>)formatter.Deserialize(fs);
                 }
+
                 return offers;
             }
             catch (Exception)
             {
-
                 throw;
             }
         }
@@ -88,21 +86,24 @@
             {
                 string[] countries = File.ReadAllText(@"..\..\Resourses\Countries.txt").Split('\n');
                 string[] names = File.ReadAllText(@"..\..\Resourses\Names.txt").Split('\n');
-                string[] PhoneNums = File.ReadAllText(@"..\..\Resourses\PhoneNumbers.txt").Split('\n');
-
+                string[] phoneNums = File.ReadAllText(@"..\..\Resourses\PhoneNumbers.txt").Split('\n');
                 OfferController oc = new OfferController();
                 Random rnd = new Random();
                 for (int i = 0; i < 1000; ++i)
                 {
-                    DateTime[] dates = RandomDaysFunc(rnd);
-                    //while (date2 >= date1)
-                    //{
-                    //    date2 = RandomDayFunc(rnd);
-                    //}
-                    string name = RandomString(names, rnd);
-
-                    Offer o = new Offer(1000 + i, dates[0], RandomString(countries, rnd), RandomString(countries, rnd), dates[1],
-                        (VehicleType)rnd.Next(0, 8), RandomDouble(0.1, 30, rnd), name, RandomString(PhoneNums, rnd), RandomEmail(name, rnd));
+                    DateTime[] dates = RandomDaysFunc(rnd);                    
+                    string name = RandomString(names, rnd);                
+                    Offer o = new Offer(
+                        1000 + i,
+                        dates[0], 
+                        RandomString(countries, rnd),
+                        RandomString(countries, rnd), 
+                        dates[1],
+                        (VehicleType)rnd.Next(0, 8), 
+                        RandomDouble(0.1, 30, rnd), 
+                        name, 
+                        RandomString(phoneNums, rnd),
+                        RandomEmail(name, rnd));
                     oc.AddOffer(o);
                 }
 
@@ -123,7 +124,7 @@
         /// <returns>Random <see cref="double"/></returns>
         private static double RandomDouble(double min, double max, Random rnd)
         {
-            return rnd.NextDouble() * (max - min) + min;
+            return (rnd.NextDouble() * (max - min)) + min;
         }
 
         /// <summary>

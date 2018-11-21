@@ -6,8 +6,71 @@
     /// Represent offer
     /// </summary>
     [Serializable]
-    class Offer
+    public class Offer
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Offer" /> class.
+        /// </summary>
+        /// <param name="id">Offer id</param>
+        /// <param name="dateOfPosting">Date of offer posting</param>
+        /// <param name="from">Place of load dispatch</param>
+        /// <param name="to">Load destination</param>
+        /// <param name="dateOfLoading">Date of loading</param>
+        /// <param name="vehicleInfo">Information about the vehicle</param>
+        /// <param name="carrierInfo">Information about the carrier</param>
+        public Offer(
+            int id, 
+            DateTime dateOfPosting, 
+            string from, 
+            string to,
+            DateTime dateOfLoading, 
+            Vehicle vehicleInfo, 
+            Carrier carrierInfo)
+        {
+            this.Id = id;
+            this.DateOfPosting = dateOfPosting;
+            this.From = from;
+            this.To = to;
+            this.DateOfLoading = dateOfLoading;
+            this.VehicleInfo = vehicleInfo;
+            this.CarrierInfo = carrierInfo;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Offer" /> class.
+        /// </summary>
+        /// <param name="id">Offer id</param>
+        /// <param name="dateOfPosting">Date of offer posting</param>
+        /// <param name="from">Place of load dispatch</param>
+        /// <param name="to">Load destination</param>
+        /// <param name="dateOfLoading">Date of loading</param>
+        /// <param name="type">Type of vehicle</param>
+        /// <param name="weight">Vehicle carrying capacity</param>
+        /// <param name="name"> Name of Carrier</param>
+        /// <param name="phoneNumber">Phone number of Carrier</param>
+        /// <param name="email">Email of Carrier</param>
+        public Offer(
+                    int id,
+                    DateTime dateOfPosting,
+                    string from, 
+                    string to, 
+                    DateTime dateOfLoading,
+                    VehicleType type,
+                    double weight,
+                    string name, 
+                    string phoneNumber, 
+                    string email) : 
+            this(
+                            id, 
+                            dateOfPosting, 
+                            from, 
+                            to, 
+                            dateOfLoading,
+                            new Vehicle(type, weight), 
+                            new Carrier(name, phoneNumber, email, new Vehicle(type, weight)))
+        {
+        }
+
         /// <summary>
         /// Gets or sets <see cref="Id"/> for <see cref="Offer"/>.
         /// </summary>
@@ -42,51 +105,5 @@
         /// Gets or sets <see cref="CarrierInfo"/> for <see cref="Offer"/>.
         /// </summary>
         public Carrier CarrierInfo { get; set; }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Offer" /> class.
-        /// </summary>
-        /// <param name="Id">Offer id</param>
-        /// <param name="DateOfPosting">Date of offer posting</param>
-        /// <param name="From">Place of load dispatch</param>
-        /// <param name="To">Load destination</param>
-        /// <param name="DateOfLoading">Date of loading</param>
-        /// <param name="VehicleInfo">Information about the vehicle</param>
-        /// <param name="CarrierInfo">Information about the carrier</param>
-        public Offer(int Id, DateTime DateOfPosting, string From, string To,
-            DateTime DateOfLoading, Vehicle VehicleInfo, Carrier CarrierInfo)
-        {
-            this.Id = Id;
-            this.DateOfPosting = DateOfPosting;
-            this.From = From;
-            this.To = To;
-            this.DateOfLoading = DateOfLoading;
-            this.VehicleInfo = VehicleInfo;
-            this.CarrierInfo = CarrierInfo;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Offer" /> class.
-        /// </summary>
-        /// <param name="Id">Offer id</param>
-        /// <param name="DateOfPosting">Date of offer posting</param>
-        /// <param name="From">Place of load dispatch</param>
-        /// <param name="To">Load destination</param>
-        /// <param name="DateOfLoading">Date of loading</param>
-        /// <param name="Type">Type of vehicle</param>
-        /// <param name="Weight">Vehicle carrying capacity</param>
-        /// <param name="Name"> Name of Carrier</param>
-        /// <param name="PhoneNumber">Phone number of Carrier</param>
-        /// <param name="Email">Email of Carrier</param>
-        public Offer(
-                    int Id, DateTime DateOfPosting, string From, string To, DateTime DateOfLoading,
-                    VehicleType Type, double Weight,
-                    string Name, string PhoneNumber, string Email
-                    ) : this(
-                            Id, DateOfPosting, From, To, DateOfLoading,
-                            new Vehicle(Type, Weight), new Carrier(Name, PhoneNumber, Email, new Vehicle(Type, Weight))
-                            )
-        { }
-        
     }
 }

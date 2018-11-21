@@ -7,12 +7,12 @@
     /// <summary>
     /// Store and manage offers
     /// </summary>
-    class OfferController
+    public class OfferController
     {
         /// <summary>
         /// <see cref="List{Offer}"/> of <see cref="Offer"/>s
         /// </summary>
-        List<Offer> offers;
+        private List<Offer> offers;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="OfferController" /> class.
@@ -20,13 +20,15 @@
         /// <param name="lo"><see cref="List{Offer}"/> of <see cref="Offer"/>s</param>
         public OfferController(List<Offer> lo)
         {
-            offers = lo;
+            this.offers = lo;
         }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="OfferController" /> class.
         /// </summary>
-        public OfferController() : this(new List<Offer>()) { }
+        public OfferController() : this(new List<Offer>())
+        {
+        }
 
         /// <summary>
         /// Add offer
@@ -34,7 +36,7 @@
         /// <param name="offer">Offer</param>
         public void AddOffer(Offer offer)
         {
-            offers.Add(offer);
+            this.offers.Add(offer);
         }
 
         /// <summary>
@@ -43,7 +45,7 @@
         /// <param name="offer">Offer</param>
         public void RemoveOffer(Offer offer)
         {
-            offers.Remove(offer);
+            this.offers.Remove(offer);
         }
 
         /// <summary>
@@ -52,7 +54,7 @@
         /// <returns><see cref="List{Offer}"/> of <see cref="Offer"/>s</returns>
         public List<Offer> GetOffers()
         {
-            return offers;
+            return this.offers;
         }
 
         /// <summary>
@@ -66,7 +68,7 @@
             {
                 List<Offer> res = new List<Offer>();
 
-                foreach (Offer o in offers)
+                foreach (Offer o in this.offers)
                 {
                     if (filter.MinDateOfPosting != null)
                     {
@@ -75,6 +77,7 @@
                             continue;
                         }
                     }
+
                     if (filter.MaxDateOfPosting != null)
                     {
                         if (o.DateOfPosting > filter.MaxDateOfPosting)
@@ -90,6 +93,7 @@
                             continue;
                         }
                     }
+
                     if (filter.To != null)
                     {
                         if (o.To != filter.To)
@@ -105,6 +109,7 @@
                             continue;
                         }
                     }
+
                     if (filter.MaxDateOfLoading != null)
                     {
                         if (o.DateOfLoading > filter.MaxDateOfLoading)
@@ -128,6 +133,7 @@
                             continue;
                         }
                     }
+
                     if (filter.MaxWeight != null)
                     {
                         if (o.VehicleInfo.Weight > filter.MaxWeight)
