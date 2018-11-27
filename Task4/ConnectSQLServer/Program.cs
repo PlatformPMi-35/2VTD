@@ -12,23 +12,28 @@ namespace ConnectSQLServer
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Getting Connection ...");
-            SqlConnection conn = DBUtils.GetDBConnection();
+            string sqlExpression = "SELECT * FROM Northwind.dbo.Customers"; // Select
 
-            try
+            using (SqlConnection connection = DBUtils.GetDBConnection())
             {
-                Console.WriteLine("Openning Connection ...");
+                connection.Open();
+                SqlCommand command = new SqlCommand(sqlExpression, connection);
+                SqlDataReader reader = command.ExecuteReader();
 
-                conn.Open();
+                if (reader.HasRows) 
+                {                  
+                    Console.WriteLine("{0}\t{1}\t{2}", reader.GetName(0), reader.GetName(1), reader.GetName(2));
 
-                Console.WriteLine("Connection successful!");
+                    while (reader.Read())
+                    {
+                        Console.WriteLine($"{reader.GetString(0)}\t{reader.GetString(2)}\t{reader.GetString(8)}");
+                    }
+                }
+
+                reader.Close();
             }
-            catch (Exception e)
-            {
-                Console.WriteLine("Error: " + e.Message);
-            }
 
-            Console.ReadKey();
+            Console.Read();
         }
     }
 
