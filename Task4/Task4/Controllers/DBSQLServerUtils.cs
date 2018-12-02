@@ -1,6 +1,6 @@
 ﻿using System.Data.SqlClient;
 
-namespace Task4
+namespace Task4.Controllers
 {
     class DBSQLServerUtils
     {
