@@ -51,10 +51,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Results.csv" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
     <Content Include="Database\northwinddb.sql" />
+    <Content Include="Requests.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
