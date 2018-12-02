@@ -260,3 +260,4 @@ paket-files/
 __pycache__/
 *.pyc
 FirstTask/FirstTask/Settings.StyleCop
+Task4/Task4/Results.csv
