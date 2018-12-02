@@ -30,8 +30,8 @@
   <string>
     SELECT FirstName, LastName, COUNT(*) as 'Orders Count'
     FROM Northwind.dbo.Employees
-    LEFT JOIN Northwind.dbo.Orders ON (Orders.EmployeeID = Employees.EmployeeID  AND YEAR(Orders.OrderDate)=1997 AND Orders.RequiredDate < Orders.ShippedDate 
-    GROUP BY FirstName, LastName  
+    LEFT JOIN Northwind.dbo.Orders ON (Orders.EmployeeID = Employees.EmployeeID  AND YEAR(Orders.OrderDate)=1997 AND Orders.ShippedDate > Orders.RequiredDate 
+    GROUP BY FirstName, LastName
   </string>
   <string>
     SELECT  Customers.ContactName, COUNT(*) as 'Orders Count'
