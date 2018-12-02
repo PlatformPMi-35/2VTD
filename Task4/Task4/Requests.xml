@@ -1,4 +1,59 @@
 <?xml version="1.0"?>
-<ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <string>SELECT * FROM Northwind.dbo.Customers</string>
+<ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">  
+  <string> 
+    SELECT MAX(age) AS Max, MIN(age) AS Min, AVG(age) AS Avg 
+    FROM (SELECT (DATEDIFF(hour,BirthDate,GETDATE())/8766) AS age 
+    FROM Northwind.dbo.Employees WHERE Employees.City='London') AS Myselect
+  </string>
+  <string>
+  SELECT City, AVG(DATEDIFF(MONTH, BirthDate, GETDATE())/12) AS "Age"
+  FROM Northwind.dbo.Employees
+  GROUP BY City 
+  HAVING AVG(DATEDIFF(MONTH, BirthDate, GETDATE())/12) > 60
+</string>
+  <string>
+    SELECT TOP 3 FirstName, LastName, (DATEDIFF(MONTH, BirthDate, GETDATE())/12) AS Age 
+    FROM Northwind.dbo.Employees
+    ORDER BY Age DESC
+  </string>
+  <string>
+    SELECT FirstName, LastName, BirthDate
+    FROM Northwind.dbo.Employees
+    WHERE BirthDate IN (SELECT MONTH(CURRENT_TIMESTAMP))
+  </string>
+  <string>
+    SELECT FirstName, LastName, COUNT(*) as 'Orders Count'
+    FROM Northwind.dbo.Employees
+    LEFT JOIN Northwind.dbo.Orders ON (Orders.EmployeeID = Employees.EmployeeID AND YEAR(OrderDate)=1997)
+    GROUP BY FirstName, LastName
+  </string>
+  <string>
+    SELECT FirstName, LastName, COUNT(*) as 'Orders Count'
+    FROM Northwind.dbo.Employees
+    LEFT JOIN Northwind.dbo.Orders ON (Orders.EmployeeID = Employees.EmployeeID  AND YEAR(Orders.OrderDate)=1997 AND Orders.RequiredDate < Orders.ShippedDate 
+    GROUP BY FirstName, LastName  
+  </string>
+  <string>
+    SELECT  Customers.ContactName, COUNT(*) as 'Orders Count'
+    FROM Northwind.dbo.Customers
+    LEFT JOIN Northwind.dbo.Orders ON (Orders.CustomerID = Customers.CustomerID AND Customers.Country='France')
+    GROUP BY Customers.ContactName
+    HAVING COUNT(*) > 1
+  </string>
+  <string>
+    SELECT Customers.ContactName FROM Northwind.dbo.Customers
+    LEFT  JOIN Northwind.dbo.Orders ON (Orders.CustomerID=Customers.CustomerID)
+    LEFT  JOIN Northwind.dbo.[Order Details] ON (Orders.OrderID=[Order Details].OrderID)
+    LEFT  JOIN Northwind.dbo.Products ON (Products.ProductID=[Order Details].ProductID)
+    WHERE ProductName='Tofu'
+  </string>
+  <string>
+    SELECT  Customers.ContactName as 'Orders Count'
+    FROM Northwind.dbo.Customers
+    LEFT JOIN Northwind.dbo.Orders ON (Orders.CustomerID = Customers.CustomerID AND Customers.Country='France')
+    LEFT JOIN Northwind.dbo.[Order Details] ON (Orders.OrderID=[Order Details].OrderID)
+    LEFT JOIN Northwind.dbo.Products ON (Products.ProductID=[Order Details].ProductID)
+    LEFT JOIN Northwind.dbo.Suppliers ON (Products.SupplierID=Suppliers.SupplierID AND Suppliers.Country!='France')
+    GROUP BY Customers.ContactName
+  </string>
 </ArrayOfString>

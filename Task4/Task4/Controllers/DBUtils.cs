@@ -39,6 +39,12 @@ namespace Task4.Controllers
                     connection.Open();
                     SqlCommand command = new SqlCommand(request, connection);
                     SqlDataReader reader = command.ExecuteReader();
+                    string t = string.Empty;
+                    for (int i = 0; i < reader.FieldCount; i++)
+                    {
+                        t += $@"{reader.GetName(i)};";
+                    }
+                    res.Add(t);
                     if (reader.HasRows)
                     {
                         while (reader.Read())
