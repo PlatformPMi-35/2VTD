@@ -31,10 +31,10 @@ namespace Task4
         static void Main(string[] args)
         {
             bool isConn = ConnectLoad();
-            
+            Console.Clear();
+
             while (isConn)
             {
-                Console.Clear();
                 Console.WriteLine($"There are {Requests.Count} avaliable requests.\n" +
                     $"1-Show request\n" +
                     $"2-Execute request\n" +
@@ -51,6 +51,7 @@ namespace Task4
                                 int.TryParse(Console.ReadLine(), out input);
                                 Console.WriteLine(Requests[input]);
                                 Console.ReadKey();
+                                Console.Clear();
                                 break;
                             }
                         case 2:
@@ -58,12 +59,14 @@ namespace Task4
                                 Console.Clear();                                
                                 int.TryParse(Console.ReadLine(), out input);
                                 IOController.SaveTo(DBUtils.Execute(Requests[input]));
+                                Console.Clear();
                                 break;
                             }
                         case 3:
                             {
                                 Console.Clear();
                                 IOController.SaveTo(DBUtils.Execute(Console.ReadLine()));
+                                Console.Clear();
                                 break;
                             }
                         case 4: return;
