@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Task4.Controllers
 {
-    class DBUtils
+    public class DBUtils
     {
         private static SqlConnection GetDBConnection()
         {
@@ -62,7 +62,8 @@ namespace Task4.Controllers
                                 // Convert.ChangeType(reader[i], reader.GetType());
                                 if (reader.GetValue(i) != DBNull.Value)
                                 {
-                                    temp += $@"{reader.GetString(i)};";
+                                    
+                                    temp += $@"{Convert.ToString(reader.GetValue(i))};";
                                 }
                                 else
                                 {
