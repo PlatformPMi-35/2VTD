@@ -1,27 +1,18 @@
-﻿using System;
-using System.Data.SqlClient;
-using System.Collections.Generic;
-
-namespace Task4.Controllers
+﻿namespace Task4.Controllers
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Data.SqlClient;
+    
+    /// <summary>
+    /// Utilities for DB.
+    /// </summary>
     public class DBUtils
     {
-        private static SqlConnection GetDBConnection()
-        {
-            string datasource = @"(localdb)\MSSQLLocalDB";
-            string database = "Northwind";
-            string username = "";
-            string password = "";
-            try
-            {
-                return DBSQLServerUtils.GetDBConnection(datasource, database, username, password);
-            }
-            catch (Exception)
-            {
-                throw new Exception(string.Format("Can not connect to {0} {1}",datasource, database));
-            }           
-        }
-
+        /// <summary>
+        /// Trying to connect to DB. Returns <see cref="true"/> if connected.
+        /// </summary>
+        /// <returns>Returns <see cref="true"/> if connected.</returns>
         public static bool TryConnect()
         {
             try
@@ -36,6 +27,11 @@ namespace Task4.Controllers
             }
         }
 
+        /// <summary>
+        /// Executes request.
+        /// </summary>
+        /// <param name="request">Text of SQL Request.</param>
+        /// <returns>Returns <see cref="List{string}"/> of results.</returns>
         public static List<string> Execute(string request)
         {
             List<string> res = new List<string>();
@@ -51,6 +47,7 @@ namespace Task4.Controllers
                     {
                         t += $@"{reader.GetName(i)};";
                     }
+
                     res.Add(t);
                     if (reader.HasRows)
                     {
@@ -82,6 +79,26 @@ namespace Task4.Controllers
             }
 
             return res;
+        }
+
+        /// <summary>
+        /// Get <see cref="SqlConnection"/> for DB.
+        /// </summary>
+        /// <returns><see cref="SqlConnection"/> for DB.</returns>
+        private static SqlConnection GetDBConnection()
+        {
+            string datasource = @"(localdb)\MSSQLLocalDB";
+            string database = "Northwind";
+            string username = string.Empty;
+            string password = string.Empty;
+            try
+            {
+                return DBSQLServerUtils.GetDBConnection(datasource, database, username, password);
+            }
+            catch (Exception)
+            {
+                throw new Exception(string.Format("Can not connect to {0} {1}", datasource, database));
+            }
         }
     }
 }

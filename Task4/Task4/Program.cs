@@ -1,15 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Threading;
-using Task4.Controllers;
-
-
-namespace Task4
+﻿namespace Task4
 {
-    class Program
+    using System;
+    using System.Collections.Generic;
+    using System.Threading;
+    using Task4.Controllers;
+
+    /// <summary>
+    /// Class of Program.
+    /// </summary>
+    public class Program
     {
+        /// <summary>
+        /// Gets or sets <see cref="List{string}"/> of Requests.
+        /// </summary>
+        /// <value>Value is <see cref="List{string}"/></value>
         public static List<string> Requests { get; set; }
 
+        /// <summary>
+        /// Connects to Database and Loads Requests. 
+        /// </summary>
+        /// <returns>If Connected true.</returns>
         public static bool ConnectLoad()
         {
             Console.WriteLine("Connecting...");
@@ -28,7 +38,11 @@ namespace Task4
             }
         }
 
-        static void Main(string[] args)
+        /// <summary>
+        /// Text of Main Program.
+        /// </summary>
+        /// <param name="args">Arguments of Function.</param>
+        public static void Main(string[] args)
         {
             bool isConn = ConnectLoad();
             Console.Clear();
@@ -54,6 +68,7 @@ namespace Task4
                                 Console.Clear();
                                 break;
                             }
+
                         case 2:
                             {
                                 Console.Clear();                                
@@ -62,6 +77,7 @@ namespace Task4
                                 Console.Clear();
                                 break;
                             }
+
                         case 3:
                             {
                                 Console.Clear();
@@ -69,6 +85,7 @@ namespace Task4
                                 Console.Clear();
                                 break;
                             }
+
                         case 4: return;
                         default: break;
                     }

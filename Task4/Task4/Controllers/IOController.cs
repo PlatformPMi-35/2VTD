@@ -1,13 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Xml;
-using System.Xml.Serialization;
-
-namespace Task4.Controllers
+﻿namespace Task4.Controllers
 {
+    using System.Collections.Generic;
+    using System.IO;
+    using System.Xml;
+    using System.Xml.Serialization;
+
+    /// <summary>
+    /// Input/Output Controller for Requests.
+    /// </summary>
     internal static class IOController
     {
+        /// <summary>
+        /// Loads Requests from Xml file.
+        /// </summary>
+        /// <param name="path">Path to Xml file.</param>
+        /// <returns>Returns <see cref="List{string}"/> of Requests.</returns>
         internal static List<string> Load(string path = @"../../Requests.xml")
         {
             List<string> res = new List<string>();
@@ -28,6 +35,11 @@ namespace Task4.Controllers
             return res;
         }
 
+        /// <summary>
+        /// Serializes <see cref="IEnumerable{string}"/> to file.
+        /// </summary>
+        /// <param name="path">Path to file.</param>
+        /// <param name="toSave"><see cref="string"/> to save.</param>
         internal static void SerializeTo(string path, IEnumerable<string> toSave)
         {
             List<string> lst = new List<string>(toSave);
@@ -38,6 +50,11 @@ namespace Task4.Controllers
             }
         }
 
+        /// <summary>
+        /// Saves <see cref="IEnumerable{string}"/> to file.
+        /// </summary>
+        /// <param name="toSave"><see cref="IEnumerable{string}"/> to save.</param>
+        /// <param name="path">Path to file.</param>
         internal static void SaveTo(IEnumerable<string> toSave, string path = @"../../Results.csv")
         {
             File.WriteAllLines(path, toSave);            
