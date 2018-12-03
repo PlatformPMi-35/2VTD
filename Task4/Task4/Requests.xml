@@ -2,7 +2,7 @@
 <ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">  
   <string> 
     SELECT MAX(age) AS Max, MIN(age) AS Min, AVG(age) AS Avg 
-    FROM (SELECT (DATEDIFF(hour,BirthDate,GETDATE())/8766) AS age 
+     FROM (SELECT (DATEDIFF(hour,BirthDate,GETDATE())/8766) AS age 
     FROM Northwind.dbo.Employees WHERE Employees.City='London') AS Myselect
   </string>
   <string>
@@ -55,5 +55,81 @@
     LEFT JOIN Northwind.dbo.Products ON (Products.ProductID=[Order Details].ProductID)
     LEFT JOIN Northwind.dbo.Suppliers ON (Products.SupplierID=Suppliers.SupplierID AND Suppliers.Country!='France')
     GROUP BY Customers.ContactName
+  </string>
+  <string>
+    SELECT COUNT(*) FROM Northwind.dbo.Employees
+    WHERE City='London'
+  </string>
+  <string>
+    SELECT FirstName, LastName FROM Northwind.dbo.Employees
+    WHERE BirthDate = (SELECT MIN(BirthDate) FROM Northwind.dbo.Employees)
+  </string>
+  <string>
+    SELECT DISTINCT FirstName, LastName FROM Northwind.dbo.Employees AS emp,  Northwind.dbo.Orders AS ord
+    WHERE emp.EmployeeID = ord.EmployeeID and ord.ShipCity = 'Madrid'
+  </string>
+  <string>
+    SELECT
+    cust.Country,
+    cust.ContactName,
+    SUM(ord_det.Quantity) AS Quantity
+    FROM
+    Northwind.dbo.Orders AS ord,
+    Northwind.dbo.[Order Details] AS ord_det,
+    Northwind.dbo.Customers AS cust
+    WHERE
+    ord.CustomerID = cust.CustomerID and
+    ord.OrderID = ord_det.OrderID and
+    cust.Country = 'France'
+    GROUP BY cust.ContactName, cust.Country
+  </string>
+  <string>
+    SELECT
+    cust.ContactName,
+    SUM(ord_det.Quantity) AS Quantity,
+    ord_det.ExtendedPrice AS Total_price
+    FROM
+    Northwind.dbo.Orders AS ord,
+    Northwind.dbo.[Order Details Extended] AS ord_det,
+    Northwind.dbo.Customers AS cust
+    WHERE
+    ord.CustomerID = cust.CustomerID and
+    ord.OrderID = ord_det.OrderID and
+    ord_det.ProductName = 'Tofu'
+    GROUP BY cust.ContactName, ord_det.ExtendedPrice
+  </string>
+  <string>
+    SELECT
+    cust.Country,
+    SUM(ord_det.ExtendedPrice) AS price
+    FROM
+    Northwind.dbo.Orders AS ord,
+    Northwind.dbo.[Order Details Extended] AS ord_det,
+    Northwind.dbo.Customers AS cust
+    WHERE
+    ord.CustomerID = cust.CustomerID and
+    ord.OrderID = ord_det.OrderID
+    GROUP BY cust.Country
+  </string>
+  <string>
+    SELECT
+    emp.LastName as Employee,
+    (SELECT
+    LastName FROM Northwind.dbo.Employees as chief where chief.EmployeeID = emp.ReportsTo) AS Chief
+    FROM
+    Northwind.dbo.Employees as emp
+  </string>
+  <string>
+    INSERT INTO Northwind.dbo.Employees (LastName, FirstName, BirthDate, HireDate, Address, City, Country, Notes)
+    VALUES
+    ('LastName1', 'FirstName1', '1952-02-19 00:00:00.000', '1992-05-01 00:00:00.000', '11 Fake str', 'City1', 'Country1', 'Ukhachevych Taras'),
+    ('LastName2', 'FirstName2', '1952-02-19 00:00:00.000', '1992-05-01 00:00:00.000', '12 Fake str', 'City2', 'Country2', 'Ukhachevych Taras'),
+    ('LastName3', 'FirstName3', '1952-02-19 00:00:00.000', '1992-05-01 00:00:00.000', '13 Fake str', 'City3', 'Country3', 'Ukhachevych Taras'),
+    ('LastName4', 'FirstName4', '1952-02-19 00:00:00.000', '1992-05-01 00:00:00.000', '14 Fake str', 'City4', 'Country4', 'Ukhachevych Taras'),
+    ('LastName5', 'FirstName5', '1952-02-19 00:00:00.000', '1992-05-01 00:00:00.000', '15 Fake str', 'City5', 'Country5', 'Ukhachevych Taras')
+  </string>
+  <string>
+    DELETE FROM Northwind.dbo.Employees
+    WHERE LastName='LastName1'
   </string>
 </ArrayOfString>
