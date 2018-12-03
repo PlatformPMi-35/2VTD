@@ -36,7 +36,7 @@ namespace Task4.Controllers
             }
         }
 
-        public static IEnumerable<string> Execute(string request)
+        public static List<string> Execute(string request)
         {
             List<string> res = new List<string>();
             using (SqlConnection connection = GetDBConnection())
@@ -59,10 +59,8 @@ namespace Task4.Controllers
                             string temp = string.Empty;
                             for (int i = 0; i < reader.FieldCount; i++)
                             {
-                                // Convert.ChangeType(reader[i], reader.GetType());
                                 if (reader.GetValue(i) != DBNull.Value)
-                                {
-                                    
+                                {                                    
                                     temp += $@"{Convert.ToString(reader.GetValue(i))};";
                                 }
                                 else
