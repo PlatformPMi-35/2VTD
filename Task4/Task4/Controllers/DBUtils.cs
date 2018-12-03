@@ -12,14 +12,21 @@ namespace Task4.Controllers
             string database = "Northwind";
             string username = "";
             string password = "";
-            return DBSQLServerUtils.GetDBConnection(datasource, database, username, password);
+            try
+            {
+                return DBSQLServerUtils.GetDBConnection(datasource, database, username, password);
+            }
+            catch (Exception)
+            {
+                throw new Exception(string.Format("Can not connect to {0} {1}",datasource, database));
+            }           
         }
 
         public static bool TryConnect()
         {
-            SqlConnection sqlConnection = GetDBConnection();
             try
             {
+                SqlConnection sqlConnection = GetDBConnection();
                 sqlConnection.Open();
                 return true;
             }
@@ -69,9 +76,9 @@ namespace Task4.Controllers
 
                     reader.Close();
                 }
-                catch (Exception e)
+                catch (Exception)
                 {
-                    throw e;
+                    throw new Exception(string.Format("Can not execute this request:\n{0}", request));
                 }
             }
 
