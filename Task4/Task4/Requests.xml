@@ -57,7 +57,7 @@
     GROUP BY Customers.ContactName
   </string>
   <string>
-    SELECT COUNT(*) FROM Northwind.dbo.Employees
+    SELECT COUNT(*) AS Count FROM Northwind.dbo.Employees
     WHERE City='London'
   </string>
   <string>
