@@ -132,4 +132,21 @@
     DELETE FROM Northwind.dbo.Employees
     WHERE LastName='LastName1'
   </string>
+  <string>
+    SELECT DISTINCT Customers.ContactName FROM Customers
+    INNER JOIN Orders
+    ON Customers.Country = 'France'
+    AND Orders.ShipCountry != 'France'
+  </string>
+  <string>
+    SELECT DISTINCT Customers.ContactName FROM Customers
+    INNER JOIN Orders
+    ON Orders.ShipCountry = 'France' 
+    AND Customers.Country = 'France'  
+  </string>
+    <string>
+    SELECT DISTINCT Customers.City FROM Customers
+    INNER JOIN Employees
+    ON Customers.City = Employees.City  
+  </string>
 </ArrayOfString>
