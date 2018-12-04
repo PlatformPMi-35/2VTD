@@ -8,14 +8,14 @@
     /// <summary>
     /// Input/Output Controller for Requests.
     /// </summary>
-    internal static class IOController
+    public static class IOController
     {
         /// <summary>
         /// Loads Requests from Xml file.
         /// </summary>
         /// <param name="path">Path to Xml file.</param>
         /// <returns>Returns <see cref="List{string}"/> of Requests.</returns>
-        internal static List<string> Load(string path = @"../../Requests.xml")
+        public static List<string> Load(string path = @"../../Requests.xml")
         {
             List<string> res = new List<string>();
             XmlSerializer xmlSerializer = new XmlSerializer(res.GetType());
@@ -40,7 +40,7 @@
         /// </summary>
         /// <param name="path">Path to file.</param>
         /// <param name="toSave"><see cref="string"/> to save.</param>
-        internal static void SerializeTo(string path, IEnumerable<string> toSave)
+        public static void SerializeTo(string path, IEnumerable<string> toSave)
         {
             List<string> lst = new List<string>(toSave);
             XmlSerializer xmlSerializer = new XmlSerializer(lst.GetType());
@@ -55,7 +55,7 @@
         /// </summary>
         /// <param name="toSave"><see cref="IEnumerable{string}"/> to save.</param>
         /// <param name="path">Path to file.</param>
-        internal static void SaveTo(IEnumerable<string> toSave, string path = @"../../Results.csv")
+        public static void SaveTo(IEnumerable<string> toSave, string path = @"../../Results.csv")
         {
             File.WriteAllLines(path, toSave);            
         }

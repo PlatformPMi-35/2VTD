@@ -6,7 +6,7 @@ using Task4.Controllers;
 namespace UnitTestProject1
 {
     [TestClass]
-    public class UnitTest1
+    public class TestDBUtils
     {
         [TestMethod]
         public void TestDBConnection()
@@ -34,6 +34,26 @@ namespace UnitTestProject1
                 }
             }
             Assert.IsTrue(true);
+        }
+    }
+
+    [TestClass]
+    public class TestIOController
+    {
+        [TestMethod]
+        public void TestSaveLoad()
+        {
+            string str1 = "hello";
+            string str2 = "word";
+
+            List<string> buff = new List<string>();
+            buff.Add(str1);
+            buff.Add(str2);
+
+            IOController.SerializeTo(@"../../test.xml", buff);
+
+            List<string> l = IOController.Load(@"../../test.xml");
+            Assert.IsTrue(l[0] == str1 && l[1] == str2);
         }
     }
 }
