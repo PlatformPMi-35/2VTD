@@ -10,6 +10,8 @@ namespace Task3.Controllers
     {
         private OfferContext db = new OfferContext();
         private OfferRepository offerRepository;
+        private CarrierRepository carrierRepository;
+        private VehicleRepository vehicleRepository;
 
         public OfferRepository Offers
         {
@@ -18,6 +20,26 @@ namespace Task3.Controllers
                 if (offerRepository == null)
                     offerRepository = new OfferRepository(db);
                 return offerRepository;
+            }
+        }
+        
+        public CarrierRepository Carriers
+        {
+            get
+            {
+                if (carrierRepository == null)
+                    carrierRepository = new CarrierRepository(db);
+                return carrierRepository;
+            }
+        }        
+        
+        public VehicleRepository Vehicles
+        {
+            get
+            {
+                if (vehicleRepository == null)
+                    vehicleRepository = new VehicleRepository(db);
+                return vehicleRepository;
             }
         }        
 

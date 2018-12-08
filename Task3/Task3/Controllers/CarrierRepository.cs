@@ -4,7 +4,7 @@ using Task3.Models;
 
 namespace Task3.Controllers
 {
-    class CarrierRepository : IRepository<Carrier>
+    public class CarrierRepository : IRepository<Carrier>
     {
         private OfferContext db;
 
