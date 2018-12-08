@@ -85,11 +85,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\201812081857591_InitialCreate.cs" />
-    <Compile Include="Migrations\201812081857591_InitialCreate.Designer.cs">
-      <DependentUpon>201812081857591_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Carrier.cs" />
     <Compile Include="Models\Filter.cs" />
     <Compile Include="Models\Offer.cs" />
@@ -108,9 +103,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="Migrations\201812081857591_InitialCreate.resx">
-      <DependentUpon>201812081857591_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -137,5 +129,6 @@
   <ItemGroup>
     <Resource Include="Resourses\PhoneNumbers.txt" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

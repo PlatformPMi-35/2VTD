@@ -20,7 +20,7 @@
             {
                 this.InitializeComponent();
                 IOConroller.GenerateRandomOffers();
-
+                
                 OfferController offerController = new OfferController(IOConroller.LoadOffer(@"../../Resourses/Offres.dat"));
                 DbController.SaveOffers(offerController.GetOffers());
 

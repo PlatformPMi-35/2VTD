@@ -22,7 +22,7 @@ namespace Task3.Controllers
                 return offerRepository;
             }
         }
-        
+
         public CarrierRepository Carriers
         {
             get
@@ -31,8 +31,8 @@ namespace Task3.Controllers
                     carrierRepository = new CarrierRepository(db);
                 return carrierRepository;
             }
-        }        
-        
+        }
+
         public VehicleRepository Vehicles
         {
             get
@@ -41,7 +41,7 @@ namespace Task3.Controllers
                     vehicleRepository = new VehicleRepository(db);
                 return vehicleRepository;
             }
-        }        
+        }
 
         public void Save()
         {
