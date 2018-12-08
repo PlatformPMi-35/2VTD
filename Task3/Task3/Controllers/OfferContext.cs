@@ -8,7 +8,7 @@ using Task3.Models;
 
 namespace Task3.Controllers
 {
-    class OfferContext : DbContext
+    public class OfferContext : DbContext
     {
         public OfferContext()
             : base("DbConnection")
