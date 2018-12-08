@@ -12,32 +12,11 @@
     public static class IOConroller
     {
         /// <summary>
-        /// Saves offer to binary file
-        /// </summary>
-        /// <param name="path">Path to file</param>
-        /// <param name="offer"><see cref="Offer"/> to save.</param>
-        public static void SaveOffer(string path, Offer offer)
-        {
-            try
-            {
-                BinaryFormatter formatter = new BinaryFormatter();
-                using (FileStream fs = new FileStream(path, FileMode.OpenOrCreate))
-                {
-                    formatter.Serialize(fs, offer);
-                }
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
-
-        /// <summary>
         /// Saves offers to binary file
         /// </summary>
         /// <param name="path">Path to file</param>
         /// <param name="offer"><see cref="IEnumerabl{Offer}"/> to save.</param>
-        public static void SaveOffer(string path, IEnumerable<Offer> offers)
+        public static void SaveOffer(string path, List<Offer> offers)
         {
             try
             {
@@ -66,7 +45,7 @@
                 List<Offer> offers = new List<Offer>();
                 using (FileStream fs = new FileStream(path, FileMode.OpenOrCreate))
                 {
-                    offers.Add((Offer)formatter.Deserialize(fs));
+                    offers = (List<Offer>)formatter.Deserialize(fs);
                 }
 
                 return offers;
@@ -99,6 +78,7 @@
                         RandomString(countries, rnd),
                         RandomString(countries, rnd), 
                         dates[1],
+                        i,
                         (VehicleType)rnd.Next(0, 8), 
                         RandomDouble(0.1, 30, rnd), 
                         name, 

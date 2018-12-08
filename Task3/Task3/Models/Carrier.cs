@@ -1,6 +1,8 @@
 ﻿namespace Task3.Models
 {
     using System;
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
 
     /// <summary>
     /// Represent Carrier
@@ -27,6 +29,8 @@
         /// Gets or sets <see cref="Name"/> for <see cref="Carrier"/>.
         /// </summary>
         /// <value><see cref="Name"/> for <see cref="Carrier"/>.</value>
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public string Name { get; set; }
 
         /// <summary>

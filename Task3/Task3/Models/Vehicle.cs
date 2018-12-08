@@ -9,6 +9,11 @@
     public class Vehicle
     {
         /// <summary>
+        /// Gets or sets <see cref="Id"/> for <see cref="Vehicle"/>.
+        /// </summary>
+        public int Id { get; set; }
+
+        /// <summary>
         /// Vehicle carrying capacity
         /// </summary>
         private double weight;
@@ -18,8 +23,9 @@
         /// </summary>
         /// <param name="type">Type of vehicle</param>
         /// <param name="weight">Vehicle carrying capacity</param>
-        public Vehicle(VehicleType type, double weight)
+        public Vehicle(int id, VehicleType type, double weight)
         {
+            this.Id = id;
             this.Type = type;
             this.Weight = weight;
         }

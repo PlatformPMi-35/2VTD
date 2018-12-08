@@ -44,6 +44,7 @@
         /// <param name="from">Place of load dispatch</param>
         /// <param name="to">Load destination</param>
         /// <param name="dateOfLoading">Date of loading</param>
+        /// <param name="vehicleId">Vehicle id</param>
         /// <param name="type">Type of vehicle</param>
         /// <param name="weight">Vehicle carrying capacity</param>
         /// <param name="name"> Name of Carrier</param>
@@ -55,6 +56,7 @@
                     string from, 
                     string to, 
                     DateTime dateOfLoading,
+                    int vehicleId,
                     VehicleType type,
                     double weight,
                     string name, 
@@ -66,8 +68,8 @@
                             from, 
                             to, 
                             dateOfLoading,
-                            new Vehicle(type, weight), 
-                            new Carrier(name, phoneNumber, email, new Vehicle(type, weight)))
+                            new Vehicle(vehicleId, type, weight), 
+                            new Carrier(name, phoneNumber, email, new Vehicle(vehicleId, type, weight)))
         {
         }
 

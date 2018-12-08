@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Task3.Controllers;
 using Task3.Models;
@@ -16,12 +17,13 @@ namespace UnitTestProject1
             string from = "Ukraine";
             string to = "Poland";
             DateTime dateOfLoading = DateTime.Now;
-            Vehicle vehicle = new Vehicle(VehicleType.Box, 25);
+            Vehicle vehicle = new Vehicle(1, VehicleType.Box, 25);
             Carrier carrier = new Carrier("John", "+123456789", "smith@gmail.com", vehicle);
 
             Offer offer = new Offer(id, dateOfPosting, from, to, dateOfLoading, vehicle, carrier);
-
-            IOConroller.SaveOffer(@"../../TestSave.bin", offer);
+            List<Offer> l = new List<Offer>();
+            l.Add(offer);
+            IOConroller.SaveOffer(@"../../TestSave.bin", l);
             var readed = IOConroller.LoadOffer(@"../../TestSave.bin")[0];
 
             Assert.IsTrue(
@@ -52,7 +54,7 @@ namespace UnitTestProject1
             string from = "Ukraine";
             string to = "Poland";
             DateTime dateOfLoading = DateTime.Now;
-            Vehicle vehicle = new Vehicle(VehicleType.Box, 25);
+            Vehicle vehicle = new Vehicle(1, VehicleType.Box, 25);
             Carrier carrier = new Carrier("John", "+123456789", "smith@gmail.com", vehicle);
 
             Offer offer = new Offer(id, dateOfPosting, from, to, dateOfLoading, vehicle, carrier);
