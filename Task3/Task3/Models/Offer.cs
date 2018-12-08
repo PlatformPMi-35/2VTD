@@ -1,6 +1,7 @@
 ﻿namespace Task3.Models
 {
     using System;
+    using System.ComponentModel.DataAnnotations;
 
     /// <summary>
     /// Represent offer
@@ -11,7 +12,7 @@
         /// <summary>
         /// Initializes a new instance of the <see cref="Offer" /> class.
         /// </summary>
-        /// <param name="id">Offer id</param>
+        /// <param name="OfferId">Offer id</param>
         /// <param name="dateOfPosting">Date of offer posting</param>
         /// <param name="from">Place of load dispatch</param>
         /// <param name="to">Load destination</param>
@@ -19,7 +20,7 @@
         /// <param name="vehicleInfo">Information about the vehicle</param>
         /// <param name="carrierInfo">Information about the carrier</param>
         public Offer(
-            int id, 
+            int OfferId, 
             DateTime dateOfPosting, 
             string from, 
             string to,
@@ -27,7 +28,7 @@
             Vehicle vehicleInfo, 
             Carrier carrierInfo)
         {
-            this.Id = id;
+            this.OfferId = OfferId;
             this.DateOfPosting = dateOfPosting;
             this.From = from;
             this.To = to;
@@ -39,7 +40,7 @@
         /// <summary>
         /// Initializes a new instance of the <see cref="Offer" /> class.
         /// </summary>
-        /// <param name="id">Offer id</param>
+        /// <param name="OfferId">Offer id</param>
         /// <param name="dateOfPosting">Date of offer posting</param>
         /// <param name="from">Place of load dispatch</param>
         /// <param name="to">Load destination</param>
@@ -47,11 +48,12 @@
         /// <param name="vehicleId">Vehicle id</param>
         /// <param name="type">Type of vehicle</param>
         /// <param name="weight">Vehicle carrying capacity</param>
+        /// <param name="carrierId">Carrier id</param>
         /// <param name="name"> Name of Carrier</param>
         /// <param name="phoneNumber">Phone number of Carrier</param>
         /// <param name="email">Email of Carrier</param>
         public Offer(
-                    int id,
+                    int OfferId,
                     DateTime dateOfPosting,
                     string from, 
                     string to, 
@@ -59,24 +61,26 @@
                     int vehicleId,
                     VehicleType type,
                     double weight,
+                    int carrierId,
                     string name, 
                     string phoneNumber, 
                     string email) : 
             this(
-                            id, 
+                            OfferId, 
                             dateOfPosting, 
                             from, 
                             to, 
                             dateOfLoading,
                             new Vehicle(vehicleId, type, weight), 
-                            new Carrier(name, phoneNumber, email, new Vehicle(vehicleId, type, weight)))
+                            new Carrier(carrierId, name, phoneNumber, email, new Vehicle(vehicleId, type, weight)))
         {
         }
 
         /// <summary>
         /// Gets or sets <see cref="Id"/> for <see cref="Offer"/>.
         /// </summary>
-        public int Id { get; set; }
+        [Key]
+        public int OfferId { get; set; }
 
         /// <summary>
         /// Gets or sets <see cref="DateOfPosting"/> for <see cref="Offer"/>.

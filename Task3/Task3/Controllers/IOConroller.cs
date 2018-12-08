@@ -70,6 +70,7 @@
                 Random rnd = new Random();
                 for (int i = 0; i < 1000; ++i)
                 {
+                    int CarrierID = i;
                     DateTime[] dates = RandomDaysFunc(rnd);                    
                     string name = RandomString(names, rnd);                
                     Offer o = new Offer(
@@ -80,7 +81,8 @@
                         dates[1],
                         i,
                         (VehicleType)rnd.Next(0, 8), 
-                        RandomDouble(0.1, 30, rnd), 
+                        RandomDouble(0.1, 30, rnd),
+                        CarrierID,
                         name, 
                         RandomString(phoneNums, rnd),
                         RandomEmail(name, rnd));

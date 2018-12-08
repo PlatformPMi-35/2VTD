@@ -2,7 +2,6 @@
 {
     using System;
     using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
 
     /// <summary>
     /// Represent Carrier
@@ -17,8 +16,9 @@
         /// <param name="phoneNumber">Phone number of Carrier</param>
         /// <param name="email">Email of Carrier</param>
         /// <param name="vehicle">Vehicle of Carrier</param>
-        public Carrier(string name, string phoneNumber, string email, Vehicle vehicle)
+        public Carrier(int id, string name, string phoneNumber, string email, Vehicle vehicle)
         {
+            this.CarrierId = id;
             this.Name = name;
             this.PhoneNumber = phoneNumber;
             this.Email = email;
@@ -26,11 +26,15 @@
         }
 
         /// <summary>
+        /// Gets or sets <see cref="Id"/> for <see cref="Carrier"/>.
+        /// </summary>
+        [Key]
+        public int CarrierId { get; set; }
+
+        /// <summary>
         /// Gets or sets <see cref="Name"/> for <see cref="Carrier"/>.
         /// </summary>
         /// <value><see cref="Name"/> for <see cref="Carrier"/>.</value>
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public string Name { get; set; }
 
         /// <summary>

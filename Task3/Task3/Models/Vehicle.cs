@@ -1,6 +1,7 @@
 ﻿namespace Task3.Models
 {
     using System;
+    using System.ComponentModel.DataAnnotations;
 
     /// <summary>
     /// Represent vehicle
@@ -11,7 +12,8 @@
         /// <summary>
         /// Gets or sets <see cref="Id"/> for <see cref="Vehicle"/>.
         /// </summary>
-        public int Id { get; set; }
+        [Key]
+        public int VehicleId { get; set; }
 
         /// <summary>
         /// Vehicle carrying capacity
@@ -25,7 +27,7 @@
         /// <param name="weight">Vehicle carrying capacity</param>
         public Vehicle(int id, VehicleType type, double weight)
         {
-            this.Id = id;
+            this.VehicleId = id;
             this.Type = type;
             this.Weight = weight;
         }

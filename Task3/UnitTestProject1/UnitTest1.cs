@@ -18,7 +18,7 @@ namespace UnitTestProject1
             string to = "Poland";
             DateTime dateOfLoading = DateTime.Now;
             Vehicle vehicle = new Vehicle(1, VehicleType.Box, 25);
-            Carrier carrier = new Carrier("John", "+123456789", "smith@gmail.com", vehicle);
+            Carrier carrier = new Carrier(1, "John", "+123456789", "smith@gmail.com", vehicle);
 
             Offer offer = new Offer(id, dateOfPosting, from, to, dateOfLoading, vehicle, carrier);
             List<Offer> l = new List<Offer>();
@@ -55,7 +55,7 @@ namespace UnitTestProject1
             string to = "Poland";
             DateTime dateOfLoading = DateTime.Now;
             Vehicle vehicle = new Vehicle(1, VehicleType.Box, 25);
-            Carrier carrier = new Carrier("John", "+123456789", "smith@gmail.com", vehicle);
+            Carrier carrier = new Carrier(1, "John", "+123456789", "smith@gmail.com", vehicle);
 
             Offer offer = new Offer(id, dateOfPosting, from, to, dateOfLoading, vehicle, carrier);
 

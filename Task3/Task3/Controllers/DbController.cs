@@ -17,14 +17,20 @@ namespace Task3.Controllers
         {
             try
             {
-                using (OfferContext db = new OfferContext())
+                UnitOfWork unitOfWork = new UnitOfWork();
+                foreach (Offer offer in offers)
                 {
-                    foreach (Offer offer in offers)
-                    {
-                        db.Offers.Add(offer);
-                    }
-                    db.SaveChanges();
+                    unitOfWork.Offers.Create(offer);
+                    unitOfWork.Save();
                 }
+                //using (OfferContext db = new OfferContext())
+                //{
+                //    foreach (Offer offer in offers)
+                //    {
+                //        db.Offers.Add(offer);
+                //    }
+                //    db.SaveChanges();
+                //}
             }
             catch (Exception)
             {
