@@ -78,6 +78,7 @@
     <Compile Include="Controllers\OfferContext.cs" />
     <Compile Include="Controllers\OfferController.cs" />
     <Compile Include="Controllers\VehicleRepository.cs" />
+	<Compile Include="Controllers\UnityOfWork.cs" />	
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
