@@ -60,7 +60,7 @@
 
                     <GridViewColumn Header="Date"  DisplayMemberBinding="{Binding DateOfLoading, StringFormat={}{0:M}}" />
 
-                    <GridViewColumn Header="Vehicle"  DisplayMemberBinding="{Binding VehicleInfo.Type}" />
+                    <GridViewColumn Header="Vehicle"  DisplayMemberBinding="{Binding CarrierInfo.Vehicle.Type}" />
 
                     <GridViewColumn Header="From"  DisplayMemberBinding="{Binding From}" />
 

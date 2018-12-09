@@ -1,6 +1,7 @@
 ﻿namespace Task3
 {
     using System;
+    using System.Collections.Generic;
     using System.Windows;
     using System.Windows.Input;
     using Task3.Controllers;
@@ -19,10 +20,10 @@
             try
             {
                 this.InitializeComponent();
-                IOConroller.GenerateRandomOffers();
-                
-                OfferController offerController = new OfferController(IOConroller.LoadOffer(@"../../Resourses/Offres.dat"));
-                DbController.SaveOffers(offerController.GetOffers());
+                //IOConroller.GenerateRandomOffers();
+
+                //OfferController offerController = new OfferController(IOConroller.LoadOffer(@"../../Resourses/Offres.dat"));
+                //DbController.SaveOffers(offerController.GetOffers());
 
             }
             catch (Exception)
@@ -67,8 +68,11 @@
                 type: (VehicleType?)(expander1.SelectedIndex - 1),
                 minWeight: double.TryParse(weightFrom.Text, out double res1) ? res1 as double? : null,
                 maxWeight: double.TryParse(weightTo.Text, out double res2) ? res2 as double? : null);
-                OfferController offerController = new OfferController(IOConroller.LoadOffer(@"../../Resourses/Offres.dat"));
-                dataList.ItemsSource = offerController.GetOffers(f);
+                using (UnitOfWork unitOfWork = new UnitOfWork())
+                {
+                    OfferController offerController = new OfferController(new List<Offer>(unitOfWork.Offers.GetAll()));
+                    dataList.ItemsSource = offerController.GetOffers(f);
+                }
             }
             catch (Exception)
             {

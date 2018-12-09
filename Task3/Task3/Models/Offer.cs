@@ -25,7 +25,7 @@
             string from, 
             string to,
             DateTime dateOfLoading, 
-            Vehicle vehicleInfo, 
+            //Vehicle vehicleInfo, 
             Carrier carrierInfo)
         {
             this.OfferId = OfferId;
@@ -33,7 +33,7 @@
             this.From = from;
             this.To = to;
             this.DateOfLoading = dateOfLoading;
-            this.VehicleInfo = vehicleInfo;
+            //this.VehicleInfo = vehicleInfo;
             this.CarrierInfo = carrierInfo;
         }
 
@@ -71,10 +71,12 @@
                             from, 
                             to, 
                             dateOfLoading,
-                            new Vehicle(vehicleId, type, weight), 
+                            //new Vehicle(vehicleId, type, weight), 
                             new Carrier(carrierId, name, phoneNumber, email, new Vehicle(vehicleId, type, weight)))
         {
         }
+
+        private Offer() { }
 
         /// <summary>
         /// Gets or sets <see cref="Id"/> for <see cref="Offer"/>.
@@ -105,7 +107,7 @@
         /// <summary>
         /// Gets or sets <see cref="VehicleInfo"/> for <see cref="Offer"/>.
         /// </summary>
-        public Vehicle VehicleInfo { get; set; }
+        //public Vehicle VehicleInfo { get; set; }
 
         /// <summary>
         /// Gets or sets <see cref="CarrierInfo"/> for <see cref="Offer"/>.

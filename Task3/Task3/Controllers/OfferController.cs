@@ -120,7 +120,7 @@
 
                     if (filter.Type != null)
                     {
-                        if (o.VehicleInfo.Type != filter.Type)
+                        if (o.CarrierInfo.Vehicle.Type != filter.Type)
                         {
                             continue;
                         }
@@ -128,7 +128,7 @@
 
                     if (filter.MinWeight != null)
                     {
-                        if (o.VehicleInfo.Weight < filter.MinWeight)
+                        if (o.CarrierInfo.Vehicle.Weight < filter.MinWeight)
                         {
                             continue;
                         }
@@ -136,7 +136,7 @@
 
                     if (filter.MaxWeight != null)
                     {
-                        if (o.VehicleInfo.Weight > filter.MaxWeight)
+                        if (o.CarrierInfo.Vehicle.Weight > filter.MaxWeight)
                         {
                             continue;
                         }
