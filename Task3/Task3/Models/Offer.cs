@@ -2,6 +2,7 @@
 {
     using System;
     using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
 
     /// <summary>
     /// Represent offer
@@ -85,6 +86,7 @@
         /// Gets or sets <see cref="Id"/> for <see cref="Offer"/>.
         /// </summary>
         [Key]
+        [ForeignKey("CarrierInfo")]
         public int OfferId { get; set; }
 
         /// <summary>

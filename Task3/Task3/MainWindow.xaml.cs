@@ -28,7 +28,7 @@
             }
             catch (Exception)
             {
-                MessageBox.Show("Unexpected error occured");
+              MessageBox.Show("Unexpected error occured");
             }
         }
 

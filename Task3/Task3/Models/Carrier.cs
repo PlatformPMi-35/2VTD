@@ -2,6 +2,7 @@
 {
     using System;
     using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
 
     /// <summary>
     /// Represent Carrier
@@ -34,6 +35,7 @@
         /// Gets or sets <see cref="Id"/> for <see cref="Carrier"/>.
         /// </summary>
         [Key]
+        [ForeignKey("Vehicle")]
         public int CarrierId { get; set; }
 
         /// <summary>
