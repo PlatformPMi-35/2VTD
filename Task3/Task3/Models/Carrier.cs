@@ -25,6 +25,11 @@
             this.Vehicle = vehicle;
         }
 
+        public Carrier()
+        {
+            Vehicle = new Vehicle();
+        }
+
         /// <summary>
         /// Gets or sets <see cref="Id"/> for <see cref="Carrier"/>.
         /// </summary>

@@ -32,6 +32,11 @@
             this.Weight = weight;
         }
 
+        public Vehicle()
+        {
+
+        }
+
         /// <summary>
         /// Gets or sets <see cref="Type"/> for <see cref="Vehicle"/>.
         /// </summary>

@@ -76,7 +76,10 @@
         {
         }
 
-        private Offer() { }
+        private Offer()
+        {
+            CarrierInfo = new Carrier();
+        }
 
         /// <summary>
         /// Gets or sets <see cref="Id"/> for <see cref="Offer"/>.
