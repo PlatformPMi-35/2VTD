@@ -35,7 +35,6 @@
         /// Gets or sets <see cref="Id"/> for <see cref="Carrier"/>.
         /// </summary>
         [Key]
-        [ForeignKey("Vehicle")]
         public int CarrierId { get; set; }
 
         /// <summary>
@@ -60,7 +59,7 @@
         /// Gets or sets <see cref="Vehicle"/> for <see cref="Carrier"/>.
         /// </summary>
         /// <value><see cref="Vehicle"/> for <see cref="Carrier"/>.</value>
-        public Vehicle Vehicle { get; set; }
+        public virtual Vehicle Vehicle { get; set; }
 
         /// <summary>
         /// To String Method for Carrier

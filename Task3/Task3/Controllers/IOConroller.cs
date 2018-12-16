@@ -59,43 +59,43 @@
         /// <summary>
         /// Generate binary file of random offers
         /// </summary>
-        public static void GenerateRandomOffers()
-        {
-            try
-            {
-                string[] countries = File.ReadAllText(@"..\..\Resourses\Countries.txt").Split('\n');
-                string[] names = File.ReadAllText(@"..\..\Resourses\Names.txt").Split('\n');
-                string[] phoneNums = File.ReadAllText(@"..\..\Resourses\PhoneNumbers.txt").Split('\n');
-                OfferController oc = new OfferController();
-                Random rnd = new Random();
-                for (int i = 0; i < 1000; ++i)
-                {
-                    int CarrierID = i;
-                    DateTime[] dates = RandomDaysFunc(rnd);                    
-                    string name = RandomString(names, rnd);                
-                    Offer o = new Offer(
-                        1000 + i,
-                        dates[0], 
-                        RandomString(countries, rnd),
-                        RandomString(countries, rnd), 
-                        dates[1],
-                        i,
-                        (VehicleType)rnd.Next(0, 8), 
-                        RandomDouble(0.1, 30, rnd),
-                        CarrierID,
-                        name, 
-                        RandomString(phoneNums, rnd),
-                        RandomEmail(name, rnd));
-                    oc.AddOffer(o);
-                }
+        //public static void GenerateRandomOffers()
+        //{
+        //    try
+        //    {
+        //        string[] countries = File.ReadAllText(@"..\..\Resourses\Countries.txt").Split('\n');
+        //        string[] names = File.ReadAllText(@"..\..\Resourses\Names.txt").Split('\n');
+        //        string[] phoneNums = File.ReadAllText(@"..\..\Resourses\PhoneNumbers.txt").Split('\n');
+        //        OfferController oc = new OfferController();
+        //        Random rnd = new Random();
+        //        for (int i = 0; i < 1000; ++i)
+        //        {
+        //            int CarrierID = i;
+        //            DateTime[] dates = RandomDaysFunc(rnd);                    
+        //            string name = RandomString(names, rnd);                
+        //            Offer o = new Offer(
+        //                1000 + i,
+        //                dates[0], 
+        //                RandomString(countries, rnd),
+        //                RandomString(countries, rnd), 
+        //                dates[1],
+        //                i,
+        //                (VehicleType)rnd.Next(0, 8), 
+        //                RandomDouble(0.1, 30, rnd),
+        //                CarrierID,
+        //                name, 
+        //                RandomString(phoneNums, rnd),
+        //                RandomEmail(name, rnd));
+        //            oc.AddOffer(o);
+        //        }
 
-                SaveOffer(@"..\..\Resourses\Offres.dat", oc.GetOffers());
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
+        //        SaveOffer(@"..\..\Resourses\Offres.dat", oc.GetOffers());
+        //    }
+        //    catch (Exception)
+        //    {
+        //        throw;
+        //    }
+        //}
 
         /// <summary>
         /// Generate random double value

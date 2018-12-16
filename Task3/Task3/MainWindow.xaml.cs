@@ -24,6 +24,20 @@
 
                 //OfferController offerController = new OfferController(IOConroller.LoadOffer(@"../../Resourses/Offres.dat"));
                 //DbController.SaveOffers(offerController.GetOffers());
+                using (OfferContext db = new OfferContext())
+                {
+                    Vehicle v1 = new Vehicle { VehicleId = 1, Type = VehicleType.Box, Weight = 20.0 };
+                    Carrier c1 = new Carrier { CarrierId = 1, Vehicle = v1, Email = "email", Name = "name", PhoneNumber = "123" };
+                    Offer o1 = new Offer { OfferId = 1, From = "from", To = "to", DateOfLoading = DateTime.Now, DateOfPosting = DateTime.Now, CarrierInfo = c1 };
+
+                    //db.Vehicles.AddRange(new List<Vehicle> { v1 });
+                    //db.SaveChanges();
+                    //db.Carriers.AddRange(new List<Carrier> { c1 });
+                    //db.SaveChanges();
+                    db.Offers.AddRange(new List<Offer> { o1 });
+                    db.SaveChanges();
+                }
+
 
             }
             catch (Exception)
@@ -68,7 +82,12 @@
                 type: (VehicleType?)(expander1.SelectedIndex - 1),
                 minWeight: double.TryParse(weightFrom.Text, out double res1) ? res1 as double? : null,
                 maxWeight: double.TryParse(weightTo.Text, out double res2) ? res2 as double? : null);
-                using (UnitOfWork unitOfWork = new UnitOfWork())
+                using (OfferContext db = new OfferContext())
+                {
+                    var o = db.Offers.Find(1);
+                   
+                }
+                    using (UnitOfWork unitOfWork = new UnitOfWork())
                 {
                     OfferController offerController = new OfferController(new List<Offer>(unitOfWork.Offers.GetAll()));
                     dataList.ItemsSource = offerController.GetOffers(f);
