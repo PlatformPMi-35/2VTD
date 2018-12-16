@@ -104,7 +104,7 @@
         /// <param name="max"> max double</param>
         /// <param name="rnd"><see cref="Random"/> object to generate value</param>
         /// <returns>Random <see cref="double"/></returns>
-        private static double RandomDouble(double min, double max, Random rnd)
+        public static double RandomDouble(double min, double max, Random rnd)
         {
             return (rnd.NextDouble() * (max - min)) + min;
         }
@@ -115,7 +115,7 @@
         /// <param name="strs">array of strings</param>
         /// <param name="rnd"><see cref="Random"/> object to make it random</param>
         /// <returns>Random <see cref="string"/></returns>
-        private static string RandomString(string[] strs, Random rnd)
+        public static string RandomString(string[] strs, Random rnd)
         {
             int num = rnd.Next(0, strs.Length);
             return strs[num];
@@ -127,7 +127,7 @@
         /// <param name="fullName">Full name</param>
         /// <param name="rnd"><see cref="Random"/> object to make it random</param>
         /// <returns><see cref="string"/> which represent random Email</returns>
-        private static string RandomEmail(string fullName, Random rnd)
+        public static string RandomEmail(string fullName, Random rnd)
         {
             string lastName = fullName.Split(' ')[1];
             string[] ends = new string[] { "@yahoo.com", "@icloud.com", "@gmail.com", "@hotmail.com", "@ukr.net", "@msn.com" };
@@ -140,7 +140,7 @@
         /// </summary>
         /// <param name="rnd"><see cref="Random"/> object to make it random</param>
         /// <returns><see cref="DateTime[]"/> of <see cref="DateTime"/>s</returns>
-        private static DateTime[] RandomDaysFunc(Random rnd)
+        public static DateTime[] RandomDaysFunc(Random rnd)
         {
             DateTime start = new DateTime(2018, 1, 1);
             int range = ((TimeSpan)(DateTime.Today - start)).Days;
