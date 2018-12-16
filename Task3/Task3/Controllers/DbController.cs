@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -48,7 +49,9 @@ namespace Task3.Controllers
             {
                 using (OfferContext db = new OfferContext())
                 {
-                    return db.Offers.ToList();
+                    
+                    Offer offer = db.Offers.Include(t => t.Carrier).FirstOrDefault();
+                    return new List<Offer>(new[] { offer });
                 }
             }
             catch (Exception)

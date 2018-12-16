@@ -60,15 +60,15 @@
 
                     <GridViewColumn Header="Date"  DisplayMemberBinding="{Binding DateOfLoading, StringFormat={}{0:M}}" />
 
-                    <GridViewColumn Header="Vehicle"  DisplayMemberBinding="{Binding CarrierInfo.Vehicle.Type}" />
+                    <GridViewColumn Header="Vehicle"  DisplayMemberBinding="{Binding Carrier.Vehicle.Type}" />
 
                     <GridViewColumn Header="From"  DisplayMemberBinding="{Binding From}" />
 
                     <GridViewColumn Header="To"  DisplayMemberBinding="{Binding To}" />
 
-                    <GridViewColumn Header="Weight"  DisplayMemberBinding="{Binding CarrierInfo.Vehicle.Weight, StringFormat={}{0:F0}}" />
+                    <GridViewColumn Header="Weight"  DisplayMemberBinding="{Binding Carrier.Vehicle.Weight, StringFormat={}{0:F0}}" />
 
-                    <GridViewColumn Header="Carrier Info" DisplayMemberBinding="{Binding CarrierInfo}" />
+                    <GridViewColumn Header="Carrier Info" DisplayMemberBinding="{Binding Carrier}" />
                 </GridView>
             </ListView.View>
 

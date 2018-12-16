@@ -29,7 +29,7 @@
                 //{
                 //    Vehicle v1 = new Vehicle { VehicleId = 1, Type = VehicleType.Box, Weight = 20.0 };
                 //    Carrier c1 = new Carrier { CarrierId = 1, Vehicle = v1, Email = "email", Name = "name", PhoneNumber = "123", VehicleId = 1 };
-                //    Offer o1 = new Offer { OfferId = 1, From = "from", To = "to", DateOfLoading = DateTime.Now, DateOfPosting = DateTime.Now, CarrierInfo = c1, CarrierId = 1 };
+                //    Offer o1 = new Offer { OfferId = 1, From = "from", To = "to", DateOfLoading = DateTime.Now, DateOfPosting = DateTime.Now, Carrier = c1, CarrierId = 1 };
 
                 //    //db.Vehicles.AddRange(new List<Vehicle> { v1 });
                 //    //db.SaveChanges();

@@ -9,7 +9,7 @@ namespace Task3.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
             ContextKey = "Task3.Controllers.OfferContext";
         }
 
