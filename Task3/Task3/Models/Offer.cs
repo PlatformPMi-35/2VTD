@@ -81,7 +81,7 @@
 
         public Offer()
         {
-            CarrierInfo = new Carrier();
+            Carrier = new Carrier();
         }
 
         /// <summary>
@@ -115,6 +115,6 @@
         /// <summary>
         /// Gets or sets <see cref="CarrierInfo"/> for <see cref="Offer"/>.
         /// </summary>
-        public virtual Carrier CarrierInfo { get; set; }
+        public Carrier Carrier { get; set; }
     }
 }
