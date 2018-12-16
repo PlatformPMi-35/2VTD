@@ -38,10 +38,8 @@ namespace Task3.Controllers
             foreach (var item in v)
             {
                 Offer offer = item;
-                db.Carriers.Where(p => p.CarrierId == offer.OfferId).Load();
-                offer.Carrier = db.Carriers.FirstOrDefault();
-                db.Vehicles.Where(p => p.VehicleId == offer.Carrier.VehicleId).Load();
-                offer.Carrier.Vehicle = db.Vehicles.FirstOrDefault();
+                offer.Carrier = db.Carriers.Where(p => p.CarrierId == offer.OfferId).ToArray().Last();
+                offer.Carrier.Vehicle = db.Vehicles.Where(p => p.VehicleId == offer.Carrier.VehicleId).ToArray().Last();
                 res.Add(offer);
             }
 
