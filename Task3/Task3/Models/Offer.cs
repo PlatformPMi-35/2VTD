@@ -25,9 +25,11 @@
             DateTime dateOfPosting, 
             string from, 
             string to,
-            DateTime dateOfLoading, 
-            //Vehicle vehicleInfo, 
-            Carrier carrierInfo)
+            DateTime dateOfLoading,
+             //Vehicle vehicleInfo,
+            int CarrierId
+            //Carrier carrierInfo
+            )
         {
             this.OfferId = OfferId;
             this.DateOfPosting = dateOfPosting;
@@ -35,7 +37,7 @@
             this.To = to;
             this.DateOfLoading = dateOfLoading;
             //this.VehicleInfo = vehicleInfo;
-            this.CarrierInfo = carrierInfo;
+            //this.CarrierInfo = carrierInfo;
         }
 
         /// <summary>
@@ -107,6 +109,8 @@
         /// Gets or sets <see cref="DateOfLoading"/> for <see cref="Offer"/>.
         /// </summary>
         public DateTime DateOfLoading { get; set; }
+
+        public int CarrierId { get; set; }
 
         /// <summary>
         /// Gets or sets <see cref="CarrierInfo"/> for <see cref="Offer"/>.
