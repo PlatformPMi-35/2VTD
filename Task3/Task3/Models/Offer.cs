@@ -26,9 +26,7 @@
             string from, 
             string to,
             DateTime dateOfLoading,
-             //Vehicle vehicleInfo,
-            int CarrierId
-            //Carrier carrierInfo
+            int carrierId
             )
         {
             this.OfferId = OfferId;
@@ -36,8 +34,7 @@
             this.From = from;
             this.To = to;
             this.DateOfLoading = dateOfLoading;
-            //this.VehicleInfo = vehicleInfo;
-            //this.CarrierInfo = carrierInfo;
+            this.CarrierId = carrierId;
         }
 
         /// <summary>

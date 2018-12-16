@@ -17,15 +17,18 @@
         /// <param name="phoneNumber">Phone number of Carrier</param>
         /// <param name="email">Email of Carrier</param>
         /// <param name="vehicle">Vehicle of Carrier</param>
-        public Carrier(int id, string name, string phoneNumber, string email, int VehicleId 
-            //Vehicle vehicle
-            )
+        public Carrier(
+            int id,
+            string name,
+            string phoneNumber,
+            string email,
+            int vehicleId)
         {
             this.CarrierId = id;
             this.Name = name;
             this.PhoneNumber = phoneNumber;
             this.Email = email;
-            //this.Vehicle = vehicle;
+            this.VehicleId = vehicleId;
         }
 
         public Carrier()
