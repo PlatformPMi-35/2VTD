@@ -71,8 +71,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Controllers\CarrierRepository.cs" />
-    <Compile Include="Controllers\DbController.cs" />
-    <Compile Include="Controllers\IOConroller.cs" />
     <Compile Include="Controllers\OfferRepository.cs" />
     <Compile Include="Controllers\IRepository.cs" />
     <Compile Include="Controllers\OfferContext.cs" />
