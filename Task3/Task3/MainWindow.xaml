@@ -58,7 +58,7 @@
                 <GridView>
                     <GridViewColumn Header="Date of posting" DisplayMemberBinding="{Binding DateOfPosting, StringFormat={}{0:d}}"  />
 
-                    <GridViewColumn Header="Date"  DisplayMemberBinding="{Binding DateOfLoading, StringFormat={}{0:M}}" />
+                    <GridViewColumn Header="Date"  DisplayMemberBinding="{Binding DateOfLoading, StringFormat={}{0:d}}" />
 
                     <GridViewColumn Header="Vehicle"  DisplayMemberBinding="{Binding Carrier.Vehicle.Type}" />
 
