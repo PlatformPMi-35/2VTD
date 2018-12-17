@@ -10,7 +10,7 @@ namespace Task3.Controllers
 {
     public class OfferContext : DbContext
     {
-        public OfferContext() : base("DbConnection")
+        public OfferContext(string connString = "DbConnection") : base(connString)
         {
            
         }
