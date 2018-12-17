@@ -10,7 +10,10 @@ namespace Task3.Controllers
 {
     public class OfferContext : DbContext
     {
-        public OfferContext() : base("DbConnection"){}
+        public OfferContext(string connString = "DbConnection") : base(connString)
+        {
+           
+        }
 
         public DbSet<Offer> Offers { get; set; }
         public DbSet<Vehicle> Vehicles { get; set; }

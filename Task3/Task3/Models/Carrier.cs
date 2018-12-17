@@ -17,13 +17,18 @@
         /// <param name="phoneNumber">Phone number of Carrier</param>
         /// <param name="email">Email of Carrier</param>
         /// <param name="vehicle">Vehicle of Carrier</param>
-        public Carrier(int id, string name, string phoneNumber, string email, Vehicle vehicle)
+        public Carrier(
+            int id,
+            string name,
+            string phoneNumber,
+            string email,
+            int vehicleId)
         {
             this.CarrierId = id;
             this.Name = name;
             this.PhoneNumber = phoneNumber;
             this.Email = email;
-            this.Vehicle = vehicle;
+            this.VehicleId = vehicleId;
         }
 
         public Carrier()
@@ -35,7 +40,6 @@
         /// Gets or sets <see cref="Id"/> for <see cref="Carrier"/>.
         /// </summary>
         [Key]
-        [ForeignKey("Vehicle")]
         public int CarrierId { get; set; }
 
         /// <summary>
@@ -56,11 +60,13 @@
         /// <value><see cref="Email"/> for <see cref="Carrier"/>.</value>
         public string Email { get; set; }
 
+        public int VehicleId { get; set; }
+
         /// <summary>
         /// Gets or sets <see cref="Vehicle"/> for <see cref="Carrier"/>.
         /// </summary>
         /// <value><see cref="Vehicle"/> for <see cref="Carrier"/>.</value>
-        public Vehicle Vehicle { get; set; }
+        public virtual Vehicle Vehicle { get; set; }
 
         /// <summary>
         /// To String Method for Carrier

@@ -8,6 +8,11 @@ namespace Task3.Controllers
 {
     public class UnitOfWork : IDisposable
     {
+        public UnitOfWork(string connString = "DbConnection")
+        {
+            OfferContext db = new OfferContext(connString);
+        }
+
         private OfferContext db = new OfferContext();
         private OfferRepository offerRepository;
         private CarrierRepository carrierRepository;

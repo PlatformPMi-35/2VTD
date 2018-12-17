@@ -71,8 +71,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Controllers\CarrierRepository.cs" />
-    <Compile Include="Controllers\DbController.cs" />
-    <Compile Include="Controllers\IOConroller.cs" />
     <Compile Include="Controllers\OfferRepository.cs" />
     <Compile Include="Controllers\IRepository.cs" />
     <Compile Include="Controllers\OfferContext.cs" />
@@ -85,6 +83,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Carrier.cs" />
     <Compile Include="Models\Filter.cs" />
     <Compile Include="Models\Offer.cs" />

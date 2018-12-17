@@ -25,17 +25,16 @@
             DateTime dateOfPosting, 
             string from, 
             string to,
-            DateTime dateOfLoading, 
-            //Vehicle vehicleInfo, 
-            Carrier carrierInfo)
+            DateTime dateOfLoading,
+            int carrierId
+            )
         {
             this.OfferId = OfferId;
             this.DateOfPosting = dateOfPosting;
             this.From = from;
             this.To = to;
             this.DateOfLoading = dateOfLoading;
-            //this.VehicleInfo = vehicleInfo;
-            this.CarrierInfo = carrierInfo;
+            this.CarrierId = carrierId;
         }
 
         /// <summary>
@@ -53,40 +52,39 @@
         /// <param name="name"> Name of Carrier</param>
         /// <param name="phoneNumber">Phone number of Carrier</param>
         /// <param name="email">Email of Carrier</param>
-        public Offer(
-                    int OfferId,
-                    DateTime dateOfPosting,
-                    string from, 
-                    string to, 
-                    DateTime dateOfLoading,
-                    int vehicleId,
-                    VehicleType type,
-                    double weight,
-                    int carrierId,
-                    string name, 
-                    string phoneNumber, 
-                    string email) : 
-            this(
-                            OfferId, 
-                            dateOfPosting, 
-                            from, 
-                            to, 
-                            dateOfLoading,
-                            //new Vehicle(vehicleId, type, weight), 
-                            new Carrier(carrierId, name, phoneNumber, email, new Vehicle(vehicleId, type, weight)))
-        {
-        }
+        //public Offer(
+        //            int OfferId,
+        //            DateTime dateOfPosting,
+        //            string from, 
+        //            string to, 
+        //            DateTime dateOfLoading,
+        //            int vehicleId,
+        //            VehicleType type,
+        //            double weight,
+        //            int carrierId,
+        //            string name, 
+        //            string phoneNumber, 
+        //            string email) : 
+        //    this(
+        //                    OfferId, 
+        //                    dateOfPosting, 
+        //                    from, 
+        //                    to, 
+        //                    dateOfLoading,
+        //                    //new Vehicle(vehicleId, type, weight), 
+        //                    new Carrier(carrierId, name, phoneNumber, email, new Vehicle(vehicleId, type, weight)))
+        //{
+        //}
 
-        private Offer()
+        public Offer()
         {
-            CarrierInfo = new Carrier();
+            Carrier = new Carrier();
         }
 
         /// <summary>
         /// Gets or sets <see cref="Id"/> for <see cref="Offer"/>.
         /// </summary>
         [Key]
-        [ForeignKey("CarrierInfo")]
         public int OfferId { get; set; }
 
         /// <summary>
@@ -109,14 +107,11 @@
         /// </summary>
         public DateTime DateOfLoading { get; set; }
 
-        /// <summary>
-        /// Gets or sets <see cref="VehicleInfo"/> for <see cref="Offer"/>.
-        /// </summary>
-        //public Vehicle VehicleInfo { get; set; }
+        public int CarrierId { get; set; }
 
         /// <summary>
         /// Gets or sets <see cref="CarrierInfo"/> for <see cref="Offer"/>.
         /// </summary>
-        public Carrier CarrierInfo { get; set; }
+        public Carrier Carrier { get; set; }
     }
 }

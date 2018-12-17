@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Data.Entity;
+using System.Linq;
 using Task3.Models;
 
 namespace Task3.Controllers
@@ -32,7 +33,17 @@ namespace Task3.Controllers
 
         public IEnumerable<Offer> GetAll()
         {
-            return db.Offers;
+            List<Offer> res = new List<Offer>();
+            var v = db.Offers.ToList();
+            foreach (var item in v)
+            {
+                Offer offer = item;
+                offer.Carrier = db.Carriers.Where(p => p.CarrierId == offer.OfferId).ToArray().Last();
+                offer.Carrier.Vehicle = db.Vehicles.Where(p => p.VehicleId == offer.Carrier.VehicleId).ToArray().Last();
+                res.Add(offer);
+            }
+
+            return res;
         }
 
         public void Update(Offer offer)
