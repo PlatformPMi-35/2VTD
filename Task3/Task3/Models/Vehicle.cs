@@ -2,30 +2,24 @@
 {
     using System;
     using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
 
     /// <summary>
-    /// Represent vehicle
+    /// Represent vehicle.
     /// </summary>
     [Serializable]
     public class Vehicle
     {
         /// <summary>
-        /// Gets or sets <see cref="Id"/> for <see cref="Vehicle"/>.
-        /// </summary>
-        [Key]
-        public int VehicleId { get; set; }
-
-        /// <summary>
-        /// Vehicle carrying capacity
+        /// Vehicle carrying capacity.
         /// </summary>
         private double weight;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Vehicle" /> class.
         /// </summary>
-        /// <param name="type">Type of vehicle</param>
-        /// <param name="weight">Vehicle carrying capacity</param>
+        /// <param name="id">Id of the Vehicle.</param>
+        /// <param name="type">Type of vehicle.</param>
+        /// <param name="weight">Vehicle carrying capacity.</param>
         public Vehicle(int id, VehicleType type, double weight)
         {
             this.VehicleId = id;
@@ -33,19 +27,30 @@
             this.Weight = weight;
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Vehicle" /> class.
+        /// </summary>
         public Vehicle()
         {
-
         }
+
+        /// <summary>
+        /// Gets or sets <see cref="Id"/> for <see cref="Vehicle"/>.
+        /// </summary>
+        /// <value>Id of the <see cref="Vehicle"/>.</value>
+        [Key]
+        public int VehicleId { get; set; }
 
         /// <summary>
         /// Gets or sets <see cref="Type"/> for <see cref="Vehicle"/>.
         /// </summary>
+        /// <value>Type of the <see cref="Vehicle"/>.</value>
         public VehicleType Type { get; set; }
 
         /// <summary>
         /// Gets or sets <see cref="Weight"/> for <see cref="Vehicle"/>.
         /// </summary>
+        /// <value>Weight of the <see cref="Vehicle"/>.</value>
         public double Weight
         {
             get
@@ -63,9 +68,9 @@
         }
 
         /// <summary>
-        /// To String Method for Vehicle
+        /// To String Method for Vehicle.
         /// </summary>
-        /// <returns>String with Vehicle info</returns>
+        /// <returns>String with Vehicle info.</returns>
         public override string ToString()
         {
             return string.Format("{0:F}", this.Weight);

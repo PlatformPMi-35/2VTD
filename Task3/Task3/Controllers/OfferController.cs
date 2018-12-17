@@ -5,19 +5,19 @@
     using Task3.Models;
 
     /// <summary>
-    /// Store and manage offers
+    /// Store and manage offers.
     /// </summary>
     public class OfferController
     {
         /// <summary>
-        /// <see cref="List{Offer}"/> of <see cref="Offer"/>s
+        /// <see cref="List{Offer}"/> of <see cref="Offer"/>s.
         /// </summary>
         private List<Offer> offers;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="OfferController" /> class.
         /// </summary>
-        /// <param name="lo"><see cref="List{Offer}"/> of <see cref="Offer"/>s</param>
+        /// <param name="lo"><see cref="List{Offer}"/> of <see cref="Offer"/>s.</param>
         public OfferController(List<Offer> lo)
         {
             this.offers = lo;
@@ -31,37 +31,37 @@
         }
 
         /// <summary>
-        /// Add offer
+        /// Add offer to <see cref="List{Offer}"/>.
         /// </summary>
-        /// <param name="offer">Offer</param>
+        /// <param name="offer">Needed Offer.</param>
         public void AddOffer(Offer offer)
         {
             this.offers.Add(offer);
         }
 
         /// <summary>
-        /// Remove offer
+        /// Remove offer from <see cref="List{Offer}"/>.
         /// </summary>
-        /// <param name="offer">Offer</param>
+        /// <param name="offer">Needed Offer.</param>
         public void RemoveOffer(Offer offer)
         {
             this.offers.Remove(offer);
         }
 
         /// <summary>
-        /// Get list of offers
+        /// Get <see cref="List{Offer}"/>.
         /// </summary>
-        /// <returns><see cref="List{Offer}"/> of <see cref="Offer"/>s</returns>
+        /// <returns><see cref="List{Offer}"/> of <see cref="Offer"/>s.</returns>
         public List<Offer> GetOffers()
         {
             return this.offers;
         }
 
         /// <summary>
-        /// Get list of offers with aplied filter
+        /// Get list of offers with applied filter.
         /// </summary>
-        /// <param name="filter">Filter</param>
-        /// <returns><see cref="List{Offer}"/> of <see cref="Offer"/>s</returns>
+        /// <param name="filter">Filter to apply.</param>
+        /// <returns><see cref="List{Offer}"/> of <see cref="Offer"/>s.</returns>
         public List<Offer> GetOffers(Filter filter)
         {
             try
