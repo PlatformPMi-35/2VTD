@@ -11,7 +11,7 @@
     public static class IOController
     {
         /// <summary>
-        /// Loads Requests from Xml file.
+        /// This functoin loads Requests from Xml file.
         /// </summary>
         /// <param name="path">Path to Xml file.</param>
         /// <returns>Returns <see cref="List{string}"/> of Requests.</returns>
@@ -36,7 +36,7 @@
         }
 
         /// <summary>
-        /// Serializes <see cref="IEnumerable{string}"/> to file.
+        /// This functoin serializes <see cref="IEnumerable{string}"/> to file.
         /// </summary>
         /// <param name="path">Path to file.</param>
         /// <param name="toSave"><see cref="string"/> to save.</param>

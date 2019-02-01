@@ -2,18 +2,25 @@
 using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Task4.Controllers;
-
+/// <summary>
+/// This class is for testing our program
+/// </summary>
 namespace UnitTestProject1
 {
     [TestClass]
     public class TestDBUtils
     {
+        /// <summary>
+        /// This Test method testing if the connection was established 
+        /// </summary>
         [TestMethod]
         public void TestDBConnection()
         {
             Assert.IsTrue(DBUtils.TryConnect());
         }
-
+        /// <summary>
+        /// This Test method testing main functionality of app
+        /// </summary>
         [TestMethod]
         public void TestExecute()
         {
@@ -36,7 +43,9 @@ namespace UnitTestProject1
             Assert.IsTrue(true);
         }
     }
-
+    /// <summary>
+    ///  This Test method testing if the data was saved to database
+    /// </summary>
     [TestClass]
     public class TestIOController
     {

@@ -5,12 +5,12 @@
     using System.Data.SqlClient;
     
     /// <summary>
-    /// Utilities for DB.
+    /// This class represent utilities for DB.
     /// </summary>
     public class DBUtils
     {
         /// <summary>
-        /// Trying to connect to DB. Returns <see cref="true"/> if connected.
+        /// This functoin trying to connect to DB. Returns <see cref="true"/> if connected.
         /// </summary>
         /// <returns>Returns <see cref="true"/> if connected.</returns>
         public static bool TryConnect()
@@ -28,7 +28,7 @@
         }
 
         /// <summary>
-        /// Executes request.
+        /// This functoin executes request.
         /// </summary>
         /// <param name="request">Text of SQL Request.</param>
         /// <returns>Returns <see cref="List{string}"/> of results.</returns>
@@ -82,7 +82,7 @@
         }
 
         /// <summary>
-        /// Get <see cref="SqlConnection"/> for DB.
+        /// This functoin gets <see cref="SqlConnection"/> for DB.
         /// </summary>
         /// <returns><see cref="SqlConnection"/> for DB.</returns>
         private static SqlConnection GetDBConnection()

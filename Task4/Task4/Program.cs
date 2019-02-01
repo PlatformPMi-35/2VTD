@@ -6,18 +6,18 @@
     using Task4.Controllers;
 
     /// <summary>
-    /// Class of Program.
+    /// This class contain main Program.
     /// </summary>
     public class Program
     {
         /// <summary>
-        /// Gets or sets <see cref="List{string}"/> of Requests.
+        /// Geter and  seter <see cref="List{string}"/> of Requests.
         /// </summary>
         /// <value>Value is <see cref="List{string}"/></value>
         public static List<string> Requests { get; set; }
 
         /// <summary>
-        /// Connects to Database and Loads Requests. 
+        /// This function Connects to Database and Loads Requests. 
         /// </summary>
         /// <returns>If Connected true.</returns>
         public static bool ConnectLoad()
@@ -54,6 +54,7 @@
                     $"2-Execute request\n" +
                     $"3-Execute own request\n" +
                     $"4-Exit");
+                Console.ReadKey();
                 int.TryParse(Console.ReadLine(), out int input);
                 try
                 {
