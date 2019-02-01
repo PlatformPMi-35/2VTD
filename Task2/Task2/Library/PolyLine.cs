@@ -8,7 +8,7 @@
     using System.Xml.Serialization;
 
     /// <summary>
-    /// Class represents Polyline with Color.
+    ///This class  represents Polyline with Color.
     /// </summary>
     [Serializable]
     public class PolyLine

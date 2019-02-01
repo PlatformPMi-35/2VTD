@@ -5,12 +5,12 @@
     using System.Xml.Serialization;
 
     /// <summary>
-    /// Manager for Saving/Loading <see cref="PolyLine"/>.
+    /// Class which manage  Saving/Loading <see cref="PolyLine"/>.
     /// </summary>
     public class PolyLineIOManager
     {
         /// <summary>
-        /// Saves <see cref="PolyLine"/>.
+        /// This function saves <see cref="PolyLine"/>.
         /// </summary>
         /// <param name="lines"><see cref="List{PolyLine}"/> to save.</param>
         /// <param name="path">Path to File.</param>
@@ -18,7 +18,7 @@
         {
             try
             {
-                //цей об'єкт записує дані в хмл файл
+                //this object saves data to xml file
                 XmlSerializer formatter = new XmlSerializer(typeof(List<PolyLine>));
                 using (FileStream fs = new FileStream(path, FileMode.OpenOrCreate))
                 {
@@ -32,7 +32,7 @@
         }
 
         /// <summary>
-        /// Loads <see cref="PolyLine"/>.
+        /// This function loading files<see cref="PolyLine"/>.
         /// </summary>
         /// <param name="path">Path to File.</param>
         /// <returns><see cref="List{PolyLine}"/> of <see cref="PolyLine"/>s.</returns>
@@ -40,7 +40,7 @@
         {
             try
             {
-                //цей об'єкт зчитує дані з хмл файлу
+                ///this object read data from xml file
                 XmlSerializer formatter = new XmlSerializer(typeof(List<PolyLine>));
                 List<PolyLine> lines = new List<PolyLine>();
 

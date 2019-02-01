@@ -7,7 +7,7 @@
     using System.Windows.Media;
 
     /// <summary>
-    /// Class to convert <see cref="Point"/> to <see cref="string"/> and back.
+    /// This class converts <see cref="Point"/> to <see cref="string"/> and back.
     /// </summary>
     public class PointCollectionToStringConverter : IValueConverter
     {
@@ -38,7 +38,7 @@
         }
 
         /// <summary>
-        /// Converts <see cref="string"/> to <see cref="Point"/>.
+        /// This function converting  <see cref="string"/> to <see cref="Point"/>.
         /// </summary>
         /// <param name="value"><see cref="string"/> to convert.</param>
         /// <param name="targetType">Type to which convert (<see cref="Point"/>).</param>
