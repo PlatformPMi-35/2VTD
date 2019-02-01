@@ -41,7 +41,7 @@
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="PolyLine" /> class.
+        /// Initializes a new  instance of the <see cref="PolyLine" />class.
         /// </summary>
         /// <param name="brush"><see cref="System.Windows.Media.Brush"/> (Color) of <see cref="PolyLine"/>.</param>
         public PolyLine(Brush brush = null)
@@ -65,7 +65,7 @@
         }
 
         /// <summary>
-        /// Gets or sets <see cref="PointCollection"/> for <see cref="PolyLine"/>.
+        /// Geter and seter <see cref="PointCollection"/> for <see cref="PolyLine"/>.
         /// </summary>
         /// <value><see cref="PointCollection"/> for <see cref="PolyLine"/>.</value>
         public PointCollection Pc { get; set; }
@@ -125,7 +125,7 @@
         /// Checks if <see cref="PolyLine"/>s are Equal.
         /// </summary>
         /// <param name="obj"><see cref="PolyLine"/> to check with.</param>
-        /// <returns>Are <see cref="PolyLine"/>s Equal.</returns>
+        /// <returns>Are <see cref="PolyLine"/>s Equal .</returns>
         public override bool Equals(object obj)
         {
             if (obj is PolyLine)

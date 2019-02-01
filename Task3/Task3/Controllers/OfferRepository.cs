@@ -6,7 +6,7 @@
     using Task3.Models;
 
     /// <summary>
-    /// Class that represents Repository of <see cref="Offer"/>s.
+    /// This class that represents Repository of <see cref="Offer"/>s.
     /// </summary>
     public class OfferRepository : IRepository<Offer>
     {
@@ -25,7 +25,7 @@
         }
 
         /// <summary>
-        /// Adds <see cref="Offer"/> to Context.
+        /// This functoin adds <see cref="Offer"/> to Context.
         /// </summary>
         /// <param name="offer"><see cref="Offer"/> to add.</param>
         public void Create(Offer offer)
@@ -34,7 +34,7 @@
         }
 
         /// <summary>
-        /// Deletes <see cref="Offer"/> from Context by id.
+        /// This functoin deletes <see cref="Offer"/> from Context by id.
         /// </summary>
         /// <param name="id">Id of <see cref="Offer"/>.</param>
         public void Delete(int id)
@@ -47,7 +47,7 @@
         }
 
         /// <summary>
-        /// Get <see cref="Offer"/> by id.
+        /// This functoin gets <see cref="Offer"/> by id.
         /// </summary>
         /// <param name="id">Id of <see cref="Offer"/>.</param>
         /// <returns>Needed <see cref="Offer"/>.</returns>
@@ -57,7 +57,7 @@
         }
 
         /// <summary>
-        /// Get All <see cref="Offer"/>s.
+        /// This functoin gets All <see cref="Offer"/>s from Context.
         /// </summary>
         /// <returns>All <see cref="Offer"/>s.</returns>
         public IEnumerable<Offer> GetAll()
@@ -76,7 +76,7 @@
         }
 
         /// <summary>
-        /// Update <see cref="Offer"/>.
+        /// This functoin updates <see cref="Offer"/>.
         /// </summary>
         /// <param name="offer">Updated <see cref="Offer"/>.</param>
         public void Update(Offer offer)

@@ -4,7 +4,7 @@
     using System.ComponentModel.DataAnnotations;
 
     /// <summary>
-    /// Represent vehicle.
+    /// his class represent vehicles.
     /// </summary>
     [Serializable]
     public class Vehicle

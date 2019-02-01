@@ -5,13 +5,13 @@
     using System.ComponentModel.DataAnnotations.Schema;
 
     /// <summary>
-    /// Represent offer.
+    /// This class represents offers.
     /// </summary>
     [Serializable]
     public class Offer
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="Offer"/> class.
+        /// This class Initializes a new instance of the <see cref="Offer"/> class.
         /// </summary>
         /// <param name="offerId">Id of the Offer.</param>
         /// <param name="dateOfPosting">Date of offer posting.</param>
@@ -36,7 +36,7 @@
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Offer" /> class.
+        /// This functoin initializes a new instance of the <see cref="Offer" /> class.
         /// </summary>
         public Offer()
         {

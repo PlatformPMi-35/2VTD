@@ -19,7 +19,7 @@
         }
 
         /// <summary>
-        /// Gets or sets <see cref="ObservableCollection"/> .
+        /// Geter and seter <see cref="ObservableCollection"/> .
         /// </summary>
         /// <value><see cref="ObservableCollection{T}"/> of <see cref="PolyLine"/>s.</value>
         public ObservableCollection<PolyLine> Polylines { get; set; }
@@ -36,7 +36,7 @@
         }
 
         /// <summary>
-        /// Creates and Adds <see cref="PolyLine"/> to <see cref="ObservableCollection{PolyLine}"/>.
+        /// This function creates and adds <see cref="PolyLine"/> to <see cref="ObservableCollection{PolyLine}"/>.
         /// </summary>
         /// <param name="line"><see cref="Polyline"/> to add.</param>
         public void AddPl(Polyline line)
@@ -46,7 +46,7 @@
         }
 
         /// <summary>
-        /// Add <see cref="PolyLine"/> to <see cref="ObservableCollection{PolyLine}"/>
+        /// This function adding <see cref="PolyLine"/> to <see cref="ObservableCollection{PolyLine}"/>
         /// </summary>
         /// <param name="line"><see cref="PolyLine"/> to add.</param>
         public void AddPl(PolyLine line)

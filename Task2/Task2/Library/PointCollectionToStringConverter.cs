@@ -34,14 +34,14 @@
             catch
             {
                 return Binding.DoNothing;
-            }
+            } 
         }
 
         /// <summary>
         /// This function converting  <see cref="string"/> to <see cref="Point"/>.
         /// </summary>
         /// <param name="value"><see cref="string"/> to convert.</param>
-        /// <param name="targetType">Type to which convert (<see cref="Point"/>).</param>
+        /// <param name="targetType">Type to  convert (<see cref="Point"/>).</param>
         /// <param name="parameter">Not using parameter.</param>
         /// <param name="culture"><see cref="CultureInfo"/> of region.</param>
         /// <returns>Converted to <see cref="Point"/> <see cref="string"/>.</returns>

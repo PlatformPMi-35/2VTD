@@ -1,7 +1,7 @@
 ﻿namespace Task3.Models
 {
     /// <summary>
-    /// Types of vehicle.
+    /// This class represents types of vehicle.
     /// </summary>
     public enum VehicleType
     {

@@ -24,7 +24,7 @@
         }
 
         /// <summary>
-        /// Adds <see cref="Vehicle"/> to Context.
+        /// Function that Creats and Adds <see cref="Vehicle"/> to Context.
         /// </summary>
         /// <param name="vehicle"><see cref="Vehicle"/> to add.</param>
         public void Create(Vehicle vehicle)
@@ -33,7 +33,7 @@
         }
 
         /// <summary>
-        /// Deletes <see cref="Vehicle"/> from Context by id.
+        /// This functoin deletes <see cref="Vehicle"/> from Context by id.
         /// </summary>
         /// <param name="id">Id of <see cref="Vehicle"/>.</param>
         public void Delete(int id)
@@ -46,7 +46,7 @@
         }
 
         /// <summary>
-        /// Get <see cref="Vehicle"/> by id.
+        /// This functoin get <see cref="Vehicle"/> by id.
         /// </summary>
         /// <param name="id">Id of <see cref="Vehicle"/>.</param>
         /// <returns>Needed <see cref="Vehicle"/>.</returns>
@@ -56,7 +56,7 @@
         }
 
         /// <summary>
-        /// Get All <see cref="Vehicle"/>s.
+        /// This functoin gets All <see cref="Vehicle"/>s from Context.
         /// </summary>
         /// <returns>All <see cref="Vehicle"/>s.</returns>
         public IEnumerable<Vehicle> GetAll()
@@ -65,7 +65,7 @@
         }
 
         /// <summary>
-        /// Update <see cref="Vehicle"/>.
+        /// This functoin updates <see cref="Vehicle"/>.
         /// </summary>
         /// <param name="vehicle">Updated <see cref="Vehicle"/>.</param>
         public void Update(Vehicle vehicle)

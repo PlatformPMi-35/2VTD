@@ -3,12 +3,12 @@
     using System;
 
     /// <summary>
-    /// Instrument for offer filtration.
+    ///  This class is the instrument for offer filtration.
     /// </summary>
     public class Filter
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="Filter" /> class.
+        /// This class initializes a new instance of the <see cref="Filter" /> class.
         /// </summary>
         /// <param name="minDateOfPosting">Min date of offer posting.</param>
         /// <param name="maxDateOfPosting">Max date of offer posting.</param>

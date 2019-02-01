@@ -3,7 +3,7 @@
     using System.Collections.Generic;
 
     /// <summary>
-    /// Class that represents Repository of class.
+    /// This class  represents Repository of Cerrier class.
     /// </summary>
     /// <typeparam name="T">Any class.</typeparam>
     public interface IRepository<T> where T : class

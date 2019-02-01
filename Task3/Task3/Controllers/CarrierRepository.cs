@@ -5,7 +5,7 @@
     using Task3.Models;
 
     /// <summary>
-    /// Class that represent Repository for <see cref="Carrier"/>.
+    /// This class represent the list of  <see cref="Carrier"/>.
     /// </summary>
     public class CarrierRepository : IRepository<Carrier>
     {
@@ -33,7 +33,7 @@
         }
 
         /// <summary>
-        /// Deletes <see cref="Carrier"/> from Context by id.
+        /// This function deletes <see cref="Carrier"/> from Context by id.
         /// </summary>
         /// <param name="id">Id of <see cref="Carrier"/>.</param>
         public void Delete(int id)
@@ -46,7 +46,7 @@
         }
 
         /// <summary>
-        /// Get <see cref="Carrier"/> by id.
+        /// This function gets <see cref="Carrier"/> by id.
         /// </summary>
         /// <param name="id">Id of <see cref="Carrier"/>.</param>
         /// <returns>Needed <see cref="Carrier"/>.</returns>
@@ -56,7 +56,7 @@
         }
 
         /// <summary>
-        /// Get All <see cref="Carrier"/>s.
+        /// This function gets All <see cref="Carrier"/>s from Context.
         /// </summary>
         /// <returns>All <see cref="Carrier"/>s.</returns>
         public IEnumerable<Carrier> GetAll()
@@ -65,7 +65,7 @@
         }
 
         /// <summary>
-        /// Update <see cref="Carrier"/>.
+        /// This function updates <see cref="Carrier"/> state.
         /// </summary>
         /// <param name="carrier">Updated <see cref="Carrier"/>.</param>
         public void Update(Carrier carrier)

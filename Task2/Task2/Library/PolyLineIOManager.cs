@@ -35,7 +35,7 @@
         /// This function loading files<see cref="PolyLine"/>.
         /// </summary>
         /// <param name="path">Path to File.</param>
-        /// <returns><see cref="List{PolyLine}"/> of <see cref="PolyLine"/>s.</returns>
+        /// <returns><see cref="List{PolyLine}"/> of  <see cref="PolyLine"/>s.</returns>
         public static List<PolyLine> Load(string path)
         {
             try

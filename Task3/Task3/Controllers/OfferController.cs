@@ -12,10 +12,10 @@
         /// <summary>
         /// <see cref="List{Offer}"/> of <see cref="Offer"/>s.
         /// </summary>
-        private List<Offer> offers;
+        private readonly List<Offer> offers;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="OfferController" /> class.
+        /// This function initializes a new instance of the <see cref="OfferController" /> class.
         /// </summary>
         /// <param name="lo"><see cref="List{Offer}"/> of <see cref="Offer"/>s.</param>
         public OfferController(List<Offer> lo)
@@ -31,7 +31,7 @@
         }
 
         /// <summary>
-        /// Add offer to <see cref="List{Offer}"/>.
+        /// Function that adding offer to <see cref="List{Offer}"/>.
         /// </summary>
         /// <param name="offer">Needed Offer.</param>
         public void AddOffer(Offer offer)
@@ -49,7 +49,7 @@
         }
 
         /// <summary>
-        /// Get <see cref="List{Offer}"/>.
+        /// Function that getting offer from <see cref="List{Offer}"/>.
         /// </summary>
         /// <returns><see cref="List{Offer}"/> of <see cref="Offer"/>s.</returns>
         public List<Offer> GetOffers()
