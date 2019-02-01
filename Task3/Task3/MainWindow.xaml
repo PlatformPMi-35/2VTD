@@ -5,12 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Task3"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="480" MinWidth="480" MinHeight="450">
+        Title="MainWindow" Height="450" Width="781.928" MinWidth="480" MinHeight="450">
     <Grid>
         <Label Content="Search for carriers from:" VerticalAlignment="Top" HorizontalAlignment="Center"/>
-        <Grid Height="200" Margin="2,26,0,0" VerticalAlignment="Top" MinWidth="470" MinHeight="200" HorizontalAlignment="Center" Width="470">
-            <Label Content="From:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-            <TextBox x:Name="fromCountry" HorizontalAlignment="Left" Height="23" Margin="53,13,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140"/>
+        <Grid Height="200" Margin="10,26,151.2,0" VerticalAlignment="Top" MinWidth="470" MinHeight="200" HorizontalAlignment="Center" Width="614">
+            <Label Content="From:" HorizontalAlignment="Left" Margin="114,7,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.956,0.565"/>
+            <TextBox x:Name="fromCountry" HorizontalAlignment="Left" Height="23" Margin="173,12,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140"/>
 
             <Label Content="Date:" HorizontalAlignment="Left" Margin="9,43,0,0" VerticalAlignment="Top"/>
             <Label Content="from" HorizontalAlignment="Left" Margin="52,43,0,0" VerticalAlignment="Top"/>
@@ -41,19 +41,19 @@
             <TextBox x:Name="weightTo" HorizontalAlignment="Left" Margin="99,169,0,0" TextWrapping="Wrap" Width="74" Height="23" VerticalAlignment="Top"/>
             <Label Content="t" HorizontalAlignment="Left" Margin="173,143,0,0" Width="14" Height="22" VerticalAlignment="Top"/>
 
-            <Label Content="To:" Margin="0,13,163,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="25" />
-            <TextBox x:Name="toCountry" Height="23" Margin="0,13,10,0" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Right" Width="140" />
+            <Label Content="To:" Margin="0,9,203,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="25" />
+            <TextBox x:Name="toCountry" Height="23" Margin="0,13,58,0" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Right" Width="140" />
 
-            <Image HorizontalAlignment="Center" Height="20" Margin="0,10,0,0" VerticalAlignment="Top" Width="20" Source="Resourses/ReverseArrow.png" MouseDown="Image_MouseDown" >
+            <Image HorizontalAlignment="Center" Height="20" Margin="337,13,257,0" VerticalAlignment="Top" Width="20" Source="Resourses/ReverseArrow.png" MouseDown="Image_MouseDown" RenderTransformOrigin="3.452,0.492" >
                 <Image.OpacityMask>
                     <ImageBrush ImageSource="Resourses/ReverseArrow.png" Stretch="Uniform"/>
                 </Image.OpacityMask>
             </Image>
-            <Button Content="Find" Width="50" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,10,10" Click="Button_Click"/>
+            <Button Content="Find" Width="50" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,23,25" Click="Button_Click" RenderTransformOrigin="-0.107,0.229"/>
 
         </Grid>
 
-        <ListView x:Name="dataList" Margin="10,231,10,10" >
+        <ListView x:Name="dataList" Margin="10,231,10.2,10" SelectionChanged="dataList_SelectionChanged" >
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Date of posting" DisplayMemberBinding="{Binding DateOfPosting, StringFormat={}{0:d}}"  />

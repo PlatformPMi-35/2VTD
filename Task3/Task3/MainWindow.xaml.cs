@@ -20,7 +20,6 @@
             try
             {
                 this.InitializeComponent();
-                //// DbController.GenerateRandomDB();
             }
             catch (Exception)
             {
