@@ -6,12 +6,17 @@ using System.Windows.Shapes;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Task2.Library;
 
-
+/// <summary>
+/// This class contains unit tests for this app
+/// </summary>
 namespace UnitTests
 {
     [TestClass]
     public class UnitTest1
     {
+        /// <summary>
+        /// This unit test checking Addition to polyline
+        /// </summary>
         [TestMethod]
         public void TestAddingToPolyLine()
         {
@@ -19,7 +24,9 @@ namespace UnitTests
             polyLine.AddPoint(new System.Windows.Point(1, 3));
             Assert.IsTrue(polyLine.Pc.Contains(new System.Windows.Point(1, 3)));
         }
-
+        /// <summary>
+        /// This unit test  checking Addition to PL manager
+        /// </summary>
         [TestMethod]
         public void TestAddingToPLManager1()
         {
@@ -31,7 +38,9 @@ namespace UnitTests
 
             Assert.IsTrue(manager.Polylines.Contains(polyLine));
         }
-
+        /// <summary>
+        /// This unit test  checking Addition to PL manager with Aqua color
+        /// </summary>
         [TestMethod]
         public void TestAddingToPLManager2()
         {
@@ -43,7 +52,9 @@ namespace UnitTests
 
             Assert.IsTrue(manager.Polylines.Contains(new PolyLine(polyLine.Points, Brushes.Aqua)));
         }
-
+        /// <summary>
+        /// This unit test  checking Addition to PL manager  (creating new Polyline)
+        /// </summary>
         [TestMethod]
         public void TestAddingToPLManager3()
         {
@@ -55,7 +66,9 @@ namespace UnitTests
 
             Assert.IsTrue(manager.Polylines.Contains(new PolyLine(polyLine.Points)));
         }
-
+        /// <summary>
+        /// This unit test  checking saving <see cref="PolyLine"/>
+        /// </summary>
         [TestMethod]
         public void TestIOManager1()
         {
@@ -69,15 +82,9 @@ namespace UnitTests
             Assert.IsTrue(1 == 1);
         }
 
-        [TestMethod]
-        public void TestIOManager2()
-        {
-            string path = @"Data2.xml";
-            List<PolyLine> lines = new List<PolyLine>();
-            lines = (List<PolyLine>)PolyLineIOManager.Load(path);
-            Assert.IsTrue(lines.Count != 0);
-        }
-
+        /// <summary>
+        /// This unit test checking  convertion brush to string 
+        /// </summary>
         [TestMethod]
         public void BrushToStrConverterTest1()
         {
@@ -85,7 +92,9 @@ namespace UnitTests
             string brushNeeded = "#FF00FFFF";
             Assert.AreEqual(brushNeeded, converter.ConvertTo(Brushes.Aqua, typeof(string)));
         }
-
+        /// <summary>
+        /// This unit test checking  convertion brush to string 
+        /// </summary>
         [TestMethod]
         public void BrushToStrConverterTest2()
         {
@@ -93,7 +102,9 @@ namespace UnitTests
             string brush = brushConverter.ConvertFrom("#FF00FFFF").ToString();
             Assert.AreEqual(brush, "#FF00FFFF");
         }
-
+        /// <summary>
+        /// This unit test checking  convertion point to string 
+        /// </summary>
         [TestMethod]
         public void PointCollectionToStrConverterTest1()
         {
@@ -103,7 +114,9 @@ namespace UnitTests
             PointCollectionToStringConverter converter = new PointCollectionToStringConverter();
             Assert.AreEqual(strPoints, converter.Convert(points, typeof(string), null, null));
         }
-
+        /// <summary>
+        /// This unit test checking  convertion point to string 
+        /// </summary>
         [TestMethod]
         public void PointCollectionToStrConverterTest2()
         {

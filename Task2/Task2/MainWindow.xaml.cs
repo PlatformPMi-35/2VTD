@@ -13,7 +13,7 @@
     using Task2.Library;
 
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml.
+    /// Interaction logic with MainWindow.xaml.
     /// </summary>
     public partial class MainWindow : Window
     {
@@ -231,7 +231,6 @@
             }
         }
 
-        // пересування ламаних
         /// <summary>
         /// Polyline MouseDown.
         /// </summary>

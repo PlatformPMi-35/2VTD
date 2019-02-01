@@ -5,7 +5,7 @@
     using Task2.Library;
 
     /// <summary>
-    /// Логика взаимодействия для EditorWin.xaml.
+    /// Interaction logic with EditorWin.xaml.
     /// </summary>
     public partial class EditorWin : Window
     {
